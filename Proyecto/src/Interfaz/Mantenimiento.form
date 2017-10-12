@@ -78,7 +78,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="456" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="462" max="32767" attributes="0"/>
               <Component id="bntCerrar" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -95,7 +95,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="bntCerrar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cerrar Seccion"/>
+        <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bntCerrarMouseClicked"/>

@@ -54,7 +54,7 @@ public class Mantenimiento extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bntCerrar.setText("Cerrar Seccion");
+        bntCerrar.setText("Cerrar Sesion");
         bntCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bntCerrarMouseClicked(evt);
@@ -117,7 +117,7 @@ public class Mantenimiento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 456, Short.MAX_VALUE)
+                .addGap(0, 462, Short.MAX_VALUE)
                 .addComponent(bntCerrar))
         );
         layout.setVerticalGroup(
