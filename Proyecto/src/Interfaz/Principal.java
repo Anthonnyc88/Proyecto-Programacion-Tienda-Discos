@@ -185,8 +185,8 @@ public class Principal extends javax.swing.JFrame {
             if (cont == 100) {
                 tiempo.stop();
                 esconder();
-                Mantenimiento a = new Mantenimiento();
-                a.setVisible(true);
+                Mantenimiento ventanaSecundariaMantenimiento = new Mantenimiento();
+                ventanaSecundariaMantenimiento.setVisible(true);
                 setVisible(false);
                 
             }
