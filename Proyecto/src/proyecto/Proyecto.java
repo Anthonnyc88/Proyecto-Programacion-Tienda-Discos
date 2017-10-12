@@ -20,6 +20,7 @@ public class Proyecto {
         // TODO code application logic here
         Principal a = new Principal();
         a.setVisible(true);
+        System.out.println("Prueba");
     }
     
 }

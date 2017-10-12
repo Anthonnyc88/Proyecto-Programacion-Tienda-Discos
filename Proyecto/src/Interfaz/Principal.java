@@ -188,6 +188,7 @@ public class Principal extends javax.swing.JFrame {
                 Mantenimiento ventanaSecundariaMantenimiento = new Mantenimiento();
                 ventanaSecundariaMantenimiento.setVisible(true);
                 setVisible(false);
+                System.out.println("");
                 
             }
             
