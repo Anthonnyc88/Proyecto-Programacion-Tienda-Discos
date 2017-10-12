@@ -209,16 +209,7 @@ public class catalogoMusica extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         ArchivoMusica archivoMusica = new ArchivoMusica();
-        
-        /**
-         * Nombre Disco
-         * Autor
-         * Categora
-         * Precio
-         * Lista Canciones :3
-         * Cantidad
-         */
-        
+      
         String datosMusica=textNombredisco.getText()+";"+textAutor.getText()+";"+comboCategoria.getSelectedItem()+";"+textPrecio.getText()
                 +";"+textCancion1.getText()+";"+textCancion2.getText()+";"+textCancion3.getText()+";"+textCantidad.getText();
         
