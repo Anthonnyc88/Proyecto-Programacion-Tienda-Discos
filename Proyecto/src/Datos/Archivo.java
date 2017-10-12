@@ -54,13 +54,13 @@ public class Archivo {
                 bw = new BufferedWriter(fw);// espacio de memoria para el archivo
 
                 bw.newLine();
-                bw.write(informacion);
+                bw.write(usuario);
             } else {
 
                 fw = new FileWriter(f, true);//objeto que permite escribir en el archivo
                 bw = new BufferedWriter(fw);// espacio de memoria para el archivo
 
-                bw.write(informacion);
+                bw.write(usuario);
 
             }
 
