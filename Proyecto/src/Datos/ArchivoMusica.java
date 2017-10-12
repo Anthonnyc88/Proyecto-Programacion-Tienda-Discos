@@ -17,26 +17,19 @@ import java.io.PrintWriter;
  */
 public class ArchivoMusica {
 
-    public ArchivoMusica() {
-
-    }
-
-    public void cargarCatalogoMusica() {
-
-        String catalogoCanciones = "Golden Album;Romeo Santos;Bachata;2000;Tuyo;Perjurio;Centavito;9"
-                + "\n";
-    }
 
     /**
-     * Metodo que funciona para ademas de escribir en un ArchivoMusica , sino existe
- lo crea se da el Nombre del ArchivoMusica como parametro para crear el objeto
- ArchivoMusica y posteriormente escribir en el archivo. 1
+     * Metodo que funciona para ademas de escribir en un ArchivoMusica , sino
+     * existe lo crea se da el Nombre del ArchivoMusica como parametro para
+     * crear el objeto ArchivoMusica y posteriormente escribir en el archivo. 1
      *
      * @param nombreArchivo
      * @param informacion
      */
+    
+    
     @SuppressWarnings("empty-statement")
-    public void escribirEnArchivo(String nombreArchivo, String informacion) {
+    public void guardarMusicaCatalogo(String nombreArchivo, String informacion) {
         File f;
         /**
          * se crea un objeto de tipo archivo
