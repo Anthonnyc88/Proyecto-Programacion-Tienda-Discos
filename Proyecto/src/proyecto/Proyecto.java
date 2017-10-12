@@ -18,9 +18,9 @@ public class Proyecto {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Principal a = new Principal();
-        a.setVisible(true);
-        System.out.println("Prueba");//listo
+        Principal ventanaPrincipalSecundaria = new Principal();
+        ventanaPrincipalSecundaria.setVisible(true);
+        System.out.println("Prueba");
     }
     
 }
