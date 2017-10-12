@@ -37,10 +37,10 @@ public class Principal extends javax.swing.JFrame {
         barrita.setVisible(false);
         setResizable(false);
         setTitle("Tienda de discos");
-        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
         
         ((JPanel) getContentPane()).setOpaque(false);
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco.jpg"));
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
@@ -63,6 +63,7 @@ public class Principal extends javax.swing.JFrame {
         textUser = new javax.swing.JTextField();
         textContrasena = new javax.swing.JPasswordField();
         barrita = new javax.swing.JProgressBar();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         optRegistrarse = new javax.swing.JMenuItem();
@@ -90,6 +91,13 @@ public class Principal extends javax.swing.JFrame {
         });
 
         barrita.setForeground(new java.awt.Color(255, 102, 0));
+
+        jButton2.setText("Exit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Option");
 
@@ -121,6 +129,10 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(textUser, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(308, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +147,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(textContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(31, 31, 31)
                 .addComponent(barrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -161,6 +175,11 @@ public class Principal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_textContrasenaKeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     class TimerListener implements ActionListener {
         
@@ -276,6 +295,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barrita;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

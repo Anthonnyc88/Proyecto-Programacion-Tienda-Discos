@@ -38,11 +38,12 @@ public class ArchivoPeliculas {
          */
         f = new File(nombreArchivo);
         /**
-         * se asigna el nombre al archivo como parametro obligatorio
+         * se asigna el nombre a1l archivo como parametro obligatorio
          *
          * @param recibe como parametro el nombre archivo
          *
          */
+      
 
         try {
             FileWriter fw = new FileWriter(f, true);//objeto que permite escribir en el archivo

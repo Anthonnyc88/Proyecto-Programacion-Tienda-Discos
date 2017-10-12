@@ -117,14 +117,14 @@ public class Mantenimiento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 462, Short.MAX_VALUE)
+                .addGap(0, 563, Short.MAX_VALUE)
                 .addComponent(bntCerrar))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(bntCerrar)
-                .addGap(0, 307, Short.MAX_VALUE))
+                .addGap(0, 379, Short.MAX_VALUE))
         );
 
         pack();

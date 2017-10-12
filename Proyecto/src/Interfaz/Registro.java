@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Datos.ArchivoUsuario;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import proyecto.Usuario;
+
 /**
  *
  * @author Anthonny
@@ -20,6 +26,14 @@ public class Registro extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        setTitle("Tienda de discos");
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco.jpg")).getImage());
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
     }
 
     /**
@@ -40,59 +54,74 @@ public class Registro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         textCorreo = new javax.swing.JTextField();
         btnRegistrarse = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre");
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cedula");
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Correo");
 
-        btnRegistrarse.setText("Registrame");
+        btnRegistrarse.setText("Registrarme");
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarseActionPerformed(evt);
             }
         });
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Registros de Usuarios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(133, 133, 133)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                    .addComponent(textContraseña)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textContraseña)
+                            .addComponent(textCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(btnRegistrarse)))
-                .addContainerGap(190, Short.MAX_VALUE))
+                        .addGap(110, 110, 110)
+                        .addComponent(btnRegistrarse))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textCedula)
+                            .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel5)))))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -104,29 +133,28 @@ public class Registro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(textCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                    .addComponent(textCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(46, 46, 46)
                 .addComponent(btnRegistrarse)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        // TODO add your handling code here:
-        
-       ArchivoUsuario archivoUsuario = new ArchivoUsuario();
-       
-       Usuario usuario = new Usuario(textNombre.getText(),Integer.parseInt(textCedula.getText()),textContraseña.getText(),textCorreo.getText());
-       String datosNuevoUsuario=textNombre.getText()+";"+textCedula.getText()+";"+textContraseña.getText()+";"+textCorreo.getText();
-       
-       archivoUsuario.registrarUsuario("UsuariosRegistrados.txt", datosNuevoUsuario);
-        
-        JOptionPane.showMessageDialog(null,"Has Sido Registrado Con Exito "+usuario.getNombre());
+        // TODO add your handling code here: 
+        ArchivoUsuario archivoUsuario = new ArchivoUsuario();
+
+        Usuario usuario = new Usuario(textNombre.getText(), Integer.parseInt(textCedula.getText()), textContraseña.getText(), textCorreo.getText());
+        String datosNuevoUsuario = textNombre.getText() + ";" + textCedula.getText() + ";" + textContraseña.getText() + ";" + textCorreo.getText();
+
+        archivoUsuario.registrarUsuario("UsuariosRegistrados.txt", datosNuevoUsuario);
+
+        JOptionPane.showMessageDialog(null, "Has Sido Registrado Con Exito " + usuario.getNombre());
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**
@@ -170,6 +198,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField textCedula;
     private javax.swing.JTextField textContraseña;
     private javax.swing.JTextField textCorreo;
