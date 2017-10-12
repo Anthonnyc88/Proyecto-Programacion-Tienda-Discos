@@ -217,7 +217,7 @@ public class catalogoPeliculas extends javax.swing.JFrame {
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:
         ArchivoPeliculas peliculas = new ArchivoPeliculas();
-        String datosPeliculas = textNombredisco.getText() + "," + textAutor.getText() + "," + textCantidad.getText() + "," + comboCategorias.getSelectedItem() + "," + textPrecio.getText();
+        String datosPeliculas = textNombredisco.getText() + ";" + textAutor.getText() + ";" + textCantidad.getText() + ";" + comboCategorias.getSelectedItem() + ";" + textPrecio.getText();
         peliculas.GuardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
 
         JOptionPane.showMessageDialog(null, "Agregado al sistema");
