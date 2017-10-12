@@ -17,7 +17,6 @@ import java.io.PrintWriter;
  */
 public class ArchivoMusica {
 
-
     /**
      * Metodo que funciona para ademas de escribir en un ArchivoMusica , sino
      * existe lo crea se da el Nombre del ArchivoMusica como parametro para
@@ -26,8 +25,6 @@ public class ArchivoMusica {
      * @param nombreArchivo
      * @param informacion
      */
-    
-    
     @SuppressWarnings("empty-statement")
     public void guardarMusicaCatalogo(String nombreArchivo, String informacion) {
         File f;
