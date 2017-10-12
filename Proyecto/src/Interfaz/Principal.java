@@ -65,7 +65,7 @@ public class Principal extends javax.swing.JFrame {
         barrita = new javax.swing.JProgressBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        optRegistrarse = new javax.swing.JMenuItem();
 
         jButton1.setText("jButton1");
 
@@ -93,13 +93,13 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Option");
 
-        jMenuItem2.setText("Registrar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        optRegistrarse.setText("Registrarse");
+        optRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                optRegistrarseActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(optRegistrarse);
 
         jMenuBar1.add(jMenu1);
 
@@ -143,13 +143,16 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void optRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optRegistrarseActionPerformed
         // TODO add your handling code here:
-        Registro g = new Registro();
-        g.pack();
-        g.setVisible(true);
+        Registro ventanaSecundariaRegistro = new Registro();
+        ventanaSecundariaRegistro.pack();
+        ventanaSecundariaRegistro.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_optRegistrarseActionPerformed
 
     private void textContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContrasenaKeyPressed
         // TODO add your handling code here:
@@ -278,7 +281,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem optRegistrarse;
     private javax.swing.JPasswordField textContrasena;
     private javax.swing.JTextField textUser;
     // End of variables declaration//GEN-END:variables
