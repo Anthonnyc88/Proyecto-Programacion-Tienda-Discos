@@ -15,12 +15,12 @@ import java.io.PrintWriter;
  *
  * @author Admie21
  */
-public class Archivo {
+public class ArchivoUsuario {
     
      /**
      * Metodo que funciona para ademas de escribir en un Usuarios , sino
-     * existe lo crea se da el Nombre del Archivo USUARIOS como parametro para
-     * crear el objeto Usuario y posteriormente guardarlo en el archivo. 
+ existe lo crea se da el Nombre del ArchivoUsuario USUARIOS como parametro para
+ crear el objeto Usuario y posteriormente guardarlo en el archivo. 
      *
      * @param nombreArchivo
      * @param usuario
