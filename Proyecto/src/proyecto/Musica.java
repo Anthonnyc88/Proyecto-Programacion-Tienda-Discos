@@ -16,6 +16,16 @@ public class Musica extends Catalogo {
     public Musica() {
     }
 
+    public Musica(String[] canciones) {
+        this.canciones = canciones;
+    }
+
+    public Musica(String[] canciones, String nombre, String autor, String categoria, int precio, int cantidadDisponible) {
+        super(nombre, autor, categoria, precio, cantidadDisponible);
+        this.canciones = canciones;
+    }
+
+    
     public String[] getCanciones() {
         return canciones;
     }
@@ -23,6 +33,7 @@ public class Musica extends Catalogo {
     public void setCanciones(String[] canciones) {
         this.canciones = canciones;
     }
+    
     
     
 

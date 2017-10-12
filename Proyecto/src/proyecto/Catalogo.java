@@ -68,4 +68,10 @@ public class Catalogo {
         this.cantidadDisponible = cantidadDisponible;
     }
 
+    @Override
+    public String toString() {
+        return "Catalogo{" + "nombre=" + nombre + ", autor=" + autor + ", categoria=" + categoria + ", precio=" + precio + ", cantidadDisponible=" + cantidadDisponible + '}';
+    }
+
+    
 }
