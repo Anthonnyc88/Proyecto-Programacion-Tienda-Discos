@@ -197,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
     private void optInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioSesionActionPerformed
         // TODO add your handling code here:
 
-        InicioSesionU ventanaInicioUsuarioUsuario = new InicioSesionU(this, true);
+        InicioSesionUsuario ventanaInicioUsuarioUsuario = new InicioSesionUsuario();
         ventanaInicioUsuarioUsuario.pack();
         ventanaInicioUsuarioUsuario.setVisible(true);
         setLocationRelativeTo(null);

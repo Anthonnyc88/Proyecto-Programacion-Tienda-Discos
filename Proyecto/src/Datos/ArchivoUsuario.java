@@ -107,7 +107,9 @@ public class ArchivoUsuario {
                     break;
                 }
 
-                if ((linea.contains(nombre)) && (linea.contains(contraseña))) {
+                String datos[] = linea.split(";");
+                
+                if ((linea.equals(nombre)) && (linea.equals(contraseña))) {
 
                     System.out.println("¡Bienvenido Usuario " + nombre + ". !");
 
@@ -126,7 +128,7 @@ public class ArchivoUsuario {
 
     }
 
-    public boolean inicioSesionAdministradores(String nombre, String contraseña) {
+    public boolean inicioSesionAdministrador(String nombre, String contraseña) {
 
         boolean bandera = false;
 
