@@ -14,13 +14,18 @@
             <Property name="text" type="java.lang.String" value="Option"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="optRegistrarse">
+            <MenuItem class="javax.swing.JMenuItem" name="optInicioUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrarse"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optRegistrarseActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optInicioUsuarioActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inicio Sesion Usario"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>

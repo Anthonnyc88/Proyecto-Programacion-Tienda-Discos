@@ -66,7 +66,8 @@ public class Principal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        optRegistrarse = new javax.swing.JMenuItem();
+        optInicioUsuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jButton1.setText("jButton1");
 
@@ -101,13 +102,16 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Option");
 
-        optRegistrarse.setText("Registrarse");
-        optRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+        optInicioUsuario.setText("Registrarse");
+        optInicioUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optRegistrarseActionPerformed(evt);
+                optInicioUsuarioActionPerformed(evt);
             }
         });
-        jMenu1.add(optRegistrarse);
+        jMenu1.add(optInicioUsuario);
+
+        jMenuItem1.setText("Inicio Sesion Usario");
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -157,7 +161,7 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void optRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optRegistrarseActionPerformed
+    private void optInicioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioUsuarioActionPerformed
         // TODO add your handling code here:
         Registro ventanaSecundariaRegistro = new Registro();
         ventanaSecundariaRegistro.pack();
@@ -166,7 +170,7 @@ public class Principal extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_optRegistrarseActionPerformed
+    }//GEN-LAST:event_optInicioUsuarioActionPerformed
 
     private void textContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContrasenaKeyPressed
         // TODO add your handling code here:
@@ -301,7 +305,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem optRegistrarse;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem optInicioUsuario;
     private javax.swing.JPasswordField textContrasena;
     private javax.swing.JTextField textUser;
     // End of variables declaration//GEN-END:variables
