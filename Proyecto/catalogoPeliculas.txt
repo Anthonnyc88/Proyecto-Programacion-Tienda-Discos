@@ -1,3 +1,4 @@
 
 IT,Payaso,4,Terror,5000
 American Pie,Steve Stifler,6,Comedia,10000
+Gol;Chepito;6;Comedia;2500
