@@ -162,6 +162,9 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here: 
+        
+        while(!(textNombre.getText().length()==0 || textCedula.getText().length()==0 || textContraseña.getText().length()==0 || textCorreo.getText().length()==0)){
+        
         ArchivoUsuario archivoUsuario = new ArchivoUsuario();
         Usuario usuario = new Usuario(textNombre.getText(), Integer.parseInt(textCedula.getText()), textContraseña.getText(), textCorreo.getText());
         String datosNuevoUsuario = textNombre.getText() + ";" + textCedula.getText() + ";" + textContraseña.getText() + ";" + textCorreo.getText();
@@ -169,6 +172,21 @@ public class Registro extends javax.swing.JFrame {
         archivoUsuario.registrarUsuario("UsuariosRegistrados.txt", datosNuevoUsuario);
         
         JOptionPane.showMessageDialog(null, "Has Sido Registrado Con Exito " + usuario.getNombre());
+        
+        textNombre.setText("");
+        textCedula.setText("");
+        textContraseña.setText("");
+        textCorreo.setText("");
+        
+        }
+        
+         JOptionPane.showMessageDialog(null, "Error en la Entradada de Datos");
+         
+        textNombre.setText("");
+        textCedula.setText("");
+        textContraseña.setText("");
+        textCorreo.setText("");
+        
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
