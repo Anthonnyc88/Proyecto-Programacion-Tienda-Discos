@@ -17,6 +17,7 @@ public class InicioSesionU extends javax.swing.JDialog {
     public InicioSesionU(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     InicioSesionU() {
