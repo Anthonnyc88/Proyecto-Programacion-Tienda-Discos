@@ -22,10 +22,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optInicioUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="optInicioSesion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Inicio Sesion Usario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optInicioSesionActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

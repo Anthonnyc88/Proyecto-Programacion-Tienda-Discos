@@ -67,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         optInicioUsuario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        optInicioSesion = new javax.swing.JMenuItem();
 
         jButton1.setText("jButton1");
 
@@ -110,8 +110,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(optInicioUsuario);
 
-        jMenuItem1.setText("Inicio Sesion Usario");
-        jMenu1.add(jMenuItem1);
+        optInicioSesion.setText("Inicio Sesion Usario");
+        optInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optInicioSesionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(optInicioSesion);
 
         jMenuBar1.add(jMenu1);
 
@@ -184,6 +189,15 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void optInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioSesionActionPerformed
+        // TODO add your handling code here:
+        
+        InicioSesionU ventanaInicioUsuarioUsuario = new InicioSesionU();
+        ventanaInicioUsuarioUsuario.pack();
+        ventanaInicioUsuarioUsuario.setVisible(true);
+        
+    }//GEN-LAST:event_optInicioSesionActionPerformed
     
     class TimerListener implements ActionListener {
         
@@ -305,7 +319,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem optInicioSesion;
     private javax.swing.JMenuItem optInicioUsuario;
     private javax.swing.JPasswordField textContrasena;
     private javax.swing.JTextField textUser;
