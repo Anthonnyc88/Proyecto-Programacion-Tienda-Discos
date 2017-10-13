@@ -16,6 +16,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
      */
     public PrincipalUsuarios() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
