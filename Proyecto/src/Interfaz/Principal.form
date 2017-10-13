@@ -27,7 +27,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optInicioSesion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Inicio Sesion Usario"/>
+                <Property name="text" type="java.lang.String" value="Inicio Sesion Usuario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optInicioSesionActionPerformed"/>

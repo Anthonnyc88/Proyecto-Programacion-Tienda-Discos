@@ -115,7 +115,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(optInicioUsuario);
 
-        optInicioSesion.setText("Inicio Sesion Usario");
+        optInicioSesion.setText("Inicio Sesion Usuario");
         optInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optInicioSesionActionPerformed(evt);

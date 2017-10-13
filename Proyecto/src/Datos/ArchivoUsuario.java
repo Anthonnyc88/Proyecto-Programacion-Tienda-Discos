@@ -18,16 +18,15 @@ import java.io.PrintWriter;
  * @author Admie21
  */
 public class ArchivoUsuario {
-    
-     /**
-     * Metodo que funciona para ademas de escribir en un Usuarios , sino
- existe lo crea se da el Nombre del ArchivoUsuario USUARIOS como parametro para
- crear el objeto Usuario y posteriormente guardarlo en el archivo. 
+
+    /**
+     * Metodo que funciona para ademas de escribir en un Usuarios , sino existe
+     * lo crea se da el Nombre del ArchivoUsuario USUARIOS como parametro para
+     * crear el objeto Usuario y posteriormente guardarlo en el archivo.
      *
      * @param nombreArchivo
      * @param usuario
      */
-    
     @SuppressWarnings("empty-statement")
     public void registrarUsuario(String nombreArchivo, String usuario) {
         File f;
@@ -73,8 +72,8 @@ public class ArchivoUsuario {
         }
 
     }
-    
-     /**
+
+    /**
      * Metodo que compueba si un Usuario esta registrado
      *
      * @param nombre
@@ -126,11 +125,10 @@ public class ArchivoUsuario {
         return bandera;
 
     }
-    
-   
-   public boolean inicioSesionAdministradores(String nombre, String contraseña){
-   
-   boolean bandera = false;
+
+    public boolean inicioSesionAdministradores(String nombre, String contraseña) {
+
+        boolean bandera = false;
 
         try {
 
@@ -170,7 +168,6 @@ public class ArchivoUsuario {
 
         return bandera;
 
-       
-   } 
-    
+    }
+
 }
