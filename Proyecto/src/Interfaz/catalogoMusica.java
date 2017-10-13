@@ -127,7 +127,7 @@ public class catalogoMusica extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(164, 164, 164)
                 .addComponent(jLabel6)
-                .addGap(0, 508, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(267, 267, 267)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -153,13 +153,13 @@ public class catalogoMusica extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboCategoria, 0, 93, Short.MAX_VALUE)
+                        .addComponent(comboCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(124, 124, 124))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(textCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(textAutor, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textNombredisco, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textNombredisco, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(textAutor)
+                            .addComponent(textCantidad))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -233,7 +233,10 @@ public class catalogoMusica extends javax.swing.JFrame {
         
         ArchivoMusica archivoMusica = new ArchivoMusica();
       
-        String datosMusica=textNombredisco.getText()+";"+textAutor.getText()+";"+comboCategoria.getSelectedItem()+";"+textPrecio.getText()
+        while( ! (textNombredisco.getText().length()==0 || textAutor.getText().length()==0 || textPrecio.getText().length()==0 || textCantidad.getText().length()==0
+                || textCancion1.getText().length()==0 || textCancion2.getText().length()==0 || textCancion3.getText().length()==0 ) ){
+        
+            String datosMusica=textNombredisco.getText()+";"+textAutor.getText()+";"+comboCategoria.getSelectedItem()+";"+textPrecio.getText()
                 +";"+textCancion1.getText()+";"+textCancion2.getText()+";"+textCancion3.getText()+";"+textCantidad.getText();
         
         archivoMusica.guardarMusicaCatalogo("catalogoCanciones.txt",datosMusica);
@@ -247,6 +250,17 @@ public class catalogoMusica extends javax.swing.JFrame {
         textCancion2.setText("");
         textCancion3.setText("");
         textCantidad.setText("");
+        
+        }
+  
+             JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion");
+                textNombredisco.setText("");
+                textAutor.setText("");
+                textPrecio.setText("");
+                textCancion1.setText("");
+                textCancion2.setText("");
+                textCancion3.setText("");
+                textCantidad.setText("");
     }//GEN-LAST:event_bntAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

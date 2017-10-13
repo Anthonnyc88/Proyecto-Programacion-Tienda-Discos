@@ -2,3 +2,4 @@
 Gol;Chepito;6;Comedia;2500
 Anabelle;Cristian Bale;4;Terror;8000
 Ana Frank;Messi;10;Suspenso;5000
+Donde estan los Fantasmas;Malcon Jhonsson;8;Comedia;2500

@@ -59,12 +59,16 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="textAutor" max="32767" attributes="0"/>
-                          <Component id="textNombredisco" alignment="1" max="32767" attributes="0"/>
-                          <Component id="textCantidad" max="32767" attributes="0"/>
-                          <Component id="comboCategorias" alignment="0" pref="125" max="32767" attributes="0"/>
-                          <Component id="textPrecio" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="comboCategorias" alignment="0" pref="125" max="32767" attributes="0"/>
+                                  <Component id="textPrecio" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="textNombredisco" pref="298" max="32767" attributes="0"/>
+                              <Component id="textAutor" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="textCantidad" min="-2" pref="287" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">

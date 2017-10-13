@@ -139,12 +139,14 @@ public class catalogoPeliculas extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(textAutor)
-                            .addComponent(textNombredisco)
-                            .addComponent(textCantidad)
-                            .addComponent(comboCategorias, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)
-                            .addComponent(textPrecio)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(comboCategorias, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)
+                                    .addComponent(textPrecio))
+                                .addComponent(textNombredisco, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                                .addComponent(textAutor))
+                            .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(267, 267, 267)
                         .addComponent(jLabel1)))
@@ -191,15 +193,26 @@ public class catalogoPeliculas extends javax.swing.JFrame {
         
         
         ArchivoPeliculas peliculas = new ArchivoPeliculas();
+        
+        while(!(textAutor.getText().length()==0||textCantidad.getText().length()==0||textPrecio.getText().length()==0||textNombredisco.getText().length()==0)){
+  
+            
         String datosPeliculas = textNombredisco.getText() + ";" + textAutor.getText() + ";" + textCantidad.getText() + ";" + comboCategorias.getSelectedItem() + ";" + textPrecio.getText();
         peliculas.GuardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
 
        JOptionPane.showMessageDialog(null,"Agregado al Catalogo Pelicula");
         
-       textNombredisco.setText("");
-       textAutor.setText("");
-       textCantidad.setText("");
-       textPrecio.setText("");
+                    textNombredisco.setText("");
+                    textAutor.setText("");
+                    textCantidad.setText("");
+                    textPrecio.setText("");
+        }
+  
+         JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion");
+            textNombredisco.setText("");
+            textAutor.setText("");
+            textCantidad.setText("");
+            textPrecio.setText("");
         
     }//GEN-LAST:event_bntAgregarActionPerformed
 
