@@ -5,33 +5,17 @@
  */
 package Interfaz;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-
 /**
  *
  * @author Anthonny
  */
-public class principalUsuario extends javax.swing.JFrame {
+public class PrincipalUsuarios extends javax.swing.JFrame {
 
     /**
-     * Creates new form principalUsuario
+     * Creates new form PrincipalUsuarios
      */
-    public principalUsuario() {
+    public PrincipalUsuarios() {
         initComponents();
-
-        setTitle("Tienda de discos");
-        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
-
-        ((JPanel) getContentPane()).setOpaque(false);
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
-        JLabel fondo = new JLabel();
-        fondo.setIcon(uno);
-        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
-        
     }
 
     /**
@@ -81,11 +65,11 @@ public class principalUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 466, Short.MAX_VALUE)
         );
 
         pack();
@@ -93,30 +77,20 @@ public class principalUsuario extends javax.swing.JFrame {
 
     private void optInicioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioUsuarioActionPerformed
         // TODO add your handling code here:
-        comprarMusica ventana = new comprarMusica();
-        ventana.pack();
-        ventana.setVisible(true);
+        comprarMusica ventanaSecundariaRegistro = new comprarMusica();
+        ventanaSecundariaRegistro.pack();
+        ventanaSecundariaRegistro.setVisible(true);
         this.setVisible(false);
-        setTitle("Tienda de discos");
-        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
-
-        ((JPanel) getContentPane()).setOpaque(false);
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
-        JLabel fondo = new JLabel();
-        fondo.setIcon(uno);
-        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
     }//GEN-LAST:event_optInicioUsuarioActionPerformed
 
     private void optInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioSesionActionPerformed
         // TODO add your handling code here:
 
-        comprarPeliculas ventanaPeliculas = new comprarPeliculas();
-        ventanaPeliculas.pack();
-        ventanaPeliculas.setVisible(true);
-        this.setVisible(false);
-
+        comprarPeliculas ventanaInicioUsuarioUsuario = new comprarPeliculas();
+        ventanaInicioUsuarioUsuario.pack();
+        ventanaInicioUsuarioUsuario.setVisible(true);
+        setLocationRelativeTo(null);
     }//GEN-LAST:event_optInicioSesionActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
@@ -140,20 +114,20 @@ public class principalUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(principalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(principalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(principalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(principalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new principalUsuario().setVisible(true);
+                new PrincipalUsuarios().setVisible(true);
             }
         });
     }

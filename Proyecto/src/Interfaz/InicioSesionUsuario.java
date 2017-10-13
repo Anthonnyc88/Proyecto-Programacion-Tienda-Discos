@@ -103,7 +103,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
         
         if(archivoUsuarios.inicioSesionUsuario(textNombre.getText(),textContrasena.getText())){
         
-            PrincipalUsuario ventanaSecundariaInicioUsuario = new PrincipalUsuario();
+            PrincipalUsuarios ventanaSecundariaInicioUsuario = new PrincipalUsuarios();
             ventanaSecundariaInicioUsuario.pack();
             ventanaSecundariaInicioUsuario.setVisible(true);
             setVisible(false);
