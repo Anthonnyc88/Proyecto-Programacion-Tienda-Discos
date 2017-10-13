@@ -26,11 +26,11 @@ import javax.swing.Timer;
  * @author Anthonny
  */
 public class Principal extends javax.swing.JFrame {
-    
+
     private Timer tiempo;
     int cont;
     public final static int TWO_SECOND = 25;
-    
+
     public Principal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -38,7 +38,7 @@ public class Principal extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Tienda de discos");
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
-        
+
         ((JPanel) getContentPane()).setOpaque(false);
         ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
         JLabel fondo = new JLabel();
@@ -101,6 +101,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jMenu1.setText("Option");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         optInicioUsuario.setText("Registrarse");
         optInicioUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -172,9 +177,8 @@ public class Principal extends javax.swing.JFrame {
         ventanaSecundariaRegistro.pack();
         ventanaSecundariaRegistro.setVisible(true);
         this.setVisible(false);
-        
-        
-        
+
+
     }//GEN-LAST:event_optInicioUsuarioActionPerformed
 
     private void textContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContrasenaKeyPressed
@@ -182,7 +186,7 @@ public class Principal extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             Login();
         }
-        
+
     }//GEN-LAST:event_textContrasenaKeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -192,18 +196,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void optInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioSesionActionPerformed
         // TODO add your handling code here:
-        
-        InicioSesionU ventanaInicioUsuarioUsuario = new InicioSesionU();
+
+        InicioSesionU ventanaInicioUsuarioUsuario = new InicioSesionU(this, true);
         ventanaInicioUsuarioUsuario.pack();
         ventanaInicioUsuarioUsuario.setVisible(true);
-        
+        setLocationRelativeTo(null);
+
     }//GEN-LAST:event_optInicioSesionActionPerformed
-    
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
     class TimerListener implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent ae) {
-            
+
             cont++;
             barrita.setValue(cont);
             if (cont == 100) {
@@ -213,11 +222,11 @@ public class Principal extends javax.swing.JFrame {
                 ventanaSecundariaMantenimiento.setVisible(true);
                 setVisible(false);
                 System.out.println("");
-                
+
             }
-            
+
         }
-        
+
     }
 
     public void esconder() {
@@ -230,7 +239,6 @@ public class Principal extends javax.swing.JFrame {
 
     //Funcion donde el usuario se logea e inicie seccion
     //El usuario y la contrasena estan guardadas en un archivo.txt
-
     public void Login() {
         try {
             String archivo = "Administrador.txt";
@@ -267,12 +275,12 @@ public class Principal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos.", "Error", JOptionPane.ERROR_MESSAGE);
             }
             pw.close();
-            
+
         } catch (Exception e) {
-            
+
             System.err.println("No se encontro archivo" + e);
         }
-        
+
     }
 
     /**

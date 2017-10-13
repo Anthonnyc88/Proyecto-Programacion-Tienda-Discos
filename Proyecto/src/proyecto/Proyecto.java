@@ -6,6 +6,7 @@
 package proyecto;
 
 import Interfaz.Principal;
+import Interfaz.comprarMusica;
 import Interfaz.comprarPeliculas;
 
 /**
@@ -24,8 +25,8 @@ public class Proyecto {
         ventanaPrincipalSecundaria.setVisible(true);
         System.out.println("Iniciando El Programa");
         
-//        comprarPeliculas a = new comprarPeliculas();
-//        a.setVisible(true);
+
+        
     }
     
 }
