@@ -148,7 +148,6 @@ public class Registro extends javax.swing.JFrame {
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here: 
         ArchivoUsuario archivoUsuario = new ArchivoUsuario();
-
         Usuario usuario = new Usuario(textNombre.getText(), Integer.parseInt(textCedula.getText()), textContraseña.getText(), textCorreo.getText());
         String datosNuevoUsuario = textNombre.getText() + ";" + textCedula.getText() + ";" + textContraseña.getText() + ";" + textCorreo.getText();
 

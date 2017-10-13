@@ -24,8 +24,8 @@ public class catalogoMusica extends javax.swing.JFrame {
     public catalogoMusica() {
         initComponents();
         setLocationRelativeTo(null);
-         setResizable(false);
-         setTitle("Tienda de discos");
+        setResizable(false);
+        setTitle("Tienda de discos");
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco.jpg")).getImage());
 
         ((JPanel) getContentPane()).setOpaque(false);
