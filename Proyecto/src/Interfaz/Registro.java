@@ -165,9 +165,9 @@ public class Registro extends javax.swing.JFrame {
         ArchivoUsuario archivoUsuario = new ArchivoUsuario();
         Usuario usuario = new Usuario(textNombre.getText(), Integer.parseInt(textCedula.getText()), textContraseña.getText(), textCorreo.getText());
         String datosNuevoUsuario = textNombre.getText() + ";" + textCedula.getText() + ";" + textContraseña.getText() + ";" + textCorreo.getText();
-
+        
         archivoUsuario.registrarUsuario("UsuariosRegistrados.txt", datosNuevoUsuario);
-
+        
         JOptionPane.showMessageDialog(null, "Has Sido Registrado Con Exito " + usuario.getNombre());
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 

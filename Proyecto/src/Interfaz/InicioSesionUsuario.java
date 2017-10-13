@@ -4,14 +4,23 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Datos.ArchivoUsuario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 /**
  *
  * @author Admie21
  */
 public class InicioSesionUsuario extends javax.swing.JFrame {
+
+    private Timer tiempo;
+    int cont;
+    public final static int TWO_SECOND = 25;
 
     /**
      * Creates new form InicioSesionUsuario
@@ -35,6 +44,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
         textNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         textContrasena = new javax.swing.JPasswordField();
+        Barrita = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +77,8 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(textContrasena)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
+            .addComponent(Barrita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +93,9 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(textContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addComponent(Barrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -90,25 +103,56 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
 
     private void textContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContrasenaKeyPressed
         // TODO add your handling code here:
-        
+
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println("Usuario Registrado");
-            
-             ArchivoUsuario archivoUsuarios = new ArchivoUsuario();
-        
-        if(archivoUsuarios.inicioSesionUsuario(textNombre.getText(),textContrasena.getText())){
-        
-            PrincipalUsuarios ventanaSecundariaInicioUsuario = new PrincipalUsuarios();
-            ventanaSecundariaInicioUsuario.pack();
-            ventanaSecundariaInicioUsuario.setVisible(true);
-            setVisible(false);
-        
-        }else{
-        
-            JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+
+            ArchivoUsuario archivoUsuarios = new ArchivoUsuario();
+
+            if (archivoUsuarios.inicioSesionUsuario(textNombre.getText(), textContrasena.getText())) {
+
+                PrincipalUsuarios ventanaSecundariaInicioUsuario = new PrincipalUsuarios();
+                ventanaSecundariaInicioUsuario.pack();
+                ventanaSecundariaInicioUsuario.setVisible(true);
+                setVisible(false);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
 
         }
+
+//        class TimerListener implements ActionListener {
+//
+//            @Override
+//            public void actionPerformed(ActionEvent ae) {
+//
+//                cont++;
+//                barrita.setValue(cont);
+//                if (cont == 100) {
+//                    tiempo.stop();
+//                    esconder();
+//                    Mantenimiento ventanaSecundariaMantenimiento = new Mantenimiento();
+//                    ventanaSecundariaMantenimiento.setVisible(true);
+//                    setVisible(false);
+//                    System.out.println("");
+//
+//                }
+//
+//            }
+//
+//        }
+//         
+//    }
+
+//    public void esconder() {
+//        this.setVisible(false);
+//    }
+//
+//    public void activar() {
+//        tiempo.start();
+
     }//GEN-LAST:event_textContrasenaKeyPressed
 
     /**
@@ -147,6 +191,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar Barrita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
