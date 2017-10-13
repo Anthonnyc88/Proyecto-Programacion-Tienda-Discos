@@ -109,7 +109,7 @@ public class ArchivoUsuario {
 
                 String datos[] = linea.split(";");
                 
-                if ((linea.equals(nombre)) && (linea.equals(contraseña))) {
+                if (( datos[0].equals(nombre)) && (datos[2].equals(contraseña))) {
 
                     System.out.println("¡Bienvenido Usuario " + nombre + ". !");
 
