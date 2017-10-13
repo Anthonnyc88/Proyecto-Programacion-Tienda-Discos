@@ -18,6 +18,7 @@ public class InicioSesionU extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+         setResizable(false);
     }
 
     InicioSesionU() {
@@ -50,6 +51,11 @@ public class InicioSesionU extends javax.swing.JDialog {
         jLabel3.setText("Contraseña");
 
         btnInicioSesion.setText("Incio Sesion");
+        btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,6 +101,13 @@ public class InicioSesionU extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
+        // TODO add your handling code here:
+        principalUsuario ventana = new principalUsuario();
+        ventana.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnInicioSesionActionPerformed
 
     /**
      * @param args the command line arguments
