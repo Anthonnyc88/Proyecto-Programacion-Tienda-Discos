@@ -26,44 +26,7 @@ public class catalogoPeliculas extends javax.swing.JFrame {
     /**
      * Creates new form catalogoPeliculas
      */
-//    public void agregarMusica() {
-//        File f;
-//        FileWriter w;
-//        BufferedWriter bw;
-//        PrintWriter wi;
-//        String texto = "";
-//        File archivo;
-//        try {
-//            archivo = new File("C:\\Users\\Anthonny\\Desktop\\Proyecto\\ProyectoTiendaDiscos\\Proyecto\\Musica.txt"); //Aqui ponemos el nombre del archivo que vamos a crear y la ruta
-//
-//            if (archivo.createNewFile()) {//crea el archivo
-//                System.out.println("Se ha creado un archivo");
-//            }
-//            w = new FileWriter(archivo, true);
-//            bw = new BufferedWriter(w);
-//            wi = new PrintWriter(bw);
-//            String nombre;
-//            String autor;
-//            int nota, nota2, nota3;
-//            int cantidad;
-//            nombre = textNombredisco.getText();
-//            autor = textAutor.getText();
-//            cantidad = Integer.parseInt(textCantidad.getText());
-//
-//            bw.write(nombre + " ");
-//            bw.write(autor + " ");
-//            bw.write(String.valueOf(new Integer(cantidad) + " "));
-//
-//            bw.newLine();
-//            wi.close();
-//            bw.close();
-//
-//        } catch (IOException e) {
-//            System.err.println("No se ha creado el archivo" + e);
-//
-//        }
-//
-//    }
+
     public catalogoPeliculas() {
         initComponents();
         setLocationRelativeTo(null);
@@ -149,36 +112,8 @@ public class catalogoPeliculas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(jLabel4)
-                        .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textCantidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                            .addComponent(textAutor, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textNombredisco))
-                        .addGap(409, 409, 409))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboCategorias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textPrecio))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(162, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,6 +125,30 @@ public class catalogoPeliculas extends javax.swing.JFrame {
                         .addGap(195, 195, 195)
                         .addComponent(jButton1)
                         .addGap(19, 19, 19))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(156, 156, 156)
+                                .addComponent(jLabel4)
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(textAutor)
+                            .addComponent(textNombredisco)
+                            .addComponent(textCantidad)
+                            .addComponent(comboCategorias, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)
+                            .addComponent(textPrecio)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,11 +188,19 @@ public class catalogoPeliculas extends javax.swing.JFrame {
 
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:
+        
+        
         ArchivoPeliculas peliculas = new ArchivoPeliculas();
         String datosPeliculas = textNombredisco.getText() + ";" + textAutor.getText() + ";" + textCantidad.getText() + ";" + comboCategorias.getSelectedItem() + ";" + textPrecio.getText();
         peliculas.GuardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
 
-        JOptionPane.showMessageDialog(null, "Agregado al sistema");
+       JOptionPane.showMessageDialog(null,"Agregado al Catalogo Pelicula");
+        
+       textNombredisco.setText("");
+       textAutor.setText("");
+       textCantidad.setText("");
+       textPrecio.setText("");
+        
     }//GEN-LAST:event_bntAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
