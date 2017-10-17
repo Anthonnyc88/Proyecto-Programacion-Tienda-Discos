@@ -25,7 +25,6 @@ public class Musica extends Catalogo {
         this.canciones = canciones;
     }
 
-    
     public String[] getCanciones() {
         return canciones;
     }
@@ -33,8 +32,5 @@ public class Musica extends Catalogo {
     public void setCanciones(String[] canciones) {
         this.canciones = canciones;
     }
-    
-    
-    
 
 }

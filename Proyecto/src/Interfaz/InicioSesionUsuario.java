@@ -28,6 +28,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
     public InicioSesionUsuario() {
         initComponents();
         setLocationRelativeTo(null);
+        setVisible(false);
     }
 
     /**
@@ -55,6 +56,11 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
+        textContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textContrasenaActionPerformed(evt);
+            }
+        });
         textContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 textContrasenaKeyPressed(evt);
@@ -106,13 +112,11 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println("Usuario Registrado");
-
             ArchivoUsuario archivoUsuarios = new ArchivoUsuario();
-
             if (archivoUsuarios.inicioSesionUsuario(textNombre.getText(), textContrasena.getText())) {
 
                 PrincipalUsuarios ventanaSecundariaInicioUsuario = new PrincipalUsuarios();
-                ventanaSecundariaInicioUsuario.pack();
+                //ventanaSecundariaInicioUsuario.pack();
                 ventanaSecundariaInicioUsuario.setVisible(true);
                 setVisible(false);
 
@@ -154,6 +158,10 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
 //        tiempo.start();
 
     }//GEN-LAST:event_textContrasenaKeyPressed
+
+    private void textContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textContrasenaActionPerformed
 
     /**
      * @param args the command line arguments

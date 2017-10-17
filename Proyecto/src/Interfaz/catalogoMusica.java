@@ -230,19 +230,27 @@ public class catalogoMusica extends javax.swing.JFrame {
 
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:
-        
+
         ArchivoMusica archivoMusica = new ArchivoMusica();
-      
-        while( ! (textNombredisco.getText().length()==0 || textAutor.getText().length()==0 || textPrecio.getText().length()==0 || textCantidad.getText().length()==0
-                || textCancion1.getText().length()==0 || textCancion2.getText().length()==0 || textCancion3.getText().length()==0 ) ){
-        
-            String datosMusica=textNombredisco.getText()+";"+textAutor.getText()+";"+comboCategoria.getSelectedItem()+";"+textPrecio.getText()
-                +";"+textCancion1.getText()+";"+textCancion2.getText()+";"+textCancion3.getText()+";"+textCantidad.getText();
-        
-        archivoMusica.guardarMusicaCatalogo("catalogoCanciones.txt",datosMusica);
-        
-        JOptionPane.showMessageDialog(null,"Agregado al Catalogo Musica");
-        
+
+        while (!(textNombredisco.getText().length() == 0 || textAutor.getText().length() == 0 || textPrecio.getText().length() == 0 || textCantidad.getText().length() == 0
+                || textCancion1.getText().length() == 0 || textCancion2.getText().length() == 0 || textCancion3.getText().length() == 0)) {
+
+            String datosMusica = textNombredisco.getText() + ";" + textAutor.getText() + ";" + comboCategoria.getSelectedItem() + ";" + textPrecio.getText()
+                    + ";" + textCancion1.getText() + ";" + textCancion2.getText() + ";" + textCancion3.getText() + ";" + textCantidad.getText();
+
+            archivoMusica.guardarMusicaCatalogo("catalogoCanciones.txt", datosMusica);
+            JOptionPane.showMessageDialog(null, "Agregado al Catalogo Musica");
+            textNombredisco.setText("");
+            textAutor.setText("");
+            textPrecio.setText("");
+            textCancion1.setText("");
+            textCancion2.setText("");
+            textCancion3.setText("");
+            textCantidad.setText("");
+
+        }
+        JOptionPane.showMessageDialog(null, "Error de la Entrada de Informacion");
         textNombredisco.setText("");
         textAutor.setText("");
         textPrecio.setText("");
@@ -250,17 +258,6 @@ public class catalogoMusica extends javax.swing.JFrame {
         textCancion2.setText("");
         textCancion3.setText("");
         textCantidad.setText("");
-        
-        }
-  
-             JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion");
-                textNombredisco.setText("");
-                textAutor.setText("");
-                textPrecio.setText("");
-                textCancion1.setText("");
-                textCancion2.setText("");
-                textCancion3.setText("");
-                textCantidad.setText("");
     }//GEN-LAST:event_bntAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
