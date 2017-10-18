@@ -41,6 +41,11 @@
               <EmptySpace pref="183" max="32767" attributes="0"/>
           </Group>
           <Component id="Barrita" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="bntRegresar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -58,7 +63,9 @@
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Component id="textContrasena" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <Component id="bntRegresar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="Barrita" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -93,6 +100,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JProgressBar" name="Barrita">
+    </Component>
+    <Component class="javax.swing.JButton" name="bntRegresar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Regresar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRegresarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

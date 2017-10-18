@@ -46,6 +46,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         textContrasena = new javax.swing.JPasswordField();
         Barrita = new javax.swing.JProgressBar();
+        bntRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,13 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
             }
         });
 
+        bntRegresar.setText("Regresar");
+        bntRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,6 +93,10 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                         .addComponent(textContrasena)))
                 .addContainerGap(183, Short.MAX_VALUE))
             .addComponent(Barrita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bntRegresar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +111,9 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(textContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(bntRegresar)
+                .addGap(18, 18, 18)
                 .addComponent(Barrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -163,6 +177,13 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textContrasenaActionPerformed
 
+    private void bntRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRegresarActionPerformed
+        // TODO add your handling code here:
+        Principal ventanaLogin = new Principal();
+        ventanaLogin.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_bntRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -200,6 +221,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar Barrita;
+    private javax.swing.JButton bntRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
