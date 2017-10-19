@@ -100,6 +100,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
+        System.out.println("sssss");
 
     }//GEN-LAST:event_optInicioUsuarioActionPerformed
 
