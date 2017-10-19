@@ -14,7 +14,8 @@ import java.io.IOException;
  * @author Anthonny
  */
 public class ArchivoBuscarPelicula {
-     public boolean buscarPelicula(String nombrePelicula, String autor, String precio ) {
+     
+    public boolean buscarPelicula(String nombrePelicula, String autor, String precio ) {
         boolean bandera = false;
         try {
 
@@ -59,4 +60,53 @@ public class ArchivoBuscarPelicula {
     }
 
     
+    /**
+     * Metodo que muestra las Peliculas por categoria
+     * @param categoriaPelicula la categoria de las peliculas a buscar
+     * @return la informacion basica de la pelicula encontrada
+     */
+     public String verCategoriaPelicula(String categoriaPelicula ) {
+        
+         String datosCategoria="";
+        try {
+
+            FileReader r = new FileReader("catalogoPeliculas.txt");// se utiliza para poder leer archivos de texto
+            BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
+
+            String linea = "";
+            /**
+             * Ciclo que sirve para leer todo el archivo de manera eficiente la
+             * variable temporal temp que almacena el metodo de leer linea sea
+             * vacia o nula que para y imprima todas lineas en las que existia
+             * algun contenido
+             */
+
+            while (linea != null) {
+
+                linea = buffer.readLine();
+
+                if (linea == null) {
+                    break;
+                }
+
+                String datos[] = linea.split(";");
+                
+                if (datos[3].equals(categoriaPelicula)) {
+
+                    System.out.println("¡Gategoria existente " + ". !");
+
+                    datosCategoria = datos[0] +" / "+datos[1] +" / "+ datos[3];
+                }
+
+            }
+        } catch (IOException e)// Se nececita del try y el catch para evitar un error 
+        // en cuanto a archivos se trata, por ejemplo que el archivo no exista.
+        {
+
+            System.out.println(e.getMessage());
+        };
+
+        return datosCategoria;
+
+    }
 }
