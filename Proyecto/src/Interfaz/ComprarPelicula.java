@@ -103,7 +103,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
     private void categoriaPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaPeliculasActionPerformed
         // TODO add your handling code here:
         
-        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+       ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
         
         modelo = new DefaultListModel();
         listaPeliculas.setModel(modelo);
@@ -114,7 +114,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
         String resultadoPelicula = archivoPeliculas.verCategoriaPelicula((String) categoriaPeliculas.getSelectedItem());
         
         modelo.addElement(resultadoPelicula);
-       
+
     }//GEN-LAST:event_categoriaPeliculasActionPerformed
 
     /**

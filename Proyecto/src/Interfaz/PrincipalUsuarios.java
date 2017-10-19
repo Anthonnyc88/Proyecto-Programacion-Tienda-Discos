@@ -117,7 +117,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
     private void optInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioSesionActionPerformed
         // TODO add your handling code here:
 
-        comprarPeliculas ventanaInicioUsuarioUsuario = new comprarPeliculas();
+        buscarPeliculas ventanaInicioUsuarioUsuario = new buscarPeliculas();
         ventanaInicioUsuarioUsuario.pack();
         ventanaInicioUsuarioUsuario.setVisible(true);
         setLocationRelativeTo(null);
