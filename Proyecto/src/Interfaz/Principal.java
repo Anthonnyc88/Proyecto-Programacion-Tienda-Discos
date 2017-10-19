@@ -105,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Option");
+        jMenu1.setText("Opciones");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -269,6 +269,7 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < listaAdministradores.size(); i++) {
                 if (usuario.equals(listaAdministradores.get(i).split(" ")[0]) && contraseña.equals(listaAdministradores.get(i).split(" ")[1])) {
                     bandera = true;
+                    System.out.println("Bienvenido Administrador");
                 }
             }
             if (bandera) {

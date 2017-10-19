@@ -23,11 +23,8 @@ public class Proyecto {
         // TODO code application logic here
         Principal ventanaPrincipalSecundaria = new Principal();
         ventanaPrincipalSecundaria.setVisible(true);
-        System.out.println("Iniciando El Programa");
-          System.out.println("Iniciando El Programa");
-        
-
-        
+        System.out.println("Iniciando El Programa Venta de Discos");
+      
     }
     
 }
