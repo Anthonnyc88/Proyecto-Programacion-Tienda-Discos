@@ -56,7 +56,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
             }
         });
 
-        optInicioUsuario.setText("Comprar Musica");
+        optInicioUsuario.setText("Buscar Musica");
         optInicioUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optInicioUsuarioActionPerformed(evt);
@@ -64,7 +64,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         });
         jMenu1.add(optInicioUsuario);
 
-        optInicioSesion.setText("Comprar Peliculas");
+        optInicioSesion.setText("Buscar Pelicula");
         optInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optInicioSesionActionPerformed(evt);
@@ -92,10 +92,10 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
 
     private void optInicioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioUsuarioActionPerformed
         // TODO add your handling code here:
-        comprarMusica ventanaSecundariaRegistro = new comprarMusica();
-        ventanaSecundariaRegistro.pack();
-        ventanaSecundariaRegistro.setVisible(true);
-        this.setVisible(false);
+        comprarMusica ventana = new comprarMusica();
+        ventana.pack();
+        ventana.setVisible(true);
+        setVisible(false);
 
     }//GEN-LAST:event_optInicioUsuarioActionPerformed
 

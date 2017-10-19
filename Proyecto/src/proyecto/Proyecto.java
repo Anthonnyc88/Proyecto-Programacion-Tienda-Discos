@@ -18,16 +18,13 @@ public class Proyecto {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         // TODO code application logic here
         Principal ventanaPrincipalSecundaria = new Principal();
         ventanaPrincipalSecundaria.setVisible(true);
         System.out.println("Iniciando El Programa");
-          System.out.println("Iniciando El Programa");
-        
+        System.out.println("Iniciando El Programa");
 
-        
     }
-    
+
 }

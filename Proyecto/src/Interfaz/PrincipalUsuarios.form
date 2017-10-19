@@ -14,7 +14,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="optInicioUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Comprar Musica"/>
+                <Property name="text" type="java.lang.String" value="Buscar Musica"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optInicioUsuarioActionPerformed"/>
@@ -22,7 +22,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optInicioSesion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Comprar Peliculas"/>
+                <Property name="text" type="java.lang.String" value="Buscar Pelicula"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optInicioSesionActionPerformed"/>
