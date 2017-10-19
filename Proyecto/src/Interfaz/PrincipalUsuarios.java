@@ -106,7 +106,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
 
     private void optInicioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioUsuarioActionPerformed
         // TODO add your handling code here:
-        comprarMusica ventana = new comprarMusica();
+        BuscarMusica ventana = new BuscarMusica();
         ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
