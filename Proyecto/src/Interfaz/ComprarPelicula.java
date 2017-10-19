@@ -5,18 +5,26 @@
  */
 package Interfaz;
 
+import Datos.ArchivoBuscarPelicula;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Admie21
  */
 public class ComprarPelicula extends javax.swing.JFrame {
 
+    private DefaultListModel modelo;
+    
     /**
      * Creates new form ComprarPelicula
      */
     public ComprarPelicula() {
         initComponents();
         setLocationRelativeTo(null);
+        listaPeliculas.setVisible(false);
+        btnComprarPelicula.setVisible(false);
+        btnConsultarInformacion.setVisible(false);
     }
 
     /**
@@ -28,38 +36,86 @@ public class ComprarPelicula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        categoriaPeliculas = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaPeliculas = new javax.swing.JList<>();
+        btnConsultarInformacion = new javax.swing.JButton();
+        btnComprarPelicula = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        categoriaPeliculas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terror", "Suspenso", "Comedia", "Romance", "Accion" }));
+        categoriaPeliculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriaPeliculasActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Categoria");
+
+        jScrollPane1.setViewportView(listaPeliculas);
+
+        btnConsultarInformacion.setText("Consultar");
+
+        btnComprarPelicula.setText("Comprar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnConsultarInformacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnComprarPelicula))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConsultarInformacion)
+                    .addComponent(btnComprarPelicula))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void categoriaPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaPeliculasActionPerformed
+        // TODO add your handling code here:
+        
+        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+        
+        modelo = new DefaultListModel();
+        listaPeliculas.setModel(modelo);
+        
+        listaPeliculas.setVisible(true);
+        btnComprarPelicula.setVisible(true);
+        btnConsultarInformacion.setVisible(true);
+        String resultadoPelicula = archivoPeliculas.verCategoriaPelicula((String) categoriaPeliculas.getSelectedItem());
+        
+        modelo.addElement(resultadoPelicula);
+       
+    }//GEN-LAST:event_categoriaPeliculasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,7 +153,11 @@ public class ComprarPelicula extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnComprarPelicula;
+    private javax.swing.JButton btnConsultarInformacion;
+    private javax.swing.JComboBox<String> categoriaPeliculas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaPeliculas;
     // End of variables declaration//GEN-END:variables
 }
