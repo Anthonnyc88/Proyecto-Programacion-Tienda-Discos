@@ -87,7 +87,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         });
         jMenu1.add(optInicioSesion);
 
-        jMenuItem2.setText("Buscar Musica");
+        jMenuItem2.setText("Comprar  Musica");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
