@@ -16,6 +16,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
      */
     public ComprarPelicula() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
