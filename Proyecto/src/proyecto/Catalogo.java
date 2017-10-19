@@ -72,6 +72,6 @@ public class Catalogo {
     public String toString() {
         return "Catalogo{" + "nombre=" + nombre + ", autor=" + autor + ", categoria=" + categoria + ", precio=" + precio + ", cantidadDisponible=" + cantidadDisponible + '}';
     }
-
+   
     
 }
