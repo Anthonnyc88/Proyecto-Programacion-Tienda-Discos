@@ -129,11 +129,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-        
-//        ComprarPelicula ventanaComprarPelicula = new ComprarPelicula();
-//        ventanaComprarPelicula.pack();
-//        ventanaComprarPelicula.setVisible(true);
-//        setVisible(false);
+  
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
