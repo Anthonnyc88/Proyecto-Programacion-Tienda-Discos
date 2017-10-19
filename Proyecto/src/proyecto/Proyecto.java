@@ -6,8 +6,6 @@
 package proyecto;
 
 import Interfaz.Principal;
-import Interfaz.comprarMusica;
-import Interfaz.comprarPeliculas;
 
 /**
  *
