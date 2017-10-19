@@ -1,4 +1,4 @@
 
 Legend;Bob Marley;Reggae;4000;Is this Love;One Love;No Woman No Cry;4
 Purpose;Justin;Pop;7000;Sorry;Babe;What do yuo mean;5
-Tell me You Love me;Demi Lovato;Pop;15000;Confident;Cool For The Summer;Stone Cold;6
+Tell me You Love me;Demi Lovato;Pop;15000;Confident;Cool For The Summer;5

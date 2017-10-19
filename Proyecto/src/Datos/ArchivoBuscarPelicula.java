@@ -16,9 +16,7 @@ import java.io.IOException;
 public class ArchivoBuscarPelicula {
     
      public boolean buscarPelicula(String nombrePelicula, String autor, String precio ) {
-
         boolean bandera = false;
-
         try {
 
             FileReader r = new FileReader("catalogoPeliculas.txt");// se utiliza para poder leer archivos de texto
