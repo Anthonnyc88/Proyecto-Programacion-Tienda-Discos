@@ -14,7 +14,6 @@ import java.io.IOException;
  * @author Anthonny
  */
 public class ArchivoBuscarPelicula {
-    
      public boolean buscarPelicula(String nombrePelicula, String autor, String precio ) {
         boolean bandera = false;
         try {
