@@ -45,6 +45,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         optInicioUsuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         optInicioSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,6 +64,9 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
             }
         });
         jMenu1.add(optInicioUsuario);
+
+        jMenuItem1.setText("Comprar Pelicula");
+        jMenu1.add(jMenuItem1);
 
         optInicioSesion.setText("Buscar Pelicula");
         optInicioSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +154,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem optInicioSesion;
     private javax.swing.JMenuItem optInicioUsuario;
     // End of variables declaration//GEN-END:variables
