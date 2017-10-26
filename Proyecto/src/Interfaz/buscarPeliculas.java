@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Datos.ArchivoBuscarPelicula;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -18,6 +19,9 @@ import javax.swing.JPanel;
  */
 public class buscarPeliculas extends javax.swing.JFrame {
 
+    private DefaultListModel modelo;
+    private int seleccion=-1; 
+    
     /**
      * Creates new form escogerMusica
      */
@@ -34,7 +38,10 @@ public class buscarPeliculas extends javax.swing.JFrame {
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
         
-        
+        btnComprar.setVisible(false);
+     
+        modelo = new DefaultListModel();
+        resultadoCanciones.setModel(modelo);
     }
 
     /**
@@ -55,10 +62,11 @@ public class buscarPeliculas extends javax.swing.JFrame {
         textAutor = new javax.swing.JTextField();
         bntBuscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        tituloResultadoCanciones = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        resultadoCanciones = new javax.swing.JList();
+        btnComprar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,10 +99,10 @@ public class buscarPeliculas extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Buscar Pelicula ");
 
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Informaciòn de la pelicula");
+        tituloResultadoCanciones.setBackground(new java.awt.Color(255, 255, 255));
+        tituloResultadoCanciones.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tituloResultadoCanciones.setForeground(new java.awt.Color(255, 255, 255));
+        tituloResultadoCanciones.setText("Informaciòn de la pelicula");
 
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,36 +111,33 @@ public class buscarPeliculas extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(resultadoCanciones);
+
+        btnComprar.setText("Comprar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(62, 62, 62)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(textPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(bntBuscar)))
+                        .addComponent(jLabel4)
+                        .addGap(64, 64, 64)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(textPrecio)
+                    .addComponent(textAutor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
@@ -140,22 +145,26 @@ public class buscarPeliculas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 470, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(125, 125, 125))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tituloResultadoCanciones)
+                .addGap(202, 202, 202))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(bntBuscar)
+                .addGap(124, 124, 124)
                 .addComponent(jButton1)
-                .addGap(139, 139, 139))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addComponent(btnComprar)
+                .addGap(243, 243, 243))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel9))
+                .addComponent(jLabel5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(44, 44, 44)
@@ -169,15 +178,21 @@ public class buscarPeliculas extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(30, 30, 30)
-                        .addComponent(bntBuscar))
+                            .addComponent(jLabel4)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton1)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addComponent(tituloResultadoCanciones)
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnComprar)
+                    .addComponent(jButton1))
+                .addGap(57, 57, 57))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bntBuscar)
+                .addGap(79, 79, 79))
         );
 
         pack();
@@ -192,9 +207,17 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
     private void bntBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBuscarActionPerformed
         // TODO add your handling code here:
+        
+        //nombre , precio y autor eso es lo que se necesita para traer la informacion de una pelicula
         ArchivoBuscarPelicula buscar = new ArchivoBuscarPelicula();
         if(buscar.buscarPelicula(textNombre.getText(), textAutor.getText(), textPrecio.getText())){
-            JOptionPane.showMessageDialog(null, "Pelicula Encontrada");
+//            JOptionPane.showMessageDialog(null, "Pelicula Encontrada");
+
+            ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+            
+            modelo.addElement(archivoPeliculas.verInformacionPelicula(textNombre.getText()));
+            btnComprar.setVisible(true);
+
         }else{
              JOptionPane.showMessageDialog(null, "Pelicula no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -244,17 +267,18 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntBuscar;
+    private javax.swing.JButton btnComprar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList resultadoCanciones;
     private javax.swing.JTextField textAutor;
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textPrecio;
+    private javax.swing.JLabel tituloResultadoCanciones;
     // End of variables declaration//GEN-END:variables
 }
