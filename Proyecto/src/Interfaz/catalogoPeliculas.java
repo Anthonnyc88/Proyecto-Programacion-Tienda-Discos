@@ -198,7 +198,7 @@ public class catalogoPeliculas extends javax.swing.JFrame {
   
             
         String datosPeliculas = textNombredisco.getText() + ";" + textAutor.getText() + ";" + textCantidad.getText() + ";" + comboCategorias.getSelectedItem() + ";" + textPrecio.getText();
-        peliculas.GuardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
+        peliculas.guardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
 
        JOptionPane.showMessageDialog(null,"Agregado al Catalogo Pelicula");
         
