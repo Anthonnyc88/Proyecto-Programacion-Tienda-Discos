@@ -217,6 +217,8 @@ public class buscarPeliculas extends javax.swing.JFrame {
             
             modelo.addElement(archivoPeliculas.verInformacionPelicula(textNombre.getText()));
             btnComprar.setVisible(true);
+            
+            
 
         }else{
              JOptionPane.showMessageDialog(null, "Pelicula no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
