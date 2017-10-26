@@ -220,7 +220,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
             modelo.addElement(archivoPeliculas.verInformacionPelicula(textNombre.getText()));
             btnComprar.setVisible(true);
             
-        String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
+        String[] detalleInformacionPelicula = resultadoCanciones.getSelectedValue().split(" / ");
               
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
