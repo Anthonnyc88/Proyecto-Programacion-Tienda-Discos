@@ -119,7 +119,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
-        System.out.println("Buscando Musica");
+      
 
     }//GEN-LAST:event_buscarMusicaActionPerformed
 
@@ -160,8 +160,8 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
        ComprarMusica ventanaComprarMusica = new ComprarMusica();
        ventanaComprarMusica.pack();
        ventanaComprarMusica.setVisible(true);
-        setVisible(false);
-        System.out.println("Compando Musica");
+        setLocationRelativeTo(null);
+       
     }//GEN-LAST:event_comprarMusicaActionPerformed
 
     /**
