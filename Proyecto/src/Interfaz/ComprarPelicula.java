@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
 public class ComprarPelicula extends javax.swing.JFrame {
 
     private DefaultListModel modelo;
-    private int seleccion=-1; 
-    
+    private int seleccion = -1;
+
     /**
      * Creates new form ComprarPelicula
      */
@@ -27,10 +27,10 @@ public class ComprarPelicula extends javax.swing.JFrame {
         listaPeliculas.setVisible(false);
         btnComprarPelicula.setVisible(false);
         btnConsultarDetalle.setVisible(false);
-            
+
         modelo = new DefaultListModel();
         listaPeliculas.setModel(modelo);
-        
+
     }
 
     /**
@@ -118,9 +118,9 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
     private void categoriaPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaPeliculasActionPerformed
         // TODO add your handling code here:
-        
+
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
- 
+
         listaPeliculas.setVisible(true);
         btnComprarPelicula.setVisible(true);
         btnConsultarDetalle.setVisible(true);
@@ -130,61 +130,59 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
     private void btnConsultarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarDetalleActionPerformed
         // TODO add your handling code here:
-        
-        
+
         String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
-        
+
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
 
-        String detalleTotal = archivoPeliculas.verDetalleInformacionPelicula(detalleInformacionPelicula[0],detalleInformacionPelicula[1]);
-        
-        JOptionPane.showMessageDialog(null,detalleTotal);
+        String detalleTotal = archivoPeliculas.verDetalleInformacionPelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]);
+
+        JOptionPane.showMessageDialog(null, detalleTotal);
     }//GEN-LAST:event_btnConsultarDetalleActionPerformed
 
     private void btnComprarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPeliculaActionPerformed
         // TODO add your handling code here:
-        
+
         String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
-        
-         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
-         
-         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
-         
-         int cantidadOriginal =Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0],detalleInformacionPelicula[1]));
-                
-         
-         if(cantidaDeseada>cantidadOriginal){
-        
+
+        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+
+        int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
+
+        int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
+
+        if (cantidaDeseada > cantidadOriginal) {
+
             int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
-        
-            if(opcionPreOrden==1){
-            
+
+            if (opcionPreOrden == 1) {
+
                 //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionPelicula[0]+";Pelicula;"+cantidaDeseada;
-                
-                JOptionPane.showMessageDialog(null,"Pre Orden Realizada");
-                
+                String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
+
+                JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+
                 System.out.println(informacionPreOrden);
-            }else{
+            } else {
                 System.out.println("Pre Orden negada");
             }
-        
-         }else if(cantidaDeseada<=cantidadOriginal){
-            
-        String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
-        String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-        String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
-        String nombrePelicula = detalleInformacionPelicula[0];
-        String cantidadOrdenada = String.valueOf(cantidaDeseada);
-        
-        //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-        String detalleTotalOrdenPelicula=nombreCliente+";"+cedulaCliente+";"+correoCliente+";"+nombrePelicula+";"+cantidadOrdenada;
-        
-             System.out.println(detalleTotalOrdenPelicula);
-             JOptionPane.showMessageDialog(null,"Compra Realizada");
 
-         }
-         
+        } else if (cantidaDeseada <= cantidadOriginal) {
+
+            String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
+            String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
+            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            String nombrePelicula = detalleInformacionPelicula[0];
+            String cantidadOrdenada = String.valueOf(cantidaDeseada);
+
+            //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
+            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
+
+            System.out.println(detalleTotalOrdenPelicula);
+            JOptionPane.showMessageDialog(null, "Compra Realizada");
+
+        }
+
     }//GEN-LAST:event_btnComprarPeliculaActionPerformed
 
     /**

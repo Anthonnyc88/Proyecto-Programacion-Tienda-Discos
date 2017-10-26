@@ -48,7 +48,7 @@ public class Registro extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     public void enviarCorreo() {
-        a.setContraseña("eqqtpezuonboabna");
+        a.setContraseña("cnaipcaudzpcbdqh");
         a.setUsuario("anthonnyc10@gmail.com");
         a.setAsunto(textNombre.getText());
         a.setMensaje(textNombre.getText());

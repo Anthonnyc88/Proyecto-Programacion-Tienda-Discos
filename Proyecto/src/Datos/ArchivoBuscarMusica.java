@@ -64,5 +64,129 @@ public class ArchivoBuscarMusica {
         return bandera;
 
     }
+      public String verCategoriaMusica(String categoriaMusica ) {
+        
+         String datosCategoria="";
+        
+         try {
+
+            FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
+            BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
+
+            String linea = "";
+           
+            while (linea != null) {
+
+                linea = buffer.readLine();
+
+                if (linea==null) 
+                    break;
+                
+               
+                if (linea.contains(categoriaMusica)) {
+
+                    String datos[] = linea.split(";");
+                    
+                   System.out.println("¡Categoria existente.!");
+
+                    datosCategoria = datos[0] +" / "+datos[1] +" / "+ datos[3];
+                }
+
+            }
+        } catch (IOException e)// Se nececita del try y el catch para evitar un error 
+        // en cuanto a archivos se trata, por ejemplo que el archivo no exista.
+        {
+
+            System.out.println(e.getMessage());
+        }
+
+        return datosCategoria;
+
+    }
+     
+     
+     public String verDetalleInformacionMusica(String nombreMusica , String trailerMusica) {
+        
+         String datosMusica="";
+        
+         try {
+
+            FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
+            BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
+
+            String linea = "";
+           
+            while (linea != null) {
+
+                linea = buffer.readLine();
+
+                if (linea==null) 
+                    break;
+                
+               
+                if (linea.contains(nombreMusica) && linea.contains(trailerMusica)) {
+
+                    String datos[] = linea.split(";");
+                    
+                   System.out.println("Viendo Informacion De "+nombreMusica);
+
+                    datosMusica = "Titulo : "+datos[0] +"\nTrailer : "+datos[1]+"\nGenero : "+datos[3] +"\nPrecio : "+ datos[4] ;
+                }
+
+            }
+        } catch (IOException e)// Se nececita del try y el catch para evitar un error 
+        // en cuanto a archivos se trata, por ejemplo que el archivo no exista.
+        {
+
+            System.out.println(e.getMessage());
+        }
+
+        return datosMusica;
+
+    }
+     
+     
+     public String verificarCantidadDisponibleMusica(String nombreMusica , String trailerMusica) {
+        
+         String cantidaDisponible="";
+        
+         try {
+
+            FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
+            BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
+
+            String linea = "";
+           
+            while (linea != null) {
+
+                linea = buffer.readLine();
+
+                if (linea==null) 
+                    break;
+                
+               
+                if (linea.contains(nombreMusica) && linea.contains(trailerMusica)) {
+
+                    String datos[] = linea.split(";");
+                    
+                   System.out.println("Viendo Cantidad Disponible De "+nombreMusica);
+
+                    cantidaDisponible = datos[2];
+                }
+
+            }
+        } catch (IOException e)// Se nececita del try y el catch para evitar un error 
+        // en cuanto a archivos se trata, por ejemplo que el archivo no exista.
+        {
+
+            System.out.println(e.getMessage());
+        }
+
+        return cantidaDisponible;
+
+    }
+     
+     
+     
 
 }

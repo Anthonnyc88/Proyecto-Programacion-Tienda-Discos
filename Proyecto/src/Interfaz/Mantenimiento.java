@@ -179,7 +179,7 @@ public class Mantenimiento extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        Reportes p = new Reportes();
+        Reporte1 p = new Reporte1();
         p.pack();
         p.setVisible(true);
         this.setVisible(false);
