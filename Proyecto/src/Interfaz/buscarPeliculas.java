@@ -12,8 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import Datos.ArchivoPreOrdenes;
-import Datos.ArchivOrdenes;
 
 /**
  *
@@ -43,7 +41,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
         btnComprar.setVisible(false);
      
         modelo = new DefaultListModel();
-        resultadoCanciones.setModel(modelo);
+        resultadoPeliculas.setModel(modelo);
     }
 
     /**
@@ -67,7 +65,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
         tituloResultadoCanciones = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        resultadoCanciones = new javax.swing.JList();
+        resultadoPeliculas = new javax.swing.JList();
         btnComprar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,9 +111,14 @@ public class buscarPeliculas extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane2.setViewportView(resultadoCanciones);
+        jScrollPane2.setViewportView(resultadoPeliculas);
 
         btnComprar.setText("Comprar");
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,59 +222,26 @@ public class buscarPeliculas extends javax.swing.JFrame {
             
             modelo.addElement(archivoPeliculas.verInformacionPelicula(textNombre.getText()));
             btnComprar.setVisible(true);
-            
-        String[] detalleInformacionPelicula = resultadoCanciones.getSelectedValue().split(" / ");
-              
-        int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
-        int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
-
-        if (cantidaDeseada > cantidadOriginal) {
-
-            int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
-
-            if (opcionPreOrden == 1) {
-
-                //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
-
-                JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-
-                System.out.println(informacionPreOrden);
-            } else {
-                System.out.println("Pre Orden negada");
-            }
-
-        } else if (cantidaDeseada <= cantidadOriginal) {
-
-            String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
-            String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
-            String nombrePelicula = detalleInformacionPelicula[0];
-            String cantidadOrdenada = String.valueOf(cantidaDeseada);
-
-            //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
-            
-            ArchivOrdenes archivOrdenes = new ArchivOrdenes();
-            
-            //aqui es en donde guardo los detalles de la compra en el archivo
-            //aqui es en donde se debe de enviar el video de notificacion de la compra
-            
-            archivOrdenes.registrarOrden("ordenesPeliculas.txt",detalleTotalOrdenPelicula);
-            
-            
-            System.out.println(detalleTotalOrdenPelicula);
-            JOptionPane.showMessageDialog(null, "Compra Realizada");
 
         }else{
              JOptionPane.showMessageDialog(null, "Pelicula no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bntBuscarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
+        // TODO add your handling code here:
+        
+                    
+        //String[] detalleInformacionPelicula = resultadoPeliculas.getSelectedValue().split(" / ");
+              
+        //int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
+
+        //int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
+
+        
+    }//GEN-LAST:event_btnComprarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,7 +294,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList resultadoCanciones;
+    private javax.swing.JList resultadoPeliculas;
     private javax.swing.JTextField textAutor;
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textPrecio;
