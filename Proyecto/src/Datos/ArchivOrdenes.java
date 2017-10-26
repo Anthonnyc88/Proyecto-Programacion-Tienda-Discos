@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  *
  * @author Admie21
  */
-public class ArchivoOrdenes {
+public class ArchivOrdenes {
     
     
     /**

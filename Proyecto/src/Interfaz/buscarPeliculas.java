@@ -13,7 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Datos.ArchivoPreOrdenes;
-import Datos.ArchivoOrdenes;
+import Datos.ArchivOrdenes;
 
 /**
  *
@@ -253,7 +253,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
             
-            ArchivoOrdenes archivOrdenes = new ArchivoOrdenes();
+            ArchivOrdenes archivOrdenes = new ArchivOrdenes();
             
             //aqui es en donde guardo los detalles de la compra en el archivo
             //aqui es en donde se debe de enviar el video de notificacion de la compra
@@ -269,6 +269,9 @@ public class buscarPeliculas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntBuscarActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
     /**
      * @param args the command line arguments
      */
