@@ -269,7 +269,7 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < listaAdministradores.size(); i++) {
                 if (usuario.equals(listaAdministradores.get(i).split(" ")[0]) && contraseña.equals(listaAdministradores.get(i).split(" ")[1])) {
                     bandera = true;
-                    System.out.println("Bienvenido Administrador");
+                    System.out.println("Bienvenido Administrador " +textUser.getText());
                 }
             }
             if (bandera) {

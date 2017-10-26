@@ -7,6 +7,7 @@ package Interfaz;
 
 import Datos.ArchivoBuscarPelicula;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +16,7 @@ import javax.swing.DefaultListModel;
 public class ComprarPelicula extends javax.swing.JFrame {
 
     private DefaultListModel modelo;
+    private int seleccion=-1; 
     
     /**
      * Creates new form ComprarPelicula
@@ -24,7 +26,11 @@ public class ComprarPelicula extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         listaPeliculas.setVisible(false);
         btnComprarPelicula.setVisible(false);
-        btnConsultarInformacion.setVisible(false);
+        btnConsultarDetalle.setVisible(false);
+            
+        modelo = new DefaultListModel();
+        listaPeliculas.setModel(modelo);
+        
     }
 
     /**
@@ -40,7 +46,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPeliculas = new javax.swing.JList<>();
-        btnConsultarInformacion = new javax.swing.JButton();
+        btnConsultarDetalle = new javax.swing.JButton();
         btnComprarPelicula = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,9 +62,19 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(listaPeliculas);
 
-        btnConsultarInformacion.setText("Consultar");
+        btnConsultarDetalle.setText("Detalles");
+        btnConsultarDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarDetalleActionPerformed(evt);
+            }
+        });
 
         btnComprarPelicula.setText("Comprar");
+        btnComprarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarPeliculaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,13 +89,13 @@ public class ComprarPelicula extends javax.swing.JFrame {
                         .addComponent(categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnConsultarInformacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnComprarPelicula))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(btnConsultarDetalle)
+                        .addGap(90, 90, 90)
+                        .addComponent(btnComprarPelicula))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,12 +105,12 @@ public class ComprarPelicula extends javax.swing.JFrame {
                     .addComponent(categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConsultarInformacion)
+                    .addComponent(btnConsultarDetalle)
                     .addComponent(btnComprarPelicula))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,19 +119,73 @@ public class ComprarPelicula extends javax.swing.JFrame {
     private void categoriaPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaPeliculasActionPerformed
         // TODO add your handling code here:
         
-       ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
-        
-        modelo = new DefaultListModel();
-        listaPeliculas.setModel(modelo);
-        
+        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+ 
         listaPeliculas.setVisible(true);
         btnComprarPelicula.setVisible(true);
-        btnConsultarInformacion.setVisible(true);
-        String resultadoPelicula = archivoPeliculas.verCategoriaPelicula((String) categoriaPeliculas.getSelectedItem());
-        
-        modelo.addElement(resultadoPelicula);
-
+        btnConsultarDetalle.setVisible(true);
+        String categoriaP = categoriaPeliculas.getSelectedItem().toString();
+        modelo.addElement(archivoPeliculas.verCategoriaPelicula(categoriaP));
     }//GEN-LAST:event_categoriaPeliculasActionPerformed
+
+    private void btnConsultarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarDetalleActionPerformed
+        // TODO add your handling code here:
+        
+        
+        String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
+        
+        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+
+        String detalleTotal = archivoPeliculas.verDetalleInformacionPelicula(detalleInformacionPelicula[0],detalleInformacionPelicula[1]);
+        
+        JOptionPane.showMessageDialog(null,detalleTotal);
+    }//GEN-LAST:event_btnConsultarDetalleActionPerformed
+
+    private void btnComprarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarPeliculaActionPerformed
+        // TODO add your handling code here:
+        
+        String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
+        
+         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+         
+         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
+         
+         int cantidadOriginal =Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0],detalleInformacionPelicula[1]));
+                
+         
+         if(cantidaDeseada>cantidadOriginal){
+        
+            int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
+        
+            if(opcionPreOrden==1){
+            
+                //esto es lo que se va a ir al archivo de preordenes
+                String informacionPreOrden = detalleInformacionPelicula[0]+";Pelicula;"+cantidaDeseada;
+                
+                JOptionPane.showMessageDialog(null,"Pre Orden Realizada");
+                
+                System.out.println(informacionPreOrden);
+            }else{
+                System.out.println("Pre Orden negada");
+            }
+        
+         }else if(cantidaDeseada<=cantidadOriginal){
+            
+        String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
+        String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
+        String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+        String nombrePelicula = detalleInformacionPelicula[0];
+        String cantidadOrdenada = String.valueOf(cantidaDeseada);
+        
+        //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
+        String detalleTotalOrdenPelicula=nombreCliente+";"+cedulaCliente+";"+correoCliente+";"+nombrePelicula+";"+cantidadOrdenada;
+        
+             System.out.println(detalleTotalOrdenPelicula);
+             JOptionPane.showMessageDialog(null,"Compra Realizada");
+
+         }
+         
+    }//GEN-LAST:event_btnComprarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,7 +224,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprarPelicula;
-    private javax.swing.JButton btnConsultarInformacion;
+    private javax.swing.JButton btnConsultarDetalle;
     private javax.swing.JComboBox<String> categoriaPeliculas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
