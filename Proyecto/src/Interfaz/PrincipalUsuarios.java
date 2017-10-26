@@ -44,10 +44,10 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        optInicioUsuario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        optInicioSesion = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        buscarMusica = new javax.swing.JMenuItem();
+        comprarMusica = new javax.swing.JMenuItem();
+        buscarPelicula = new javax.swing.JMenuItem();
+        comprarPelicula = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,37 +63,37 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
             }
         });
 
-        optInicioUsuario.setText("Buscar Musica");
-        optInicioUsuario.addActionListener(new java.awt.event.ActionListener() {
+        buscarMusica.setText("Buscar Musica");
+        buscarMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optInicioUsuarioActionPerformed(evt);
+                buscarMusicaActionPerformed(evt);
             }
         });
-        jMenu1.add(optInicioUsuario);
+        jMenu1.add(buscarMusica);
 
-        jMenuItem1.setText("Comprar Pelicula");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        comprarMusica.setText("Comprar  Musica");
+        comprarMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                comprarMusicaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(comprarMusica);
 
-        optInicioSesion.setText("Buscar Pelicula");
-        optInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+        buscarPelicula.setText("Buscar Pelicula");
+        buscarPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optInicioSesionActionPerformed(evt);
+                buscarPeliculaActionPerformed(evt);
             }
         });
-        jMenu1.add(optInicioSesion);
+        jMenu1.add(buscarPelicula);
 
-        jMenuItem2.setText("Comprar  Musica");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        comprarPelicula.setText("Comprar Pelicula");
+        comprarPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                comprarPeliculaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(comprarPelicula);
 
         jMenuBar1.add(jMenu1);
 
@@ -113,24 +113,26 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void optInicioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioUsuarioActionPerformed
+    private void buscarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarMusicaActionPerformed
         // TODO add your handling code here:
         BuscarMusica ventana = new BuscarMusica();
         ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
-        System.out.println("sssss");
+        System.out.println("Buscando Musica");
 
-    }//GEN-LAST:event_optInicioUsuarioActionPerformed
+    }//GEN-LAST:event_buscarMusicaActionPerformed
 
-    private void optInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optInicioSesionActionPerformed
+    private void buscarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPeliculaActionPerformed
         // TODO add your handling code here:
 
-        ComprarPelicula ventanaInicioUsuarioUsuario = new ComprarPelicula();
-        ventanaInicioUsuarioUsuario.pack();
-        ventanaInicioUsuarioUsuario.setVisible(true);
-        setLocationRelativeTo(null);
-    }//GEN-LAST:event_optInicioSesionActionPerformed
+        buscarPeliculas ventanaBuscarPelicula = new buscarPeliculas();
+        ventanaBuscarPelicula.pack();
+        ventanaBuscarPelicula.setVisible(true);
+        setVisible(false);
+        System.out.println("Buscando Peliculas");
+
+    }//GEN-LAST:event_buscarPeliculaActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
@@ -141,23 +143,24 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
   
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void comprarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarPeliculaActionPerformed
         // TODO add your handling code here:
-         
-        ComprarPelicula ventanaComprarPelicula = new ComprarPelicula();
-        ventanaComprarPelicula.pack();
-        ventanaComprarPelicula.setVisible(true);
-        setVisible(false);
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+      
+        ComprarPelicula ventanaInicioUsuarioUsuario = new ComprarPelicula();
+        ventanaInicioUsuarioUsuario.pack();
+        ventanaInicioUsuarioUsuario.setVisible(true);
+        setLocationRelativeTo(null);
+      
+    }//GEN-LAST:event_comprarPeliculaActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void comprarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarMusicaActionPerformed
         // TODO add your handling code here:
+        
        ComprarMusica ventanaComprarMusica = new ComprarMusica();
        ventanaComprarMusica.pack();
        ventanaComprarMusica.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_comprarMusicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,11 +198,11 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem buscarMusica;
+    private javax.swing.JMenuItem buscarPelicula;
+    private javax.swing.JMenuItem comprarMusica;
+    private javax.swing.JMenuItem comprarPelicula;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem optInicioSesion;
-    private javax.swing.JMenuItem optInicioUsuario;
     // End of variables declaration//GEN-END:variables
 }
