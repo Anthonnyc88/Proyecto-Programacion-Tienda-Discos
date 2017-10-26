@@ -5,8 +5,8 @@
  */
 package Interfaz;
 
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.category.DefaultCategoryDataset;
+//import org.jfree.chart.JFreeChart;
+//import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -14,8 +14,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class Reporte1 extends javax.swing.JFrame {
 
-    JFreeChart Grafica;
-    DefaultCategoryDataset Datos = new DefaultCategoryDataset();
+    //JFreeChart Grafica;
+    //DefaultCategoryDataset Datos = new DefaultCategoryDataset();
 
     public Reporte1() {
         initComponents();
@@ -23,13 +23,13 @@ public class Reporte1 extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Tienda de discos");
 
-        Datos.addValue(1, "Negocio 1", "Lunes");
-        Datos.addValue(2, "Negocio 1", "Martes");
-        Datos.addValue(3, "Negocio 1", "Miércoles");
-        Datos.addValue(4, "Negocio 1", "Jueves");
-        Datos.addValue(5, "Negocio 1", "Viernes");
-        Datos.addValue(6, "Negocio 1", "Sábado");
-        Datos.addValue(7, "Negocio 1", "Domingo");
+//        Datos.addValue(1, "Negocio 1", "Lunes");
+//        Datos.addValue(2, "Negocio 1", "Martes");
+//        Datos.addValue(3, "Negocio 1", "Miércoles");
+//        Datos.addValue(4, "Negocio 1", "Jueves");
+//        Datos.addValue(5, "Negocio 1", "Viernes");
+//        Datos.addValue(6, "Negocio 1", "Sábado");
+//        Datos.addValue(7, "Negocio 1", "Domingo");
 
     }
 

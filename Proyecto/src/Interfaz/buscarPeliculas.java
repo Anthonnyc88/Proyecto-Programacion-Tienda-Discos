@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import Datos.ArchivoOrdenes;
 
 /**
  *
@@ -222,6 +223,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
             
             modelo.addElement(archivoPeliculas.verInformacionPelicula(textNombre.getText()));
             btnComprar.setVisible(true);
+            
 
 
         }else{
@@ -233,12 +235,51 @@ public class buscarPeliculas extends javax.swing.JFrame {
         // TODO add your handling code here:
         
                     
-        //String[] detalleInformacionPelicula = resultadoPeliculas.getSelectedValue().split(" / ");
-              
-        //int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
+         String detallePelicula = resultadoPeliculas.getSelectedValue().toString();
+         String [] detalleInformacionPelicula = detallePelicula.split(" / ");
+        
+         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
+         
+        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+         
+        int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
-        //int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
+        int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
 
+        if (cantidaDeseada > cantidadOriginal) {
+
+            int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
+
+            if (opcionPreOrden == 1) {
+
+                //esto es lo que se va a ir al archivo de preordenes
+                String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
+
+                JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+
+                System.out.println(informacionPreOrden);
+            } else {
+                System.out.println("Pre Orden negada");
+            }
+
+        } else if (cantidaDeseada <= cantidadOriginal) {
+
+            String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
+            String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
+            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            String nombrePelicula = detalleInformacionPelicula[0];
+            String cantidadOrdenada = String.valueOf(cantidaDeseada);
+
+            //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
+            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
+
+            System.out.println(detalleTotalOrdenPelicula);
+            
+            archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt",detalleTotalOrdenPelicula);
+            
+            JOptionPane.showMessageDialog(null, "Compra Realizada");
+
+        }
         
     }//GEN-LAST:event_btnComprarActionPerformed
 
