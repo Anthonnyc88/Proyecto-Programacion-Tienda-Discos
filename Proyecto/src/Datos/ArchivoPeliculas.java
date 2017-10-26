@@ -29,7 +29,7 @@ public class ArchivoPeliculas {
      * @param informacion
      */
     @SuppressWarnings("empty-statement")
-    public void GuardarArchivoPeliculas(String nombreArchivo, String informacion) {
+    public void guardarArchivoPeliculas(String nombreArchivo, String informacion) {
         File f;
         /**
          * se crea un objeto de tipo archivo
