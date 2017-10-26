@@ -11,3 +11,4 @@ Kenda Retana;2014085419;9090; kretanam@est.utn.ac.cr
 Sandra;32323232;788;anthonnyc10@gmail.com
 hola;121323;32323;anthonnyc66@gmail.com
 Karol;402320214;4590;anthonnyc10@gmail.com
+Beto;34343443;45;anthonnyc10@gmail.com
