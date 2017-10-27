@@ -258,6 +258,8 @@ public class buscarPeliculas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
 
                 System.out.println(informacionPreOrden);
+                
+                
             } else {
                 System.out.println("Pre Orden negada");
             }

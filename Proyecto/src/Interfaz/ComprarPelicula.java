@@ -8,6 +8,7 @@ package Interfaz;
 import Datos.ArchivoBuscarPelicula;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import Datos.ArchivoOrdenes;
 
 /**
  *
@@ -146,6 +147,8 @@ public class ComprarPelicula extends javax.swing.JFrame {
         String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
 
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+        
+         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
 
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
@@ -177,8 +180,11 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
-
+            
+            archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt",detalleTotalOrdenPelicula);
             System.out.println(detalleTotalOrdenPelicula);
+            
+            
             JOptionPane.showMessageDialog(null, "Compra Realizada");
 
         }
