@@ -168,6 +168,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
                 
                 archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
+                //aqui se guardan las pre ordenes
 
                 System.out.println(informacionPreOrden);
             } else {
