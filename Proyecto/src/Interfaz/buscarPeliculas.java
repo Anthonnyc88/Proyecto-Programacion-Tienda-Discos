@@ -13,6 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Datos.ArchivoOrdenes;
+import Datos.ArchivoPreOrdenes;
 
 /**
  *
@@ -240,6 +241,8 @@ public class buscarPeliculas extends javax.swing.JFrame {
         
          ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
          
+         ArchivoPreOrdenes archivoPeliculasPreOrdenes = new ArchivoPreOrdenes();
+         
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
          
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
@@ -256,6 +259,9 @@ public class buscarPeliculas extends javax.swing.JFrame {
                 String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
 
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+                
+                archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
+                //aqui se guardan las pre ordenes
 
                 System.out.println(informacionPreOrden);
                 
