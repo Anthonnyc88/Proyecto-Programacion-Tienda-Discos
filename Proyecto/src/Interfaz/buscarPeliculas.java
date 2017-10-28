@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
+import proyecto.Controlador;
+import proyecto.Correo;
 
 /**
  *
@@ -22,8 +24,11 @@ import Datos.ArchivoPreOrdenes;
 public class buscarPeliculas extends javax.swing.JFrame {
 
     private DefaultListModel modelo;
-    private int seleccion=-1; 
-    
+    private int seleccion = -1;
+    private String correo = "";
+    private String nombreDisco = "";
+    Correo a = new Correo();
+
     /**
      * Creates new form escogerMusica
      */
@@ -39,9 +44,9 @@ public class buscarPeliculas extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
-        
+
         btnComprar.setVisible(false);
-     
+
         modelo = new DefaultListModel();
         resultadoPeliculas.setModel(modelo);
     }
@@ -214,37 +219,34 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
     private void bntBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBuscarActionPerformed
         // TODO add your handling code here:
-        
+
         //nombre , precio y autor eso es lo que se necesita para traer la informacion de una pelicula
         ArchivoBuscarPelicula buscar = new ArchivoBuscarPelicula();
-        if(buscar.buscarPelicula(textNombre.getText(), textAutor.getText(), textPrecio.getText())){
+        if (buscar.buscarPelicula(textNombre.getText(), textAutor.getText(), textPrecio.getText())) {
 //            JOptionPane.showMessageDialog(null, "Pelicula Encontrada");
 
             ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
-            
+
             modelo.addElement(archivoPeliculas.verInformacionPelicula(textNombre.getText()));
             btnComprar.setVisible(true);
-            
 
-
-        }else{
-             JOptionPane.showMessageDialog(null, "Pelicula no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Pelicula no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bntBuscarActionPerformed
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
         // TODO add your handling code here:
-        
-                    
-         String detallePelicula = resultadoPeliculas.getSelectedValue().toString();
-         String [] detalleInformacionPelicula = detallePelicula.split(" / ");
-        
-         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
-         
-         ArchivoPreOrdenes archivoPeliculasPreOrdenes = new ArchivoPreOrdenes();
-         
+
+        String detallePelicula = resultadoPeliculas.getSelectedValue().toString();
+        String[] detalleInformacionPelicula = detallePelicula.split(" / ");
+
+        ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
+
+        ArchivoPreOrdenes archivoPeliculasPreOrdenes = new ArchivoPreOrdenes();
+
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
-         
+
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
         int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
@@ -259,13 +261,12 @@ public class buscarPeliculas extends javax.swing.JFrame {
                 String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
 
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-                
+
                 archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
                 //aqui se guardan las pre ordenes
 
                 System.out.println(informacionPreOrden);
-                
-                
+
             } else {
                 System.out.println("Pre Orden negada");
             }
@@ -274,21 +275,45 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            nombreDisco= JOptionPane.showInputDialog("Nombre de la pelicula que compro");
+             correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
             String nombrePelicula = detalleInformacionPelicula[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
+            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombrePelicula + ";" + cantidadOrdenada;
 
             System.out.println(detalleTotalOrdenPelicula);
-            
-            archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt",detalleTotalOrdenPelicula);
-            
+
+            archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt", detalleTotalOrdenPelicula);
+
             JOptionPane.showMessageDialog(null, "Compra Realizada");
+            enviarCorreoElectronico();
 
         }
-        
+
+    }
+
+    public void enviarCorreoElectronico() {
+
+        a.setContraseña("cnaipcaudzpcbdqh");
+        a.setUsuario("anthonnyc10@gmail.com");
+        a.setAsunto("Compra exitosa");
+        a.setMensaje("El nombre del disco que compro es: " + nombreDisco);
+        a.setDestino(correo);
+        a.setNombreArchivo("Azul.jpg");
+        a.setRutaArchivo("Azul.jpg");
+        a.setAsunto(" Su compra ha sido un Exito !!!");
+        Controlador b = new Controlador();
+
+        if (b.enviarCorreo(a)) {
+            JOptionPane.showMessageDialog(null, "Envio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "error");
+
+        }
+
     }//GEN-LAST:event_btnComprarActionPerformed
 
     /**
