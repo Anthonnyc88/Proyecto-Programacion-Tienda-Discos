@@ -11,14 +11,20 @@ import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import proyecto.Controlador;
+import proyecto.Correo;
 
 /**
  *
  * @author Anthonny
  */
 public class ComprarMusica extends javax.swing.JFrame {
-     private DefaultListModel modelo;
+
+    private DefaultListModel modelo;
     private int seleccion = -1;
+    private String correo = "";
+    private  String nombreDisco="";
+    Correo a = new Correo();
 
     /**
      * Creates new form ComprarMusica
@@ -31,8 +37,8 @@ public class ComprarMusica extends javax.swing.JFrame {
         listaMusica.setVisible(false);
         bntComprar.setVisible(false);
         bntDetalles.setVisible(false);
-        
-         modelo = new DefaultListModel();
+
+        modelo = new DefaultListModel();
         listaMusica.setModel(modelo);
     }
 
@@ -141,13 +147,13 @@ public class ComprarMusica extends javax.swing.JFrame {
 
     private void bntComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntComprarActionPerformed
         // TODO add your handling code here:
-          String[] detalleInformacionMusica = listaMusica.getSelectedValue().split(" / ");
+        String[] detalleInformacionMusica = listaMusica.getSelectedValue().split(" / ");
 
         ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
-        
-         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
-         
-          ArchivoPreOrdenes archivoMusicaPreOrdenes = new ArchivoPreOrdenes();
+
+        ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
+
+        ArchivoPreOrdenes archivoMusicaPreOrdenes = new ArchivoPreOrdenes();
 
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
@@ -163,7 +169,7 @@ public class ComprarMusica extends javax.swing.JFrame {
                 String informacionPreOrden = detalleInformacionMusica[0] + ";Cancion;" + cantidaDeseada;
 
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-                
+
                 archivoMusicaPreOrdenes.registrarPreOrden("cancionesPreOrdenes.txt", informacionPreOrden);
                 //aqui se guardan las pre ordenes
 
@@ -173,30 +179,58 @@ public class ComprarMusica extends javax.swing.JFrame {
             }
 
         } else if (cantidaDeseada <= cantidadOriginal) {
-
+           
+            String correoElectronico = "";
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            nombreDisco = JOptionPane.showInputDialog("Nombre del disco que compro:");
+            correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
             String nombrePelicula = detalleInformacionMusica[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-            String detalleTotalOrdenMusica = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
-            
-            archivoPeliculasOrdenes.registrarOrden("cancionesOrdenes.txt",detalleTotalOrdenMusica);
+            String detalleTotalOrdenMusica = nombreCliente + ";" + cedulaCliente + ";" + correoElectronico + ";" + nombrePelicula + ";" + cantidadOrdenada;
+
+            archivoPeliculasOrdenes.registrarOrden("cancionesOrdenes.txt", detalleTotalOrdenMusica);
             System.out.println(detalleTotalOrdenMusica);
             
             
-            JOptionPane.showMessageDialog(null, "Compra Realizada");
+             JOptionPane.showMessageDialog(null, "Compra Realizada");
+             enviarCorreoElectronico();
+            
+            
 
         }
-        
-        
+    }
+
+    public void enviarCorreoElectronico() {
+
+        a.setContraseña("cnaipcaudzpcbdqh");
+        a.setUsuario("anthonnyc10@gmail.com");
+        a.setAsunto("Compra exitosa");
+        a.setMensaje("El nombre del disco que compro es: " + nombreDisco);
+        a.setDestino(correo);
+        a.setNombreArchivo("Azul.jpg");
+        a.setRutaArchivo("Azul.jpg");
+        a.setAsunto(" Su compra ha sido un Exito !!!");
+        Controlador b = new Controlador();
+
+        if (b.enviarCorreo(a)) {
+            JOptionPane.showMessageDialog(null, "Envio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "error");
+
+           
+
+        }
+
+
     }//GEN-LAST:event_bntComprarActionPerformed
 
     private void bntDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntDetallesActionPerformed
         // TODO add your handling code here:
-        
+
         String[] detalleInformacionMusica = listaMusica.getSelectedValue().split(" / ");
 
         ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
@@ -204,7 +238,7 @@ public class ComprarMusica extends javax.swing.JFrame {
         String detalleTotal = archivoMusica.verDetalleInformacionMusica(detalleInformacionMusica[0], detalleInformacionMusica[1]);
 
         JOptionPane.showMessageDialog(null, detalleTotal);
-                                                      
+
     }//GEN-LAST:event_bntDetallesActionPerformed
 
     private void categoriaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaMusicaActionPerformed
