@@ -7,6 +7,8 @@ package Interfaz;
 
 import Datos.ArchivoBuscarMusica;
 import Datos.ArchivoBuscarPelicula;
+import Datos.ArchivoOrdenes;
+import Datos.ArchivoPreOrdenes;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -139,10 +141,13 @@ public class ComprarMusica extends javax.swing.JFrame {
 
     private void bntComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntComprarActionPerformed
         // TODO add your handling code here:
-        
-         String[] detalleInformacionMusica = listaMusica.getSelectedValue().split(" / ");
+          String[] detalleInformacionMusica = listaMusica.getSelectedValue().split(" / ");
 
         ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
+        
+         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
+         
+          ArchivoPreOrdenes archivoMusicaPreOrdenes = new ArchivoPreOrdenes();
 
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
@@ -155,9 +160,12 @@ public class ComprarMusica extends javax.swing.JFrame {
             if (opcionPreOrden == 1) {
 
                 //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionMusica[0] + ";Musica;" + cantidaDeseada;
+                String informacionPreOrden = detalleInformacionMusica[0] + ";Cancion;" + cantidaDeseada;
 
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+                
+                archivoMusicaPreOrdenes.registrarPreOrden("cancionesPreOrdenes.txt", informacionPreOrden);
+                //aqui se guardan las pre ordenes
 
                 System.out.println(informacionPreOrden);
             } else {
@@ -174,11 +182,16 @@ public class ComprarMusica extends javax.swing.JFrame {
 
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenMusica = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
-
+            
+            archivoPeliculasOrdenes.registrarOrden("cancionesOrdenes.txt",detalleTotalOrdenMusica);
             System.out.println(detalleTotalOrdenMusica);
+            
+            
             JOptionPane.showMessageDialog(null, "Compra Realizada");
 
         }
+        
+        
     }//GEN-LAST:event_bntComprarActionPerformed
 
     private void bntDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntDetallesActionPerformed

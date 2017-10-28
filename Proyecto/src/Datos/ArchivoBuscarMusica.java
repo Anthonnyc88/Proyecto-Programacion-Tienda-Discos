@@ -18,10 +18,10 @@ import java.io.PrintWriter;
  * @author Anthonny
  */
 public class ArchivoBuscarMusica {
-     public boolean buscarCancion(String nombreDisco, String autor, String precio ) {
+
+    public boolean buscarCancion(String nombreDisco, String autor, String precio) {
 
         boolean bandera = false;
-        
 
         try {
 
@@ -45,8 +45,8 @@ public class ArchivoBuscarMusica {
                 }
 
                 String datos[] = linea.split(";");
-                
-                if (( datos[0].equals(nombreDisco)) && ( datos[1].equals(autor) && (datos[3].equals(precio) ))) {
+
+                if ((datos[0].equals(nombreDisco)) && (datos[1].equals(autor) && (datos[3].equals(precio)))) {
 
                     System.out.println("¡Cancion encontrada " + ". !");
 
@@ -64,32 +64,33 @@ public class ArchivoBuscarMusica {
         return bandera;
 
     }
-      public String verCategoriaMusica(String categoriaMusica ) {
-        
-         String datosCategoria="";
-        
-         try {
+
+    public String verCategoriaMusica(String categoriaMusica) {
+
+        String datosCategoria = "";
+
+        try {
 
             FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
             BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
 
             String linea = "";
-           
+
             while (linea != null) {
 
                 linea = buffer.readLine();
 
-                if (linea==null) 
+                if (linea == null) {
                     break;
-                
-               
+                }
+
                 if (linea.contains(categoriaMusica)) {
 
                     String datos[] = linea.split(";");
-                    
-                   System.out.println("¡Categoria existente.!");
 
-                    datosCategoria = datos[0] +" / "+datos[1] +" / "+ datos[3];
+                    System.out.println("¡Categoria existente.!");
+
+                    datosCategoria = datos[0] + " / " + datos[1] + " / " + datos[3];
                 }
 
             }
@@ -103,34 +104,33 @@ public class ArchivoBuscarMusica {
         return datosCategoria;
 
     }
-     
-     
-     public String verDetalleInformacionMusica(String nombreMusica , String trailerMusica) {
-        
-         String datosMusica="";
-        
-         try {
+
+    public String verDetalleInformacionMusica(String nombreMusica, String trailerMusica) {
+
+        String datosMusica = "";
+
+        try {
 
             FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
             BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
 
             String linea = "";
-           
+
             while (linea != null) {
 
                 linea = buffer.readLine();
 
-                if (linea==null) 
+                if (linea == null) {
                     break;
-                
-               
+                }
+
                 if (linea.contains(nombreMusica) && linea.contains(trailerMusica)) {
 
                     String datos[] = linea.split(";");
-                    
-                   System.out.println("Viendo Informacion De "+nombreMusica);
 
-                    datosMusica = "Titulo : "+datos[0] +"\nTrailer : "+datos[1]+"\nGenero : "+datos[3] +"\nPrecio : "+ datos[4] ;
+                    System.out.println("Viendo Informacion De " + nombreMusica);
+
+                    datosMusica = "Titulo : " + datos[0] + "\nTrailer : " + datos[1] + "\nGenero : " + datos[3] + "\nPrecio : " + datos[4];
                 }
 
             }
@@ -144,32 +144,31 @@ public class ArchivoBuscarMusica {
         return datosMusica;
 
     }
-     
-     
-     public String verificarCantidadDisponibleMusica(String nombreMusica , String trailerMusica) {
-        
-         String cantidaDisponible="";
-        
-         try {
+
+    public String verificarCantidadDisponibleMusica(String nombreMusica, String trailerMusica) {
+
+        String cantidaDisponible = "";
+
+        try {
 
             FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
             BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
 
             String linea = "";
-           
+
             while (linea != null) {
 
                 linea = buffer.readLine();
 
-                if (linea==null) 
+                if (linea == null) {
                     break;
-                
-               
+                }
+
                 if (linea.contains(nombreMusica) && linea.contains(trailerMusica)) {
 
                     String datos[] = linea.split(";");
-                    
-                   System.out.println("Viendo Cantidad Disponible De "+nombreMusica);
+
+                    System.out.println("Viendo Cantidad Disponible De " + nombreMusica);
 
                     cantidaDisponible = datos[7];
                 }
@@ -185,34 +184,33 @@ public class ArchivoBuscarMusica {
         return cantidaDisponible;
 
     }
-     
-     
-      public String verInformacionMusica(String nombreMusica ) {
-        
-         String datosCategoria="";
-        
-         try {
+
+    public String verInformacionMusica(String nombreMusica) {
+
+        String datosCategoria = "";
+
+        try {
 
             FileReader r = new FileReader("catalogoCanciones.txt");// se utiliza para poder leer archivos de texto
             BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
 
             String linea = "";
-           
+
             while (linea != null) {
 
                 linea = buffer.readLine();
 
-                if (linea==null) 
+                if (linea == null) {
                     break;
-                
-               
+                }
+
                 if (linea.contains(nombreMusica)) {
 
                     String datos[] = linea.split(";");
-                    
-                   System.out.println("¡Canción existente.!");
 
-                    datosCategoria = datos[0] +" / "+datos[1] +" / "+ datos[3] + " / "+datos[4];
+                    System.out.println("¡Canción existente.!");
+
+                    datosCategoria = datos[0] + " / " + datos[1] + " / " + datos[3] + " / " + datos[4];
                 }
 
             }
@@ -226,6 +224,5 @@ public class ArchivoBuscarMusica {
         return datosCategoria;
 
     }
-     
 
 }
