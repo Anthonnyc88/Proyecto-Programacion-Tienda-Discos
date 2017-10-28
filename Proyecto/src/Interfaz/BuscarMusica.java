@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import proyecto.Controlador;
+import proyecto.Correo;
 
 /**
  *
@@ -24,6 +26,9 @@ public class BuscarMusica extends javax.swing.JFrame {
 
     private DefaultListModel modelo;
     private int seleccion = -1;
+    private String correo = "";
+    private String nombreDisco = "";
+    Correo a = new Correo();
 
     /**
      * Creates new form comprarMusica
@@ -251,7 +256,7 @@ public class BuscarMusica extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArchivoBuscarMusica buscar = new ArchivoBuscarMusica();
         if (buscar.buscarCancion(textDisco.getText(), textAutors.getText(), textPrecios.getText())) {
-           // JOptionPane.showMessageDialog(null, "Encontrado");
+            // JOptionPane.showMessageDialog(null, "Encontrado");
 
             ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
 
@@ -305,18 +310,43 @@ public class BuscarMusica extends javax.swing.JFrame {
 
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
-            String nombrePelicula = detalleInformacionMusica[0];
+            nombreDisco = JOptionPane.showInputDialog("Nombre del disco que compro");
+            correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            String nombreMusica = detalleInformacionMusica[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-            String detalleTotalOrdenCancion = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
+            String detalleTotalOrdenCancion = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombreMusica + ";" + cantidadOrdenada;
 
             System.out.println(detalleTotalOrdenCancion);
 
             archivoMusicaOrdenes.registrarOrden("cancionesOrdenes.txt", detalleTotalOrdenCancion);
 
             JOptionPane.showMessageDialog(null, "Compra Realizada");
+            
+            enviarCorreoElectronico();
+
+        }
+
+    }
+
+    public void enviarCorreoElectronico() {
+
+        a.setContraseña("cnaipcaudzpcbdqh");
+        a.setUsuario("anthonnyc10@gmail.com");
+        a.setAsunto("Compra exitosa");
+        a.setMensaje("El nombre del disco que compro es: " + nombreDisco);
+        a.setDestino(correo);
+        a.setNombreArchivo("Azul.jpg");
+        a.setRutaArchivo("Azul.jpg");
+        a.setAsunto(" Su compra ha sido un Exito !!!");
+        Controlador b = new Controlador();
+
+        if (b.enviarCorreo(a)) {
+            JOptionPane.showMessageDialog(null, "Envio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "error");
 
         }
 
