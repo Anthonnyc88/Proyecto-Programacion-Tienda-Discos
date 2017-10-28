@@ -6,6 +6,10 @@
 package Interfaz;
 
 import Datos.ArchivoBuscarMusica;
+import Datos.ArchivoBuscarPelicula;
+import Datos.ArchivoOrdenes;
+import Datos.ArchivoPreOrdenes;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -17,6 +21,9 @@ import javax.swing.JPanel;
  * @author Anthonny
  */
 public class BuscarMusica extends javax.swing.JFrame {
+
+    private DefaultListModel modelo;
+    private int seleccion = -1;
 
     /**
      * Creates new form comprarMusica
@@ -33,6 +40,11 @@ public class BuscarMusica extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+
+        bntComprar.setVisible(false);
+
+        modelo = new DefaultListModel();
+        resultadosCanciones.setModel(modelo);
     }
 
     /**
@@ -63,9 +75,9 @@ public class BuscarMusica extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        resultadosCanciones = new javax.swing.JList();
         jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        bntComprar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         bntBuscar.setText("Buscar");
@@ -125,14 +137,19 @@ public class BuscarMusica extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(resultadosCanciones);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Informacion de Cancion");
 
-        jButton3.setText("Comprar");
+        bntComprar.setText("Comprar");
+        bntComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntComprarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Consultar");
 
@@ -181,7 +198,7 @@ public class BuscarMusica extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(55, 55, 55)
-                        .addComponent(jButton3)
+                        .addComponent(bntComprar)
                         .addGap(97, 97, 97))))
         );
         layout.setVerticalGroup(
@@ -197,7 +214,7 @@ public class BuscarMusica extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
+                            .addComponent(bntComprar)
                             .addComponent(jButton1)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -234,15 +251,76 @@ public class BuscarMusica extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArchivoBuscarMusica buscar = new ArchivoBuscarMusica();
         if (buscar.buscarCancion(textDisco.getText(), textAutors.getText(), textPrecios.getText())) {
-            JOptionPane.showMessageDialog(null, "Encontrado");
-           
-           
+           // JOptionPane.showMessageDialog(null, "Encontrado");
+
+            ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
+
+            modelo.addElement(archivoMusica.verInformacionMusica(textDisco.getText()));
+            bntComprar.setVisible(true);
+
         } else {
             JOptionPane.showMessageDialog(null, "Cancion no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
 
     }//GEN-LAST:event_bntBuscarCancionActionPerformed
+
+    private void bntComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntComprarActionPerformed
+        // TODO add your handling code here:
+
+        String detalleMusica = resultadosCanciones.getSelectedValue().toString();
+        String[] detalleInformacionMusica = detalleMusica.split(" / ");
+
+        ArchivoOrdenes archivoMusicaOrdenes = new ArchivoOrdenes();
+
+        ArchivoPreOrdenes archivoMusicaPreOrdenes = new ArchivoPreOrdenes();
+
+        ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
+
+        int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
+
+        int cantidadOriginal = Integer.parseInt(archivoMusica.verificarCantidadDisponibleMusica(detalleInformacionMusica[0], detalleInformacionMusica[1]));
+
+        if (cantidaDeseada > cantidadOriginal) {
+
+            int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
+
+            if (opcionPreOrden == 1) {
+
+                //esto es lo que se va a ir al archivo de preordenes
+                String informacionPreOrden = detalleInformacionMusica[0] + ";Cancion;" + cantidaDeseada;
+
+                JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+
+                archivoMusicaPreOrdenes.registrarPreOrden("cancionesPreOrdenes.txt", informacionPreOrden);
+                //aqui se guardan las pre ordenes
+
+                System.out.println(informacionPreOrden);
+
+            } else {
+                System.out.println("Pre Orden negada");
+            }
+
+        } else if (cantidaDeseada <= cantidadOriginal) {
+
+            String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
+            String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
+            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            String nombrePelicula = detalleInformacionMusica[0];
+            String cantidadOrdenada = String.valueOf(cantidaDeseada);
+
+            //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
+            String detalleTotalOrdenCancion = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
+
+            System.out.println(detalleTotalOrdenCancion);
+
+            archivoMusicaOrdenes.registrarOrden("cancionesOrdenes.txt", detalleTotalOrdenCancion);
+
+            JOptionPane.showMessageDialog(null, "Compra Realizada");
+
+        }
+
+    }//GEN-LAST:event_bntComprarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,9 +361,9 @@ public class BuscarMusica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntBuscar;
     private javax.swing.JButton bntBuscarCancion;
+    private javax.swing.JButton bntComprar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -296,8 +374,8 @@ public class BuscarMusica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList resultadosCanciones;
     private javax.swing.JTextField textAutor;
     private javax.swing.JTextField textAutors;
     private javax.swing.JTextField textDisco;
