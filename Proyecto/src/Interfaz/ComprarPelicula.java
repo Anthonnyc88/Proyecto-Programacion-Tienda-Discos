@@ -10,6 +10,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
+import proyecto.Controlador;
+import proyecto.Correo;
 
 /**
  *
@@ -19,6 +21,9 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
     private DefaultListModel modelo;
     private int seleccion = -1;
+    private String correo = "";
+    private String nombreDisco = "";
+    Correo a = new Correo();
 
     /**
      * Creates new form ComprarPelicula
@@ -147,10 +152,10 @@ public class ComprarPelicula extends javax.swing.JFrame {
         String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
 
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
-        
-         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
-         
-          ArchivoPreOrdenes archivoPeliculasPreOrdenes = new ArchivoPreOrdenes();
+
+        ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
+
+        ArchivoPreOrdenes archivoPeliculasPreOrdenes = new ArchivoPreOrdenes();
 
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
@@ -166,7 +171,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
                 String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
 
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-                
+
                 archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
                 //aqui se guardan las pre ordenes
 
@@ -179,18 +184,40 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            String correoCliente = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            nombreDisco = JOptionPane.showInputDialog("Nombre del disco a comprar");
+            correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
             String nombrePelicula = detalleInformacionPelicula[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correoCliente + ";" + nombrePelicula + ";" + cantidadOrdenada;
-            
-            archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt",detalleTotalOrdenPelicula);
+            String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombrePelicula + ";" + cantidadOrdenada;
+
+            archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt", detalleTotalOrdenPelicula);
             System.out.println(detalleTotalOrdenPelicula);
-            
-            
+
             JOptionPane.showMessageDialog(null, "Compra Realizada");
+            enviarCorreoElectronico();
+
+        }
+    }
+
+    public void enviarCorreoElectronico() {
+
+        a.setContraseña("cnaipcaudzpcbdqh");
+        a.setUsuario("anthonnyc10@gmail.com");
+        a.setAsunto("Compra exitosa");
+        a.setMensaje("El nombre de la pelicula que compro es : " + nombreDisco);
+        a.setDestino(correo);
+        a.setNombreArchivo("Azul.jpg");
+        a.setRutaArchivo("Azul.jpg");
+        a.setAsunto(" Su compra ha sido un Exito !!!");
+        Controlador b = new Controlador();
+
+        if (b.enviarCorreo(a)) {
+            JOptionPane.showMessageDialog(null, "Envio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "error");
 
         }
 

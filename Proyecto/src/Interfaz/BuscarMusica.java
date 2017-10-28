@@ -323,7 +323,7 @@ public class BuscarMusica extends javax.swing.JFrame {
             archivoMusicaOrdenes.registrarOrden("cancionesOrdenes.txt", detalleTotalOrdenCancion);
 
             JOptionPane.showMessageDialog(null, "Compra Realizada");
-            
+
             enviarCorreoElectronico();
 
         }
