@@ -325,6 +325,8 @@ public class BuscarMusica extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Compra Realizada");
 
             enviarCorreoElectronico(cantidadOrdenada);
+            
+            //lo hice aqui tambien tambien
 
         }
 
