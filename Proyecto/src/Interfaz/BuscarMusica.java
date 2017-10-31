@@ -324,18 +324,18 @@ public class BuscarMusica extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Compra Realizada");
 
-            enviarCorreoElectronico();
+            enviarCorreoElectronico(cantidadOrdenada);
 
         }
 
     }
 
-    public void enviarCorreoElectronico() {
+    public void enviarCorreoElectronico(String cantidadArticulo) {
 
         a.setContraseña("cnaipcaudzpcbdqh");
         a.setUsuario("anthonnyc10@gmail.com");
         a.setAsunto("Compra exitosa");
-        a.setMensaje("El nombre del disco que compro es: " + nombreDisco);
+        a.setMensaje("El nombre del disco que compro es: " + nombreDisco+ "\nCantidad : "+cantidadArticulo);
         a.setDestino(correo);
         a.setNombreArchivo("Azul.jpg");
         a.setRutaArchivo("Azul.jpg");

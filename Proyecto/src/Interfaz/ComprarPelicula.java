@@ -196,17 +196,21 @@ public class ComprarPelicula extends javax.swing.JFrame {
             System.out.println(detalleTotalOrdenPelicula);
 
             JOptionPane.showMessageDialog(null, "Compra Realizada");
-            enviarCorreoElectronico();
+            
+//            Agrego como paramtro la cantidad del articulo para poder enviarlo
+//            en el mensaje del correo en Comprar Pelicula
+
+            enviarCorreoElectronico(cantidadOrdenada);
 
         }
     }
 
-    public void enviarCorreoElectronico() {
+    public void enviarCorreoElectronico(String cantidadArticulo) {
 
         a.setContraseña("cnaipcaudzpcbdqh");
         a.setUsuario("anthonnyc10@gmail.com");
         a.setAsunto("Compra exitosa");
-        a.setMensaje("El nombre de la pelicula que compro es : " + nombreDisco);
+        a.setMensaje("El nombre de la pelicula que compro es : " + nombreDisco + "\nCantidad : "+cantidadArticulo);
         a.setDestino(correo);
         a.setNombreArchivo("Azul.jpg");
         a.setRutaArchivo("Azul.jpg");
