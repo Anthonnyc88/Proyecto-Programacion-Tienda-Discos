@@ -25,12 +25,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="bntReporte3" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="bntReporte2" min="-2" max="-2" attributes="0"/>
-                      <Component id="bntReporte" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="bntReporte3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bntReporte2" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="bntReporte1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -40,6 +40,11 @@
               </Group>
               <EmptySpace pref="199" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="bntRegresar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -47,8 +52,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bntReporte" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bntReporte4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bntReporte1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -60,20 +65,14 @@
                   <Component id="bntReporte3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bntReporte6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="100" max="32767" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <Component id="bntRegresar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="bntReporte">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reporte 1"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntReporteActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="bntReporte2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reporte 2"/>
@@ -93,11 +92,27 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Reporte 5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntReporte5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bntReporte6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reporte 6"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bntReporte1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reporte 1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bntRegresar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Regresar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRegresarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

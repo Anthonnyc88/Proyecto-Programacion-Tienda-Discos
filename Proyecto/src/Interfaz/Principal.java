@@ -206,6 +206,10 @@ public class Principal extends javax.swing.JFrame {
         ventanaInicioUsuarioUsuario.pack();
         ventanaInicioUsuarioUsuario.setVisible(true);
         setLocationRelativeTo(null);
+        this.setVisible(false);
+        
+       
+
 
     }//GEN-LAST:event_optInicioSesionActionPerformed
 
