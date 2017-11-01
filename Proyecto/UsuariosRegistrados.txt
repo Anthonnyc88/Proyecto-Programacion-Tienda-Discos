@@ -1,4 +1,3 @@
-
 Kevin;12345;1010;kevinlarios2343@gmail.com
 Anthonny;402320214;3030;Anthonnyc10@gmail.com
 Maria;32323;1414;Silva@gmail.com
@@ -12,3 +11,6 @@ Sandra;32323232;788;anthonnyc10@gmail.com
 hola;121323;32323;anthonnyc66@gmail.com
 Karol;402320214;4590;anthonnyc10@gmail.com
 Beto;34343443;45;anthonnyc10@gmail.com
+Antonio;343434;21;antonio@gmail.com
+Roger;3030323;9090;roger@gmail.com
+Noel;1212;8888;noel@gmail.com
