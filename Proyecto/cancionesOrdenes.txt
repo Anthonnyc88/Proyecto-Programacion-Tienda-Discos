@@ -1,9 +1,2 @@
 
-Anthonny;402320214;anthonnyc10@gmail.com;Legend;2
-Anthonny;402320214;anthonnyc10@gmail.com;Legend;2
-Anthonny;402320214;;Legend;3
-Anthonny;2014085419;;Legend;3
-A;3232;;Legend;2
-Anthonny;6789;;Legend;2
-Anthonny;;anthonnyc10@gmail.com;Legend;2
-Majony;567890;anthonnyc10@gmail.com;Legend;2
+Legend;Anthonny;402320214;anthonnyc10@gmail.com;Legend;2

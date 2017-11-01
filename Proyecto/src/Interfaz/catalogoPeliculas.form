@@ -61,10 +61,8 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="comboCategorias" alignment="0" pref="125" max="32767" attributes="0"/>
-                                  <Component id="textPrecio" alignment="1" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="comboCategorias" alignment="0" pref="298" max="32767" attributes="0"/>
+                              <Component id="textPrecio" alignment="1" max="32767" attributes="0"/>
                               <Component id="textNombredisco" pref="298" max="32767" attributes="0"/>
                               <Component id="textAutor" alignment="0" max="32767" attributes="0"/>
                           </Group>

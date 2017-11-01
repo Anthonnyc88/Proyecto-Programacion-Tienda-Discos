@@ -1,8 +1,5 @@
-
 Noel;123456789;sjbdvjsbvjsbfv;Bad Boys 2;6
-Ricardo Quaresma;17;ricardoq@gmail.com;Bajo La Misma Estrella;2
+Ricardo Quaresma;17;ricardoq@gmail.com;Bajo La Misma Estrella;4
 Anthonny;323232;anthonnyc10@gmail.com;Anabelle;3
-
-Antonio;402320214;anthonnyc10@gmail.com;Donde estan los Fantasmas;2
-Maria;402320214;ermelindasilvaramirez@gmail.com;Anabelle;2
-tony;23232;anthonnyc10@gmail.com;Anabelle;1
+Antonio;402320214;anthonnyc10@gmail.com;Donde estan los Fantasmas;1
+Maria;402320214;ermelindasilvaramirez@gmail.com;Anabelle;1
