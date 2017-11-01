@@ -66,7 +66,7 @@ public class Mantenimiento extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Option");
+        jMenu1.setText("Opciones");
 
         jMenuItem1.setText("Catalogo Musica");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
