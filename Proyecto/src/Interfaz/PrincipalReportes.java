@@ -30,6 +30,9 @@ public class PrincipalReportes extends javax.swing.JFrame {
     JFreeChart GraficaMusica;
     DefaultCategoryDataset musica = new DefaultCategoryDataset();
 
+    JFreeChart GraficaUsuarios;
+    DefaultCategoryDataset musicaUsuarios = new DefaultCategoryDataset();
+
 ////////////////////////////////////////////////////////////////////
     JFreeChart Grafica;
     JFreeChart grafica1;
@@ -58,6 +61,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
       //REPORTES DE MUSICA  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////GRAFICA REPORTE 1////
         setTitle("Tienda de Discos");
         musica.addValue(a.CantidadBachata(), "Bachata", "Bachata");
         musica.addValue(a.CantidadElectronica(), "Electronica", "Electronica");
@@ -66,6 +70,17 @@ public class PrincipalReportes extends javax.swing.JFrame {
         musica.addValue(a.CantidadPop(), "Pop", "Pop");
         GraficaMusica = ChartFactory.createBarChart("Compras de discos de musica",
                 "Categorias", "Compras", musica,
+                PlotOrientation.HORIZONTAL, true, true, false);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////GRAFICA DE REPORTE 2////
+        musicaUsuarios.addValue(a.CantidadUsuarioMusica(), "Kevin", "Kevin");
+        musicaUsuarios.addValue(a.CantidadUsuarioMusica2(), "Raquel", "Raquel");
+        musicaUsuarios.addValue(a.CantidadUsuarioMusica3(), "Anthonny", "Anthonny");
+        musicaUsuarios.addValue(a.CantidadUsuarioMusica4(), "Ruben", "Ruben");
+        musicaUsuarios.addValue(a.CantidadUsuarioMusica5(), "Kendall", "Kendall");
+        GraficaUsuarios = ChartFactory.createBarChart("Usuarios que han comprado mas discos",
+                "Categorias", "Compras", musicaUsuarios,
                 PlotOrientation.HORIZONTAL, true, true, false);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,6 +143,11 @@ public class PrincipalReportes extends javax.swing.JFrame {
         });
 
         bntReporte4.setText("Reporte 4");
+        bntReporte4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntReporte4ActionPerformed(evt);
+            }
+        });
 
         bntReporte5.setText("Reporte 5");
         bntReporte5.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +219,14 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte5ActionPerformed
         // TODO add your handling code here:
+         ChartPanel Panel = new ChartPanel(grafica1);
+        JFrame Ventana = new JFrame("JFreeChart");
+        Ventana.setTitle("Reporte 3");
+        Ventana.getContentPane().add(Panel);
+        Ventana.pack();
+        Ventana.setVisible(true);
+        Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     }//GEN-LAST:event_bntReporte5ActionPerformed
 
     private void bntRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRegresarActionPerformed
@@ -223,7 +251,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte2ActionPerformed
         // TODO add your handling code here:
-        ChartPanel Panel = new ChartPanel(Grafica);
+        ChartPanel Panel = new ChartPanel(GraficaUsuarios);
         JFrame Ventana = new JFrame("JFreeChart");
         Ventana.setTitle("Reporte 2");
         Ventana.getContentPane().add(Panel);
@@ -234,14 +262,19 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte3ActionPerformed
         // TODO add your handling code here:
-        ChartPanel Panel = new ChartPanel(grafica1);
+       
+    }//GEN-LAST:event_bntReporte3ActionPerformed
+
+    private void bntReporte4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte4ActionPerformed
+        // TODO add your handling code here:
+        ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana = new JFrame("JFreeChart");
-        Ventana.setTitle("Reporte 3");
+        Ventana.setTitle("Reporte 2");
         Ventana.getContentPane().add(Panel);
         Ventana.pack();
         Ventana.setVisible(true);
         Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }//GEN-LAST:event_bntReporte3ActionPerformed
+    }//GEN-LAST:event_bntReporte4ActionPerformed
 
     /**
      * @param args the command line arguments

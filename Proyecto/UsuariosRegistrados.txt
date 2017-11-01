@@ -1,12 +1,12 @@
 Kevin;12345;1010;kevinlarios2343@gmail.com
 Anthonny;402320214;3030;Anthonnyc10@gmail.com
 Maria;32323;1414;Silva@gmail.com
-Anthonny;3232;232;Anthonny45
+Raquel;3232;232;Anthonny45
 aa;323;323;asa
 Aas;23;asa;1323
 Ruben;402320214;1020;anthonnyc10@gmail.com
 Maria;7870979;5050;ermelindasilvaramirez@gmail.com 
-Kenda Retana;2014085419;9090; kretanam@est.utn.ac.cr
+Kendall;2014085419;9090; kretanam@est.utn.ac.cr
 Sandra;32323232;788;anthonnyc10@gmail.com
 hola;121323;32323;anthonnyc66@gmail.com
 Karol;402320214;4590;anthonnyc10@gmail.com
