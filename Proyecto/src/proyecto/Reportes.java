@@ -14,8 +14,284 @@ import java.io.IOException;
  * @author Anthonny
  */
 public class Reportes {
+
+    public String BuscarMusicaBachata() {
+        String nombredisco = "";
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("catalogoCanciones.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals("Melodia")) {
+                    nombredisco = lista1[0];
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return nombredisco;
+    }
+
+    public int CantidadBachata() {
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("cancionesOrdenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[3].equals(BuscarMusicaBachata())) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
     
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public String BuscarMusicaElectronica() {
+        String nombredisco = "";
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("catalogoCanciones.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals("Titanium")) {
+                    nombredisco = lista1[0];
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return nombredisco;
+    }
+
+    public int CantidadElectronica() {
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("cancionesOrdenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[3].equals(BuscarMusicaElectronica())) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
     
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+public String BuscarMusicaReggae() {
+        String nombredisco = "";
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("catalogoCanciones.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals("Legend")) {
+                    nombredisco = lista1[0];
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return nombredisco;
+    }
+
+    public int CantidadReggae() {
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("cancionesOrdenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[3].equals(BuscarMusicaReggae())) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ public String BuscarMusicaReaggaeton() {
+        String nombredisco = "";
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("catalogoCanciones.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals("Despacito")) {
+                    nombredisco = lista1[0];
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return nombredisco;
+    }
+
+    public int CantidadReaggaeton() {
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("cancionesOrdenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[3].equals(BuscarMusicaReaggaeton())) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public String BuscarMusicaPop() {
+        String nombredisco = "";
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("catalogoCanciones.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals("Purpose")) {
+                    nombredisco = lista1[0];
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return nombredisco;
+    }
+
+    public int CantidadPop() {
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader lector = new BufferedReader(new FileReader("cancionesOrdenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                contador++;
+                temp = linea;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[3].equals(BuscarMusicaPop())) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            lector.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String BuscarPeliculaTerror() {
         String nombredisco = "";
         try {
@@ -42,10 +318,8 @@ public class Reportes {
 
         return nombredisco;
     }
-    
-    
-    
-     public int CantidadTerror() {
+
+    public int CantidadTerror() {
         int cantidad = 0;
         try {
             String temp;
@@ -57,7 +331,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[3].equals(BuscarPeliculaTerror())) {
@@ -73,8 +347,7 @@ public class Reportes {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      public String BuscarPeliculaSuspenso() {
+    public String BuscarPeliculaSuspenso() {
         String nombredisco = "";
         try {
             String temp;
@@ -100,7 +373,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadSuspenso() {
         int cantidad = 0;
         try {
@@ -113,7 +386,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[3].equals(BuscarPeliculaSuspenso())) {
@@ -127,9 +400,9 @@ public class Reportes {
 
         return cantidad;
     }
-    
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- public String BuscarPeliculaComedia() {
+    public String BuscarPeliculaComedia() {
         String nombredisco = "";
         try {
             String temp;
@@ -155,7 +428,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadComedia() {
         int cantidad = 0;
         try {
@@ -168,7 +441,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[3].equals(BuscarPeliculaComedia())) {
@@ -182,9 +455,9 @@ public class Reportes {
 
         return cantidad;
     }
-    
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String BuscarPeliculaRomance() {
+    public String BuscarPeliculaRomance() {
         String nombredisco = "";
         try {
             String temp;
@@ -210,7 +483,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadRomance() {
         int cantidad = 0;
         try {
@@ -222,7 +495,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[3].equals(BuscarPeliculaRomance())) {
@@ -237,7 +510,8 @@ public class Reportes {
         return cantidad;
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String BuscarPeliculaAccion() {
+
+    public String BuscarPeliculaAccion() {
         String nombredisco = "";
         try {
             String temp;
@@ -263,7 +537,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadAccion() {
         int cantidad = 0;
         try {
@@ -276,7 +550,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[3].equals(BuscarPeliculaAccion())) {
@@ -291,6 +565,7 @@ public class Reportes {
         return cantidad;
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public String Usuario1() {
         String nombredisco = "";
         try {
@@ -317,7 +592,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadUsuario1() {
         int cantidad = 0;
         try {
@@ -330,7 +605,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(Usuario1())) {
@@ -345,8 +620,8 @@ public class Reportes {
         return cantidad;
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-     public String Usuario2() {
+
+    public String Usuario2() {
         String nombredisco = "";
         try {
             String temp;
@@ -372,7 +647,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadUsuario2() {
         int cantidad = 0;
         try {
@@ -385,7 +660,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(Usuario2())) {
@@ -400,7 +675,8 @@ public class Reportes {
         return cantidad;
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      public String Usuario3() {
+
+    public String Usuario3() {
         String nombredisco = "";
         try {
             String temp;
@@ -426,7 +702,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadUsuario3() {
         int cantidad = 0;
         try {
@@ -439,7 +715,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(Usuario3())) {
@@ -453,7 +729,7 @@ public class Reportes {
 
         return cantidad;
     }
-    
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String Usuario4() {
         String nombredisco = "";
@@ -481,7 +757,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadUsuario4() {
         int cantidad = 0;
         try {
@@ -494,7 +770,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(Usuario4())) {
@@ -508,9 +784,9 @@ public class Reportes {
 
         return cantidad;
     }
-    
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String Usuario5() {
+    public String Usuario5() {
         String nombredisco = "";
         try {
             String temp;
@@ -536,7 +812,7 @@ public class Reportes {
 
         return nombredisco;
     }
-    
+
     public int CantidadUsuario5() {
         int cantidad = 0;
         try {
@@ -549,7 +825,7 @@ public class Reportes {
 
             while ((linea = lector.readLine()) != null) {
                 contador++;
-                temp =linea;
+                temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(Usuario5())) {
@@ -563,6 +839,5 @@ public class Reportes {
 
         return cantidad;
     }
-    
-    
+
 }

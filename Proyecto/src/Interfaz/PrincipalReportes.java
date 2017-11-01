@@ -27,10 +27,14 @@ import proyecto.Reportes;
  */
 public class PrincipalReportes extends javax.swing.JFrame {
 
-    JFreeChart Grafica ;
-     JFreeChart  grafica1;
+    JFreeChart GraficaMusica;
+    DefaultCategoryDataset musica = new DefaultCategoryDataset();
+
+////////////////////////////////////////////////////////////////////
+    JFreeChart Grafica;
+    JFreeChart grafica1;
     DefaultCategoryDataset Datos = new DefaultCategoryDataset();
-     DefaultCategoryDataset DatosUsuario = new DefaultCategoryDataset();
+    DefaultCategoryDataset DatosUsuario = new DefaultCategoryDataset();
     proyecto.Reportes a = new proyecto.Reportes();
     private int numero = 10;
     private String nombrePersona = "";
@@ -52,27 +56,39 @@ public class PrincipalReportes extends javax.swing.JFrame {
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
+      //REPORTES DE MUSICA  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        setTitle("Tienda de Discos");
+        musica.addValue(a.CantidadBachata(), "Bachata", "Bachata");
+        musica.addValue(a.CantidadElectronica(), "Electronica", "Electronica");
+        musica.addValue(a.CantidadReggae(), "Reggae", "Reggae");
+        musica.addValue(a.CantidadReaggaeton(), "Reaggaeton", "Reggaeton");
+        musica.addValue(a.CantidadPop(), "Pop", "Pop");
+        GraficaMusica = ChartFactory.createBarChart("Compras de discos de musica",
+                "Categorias", "Compras", musica,
+                PlotOrientation.HORIZONTAL, true, true, false);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //REPORTES DE PELICULAS
         setTitle("Tienda de discos");
         Datos.addValue(a.CantidadTerror(), "Terror", "Terror");
         Datos.addValue(a.CantidadSuspenso(), "Suspenso", "Suspenso");
-        Datos.addValue(a.CantidadComedia(), "Comedia",  "Comedia");
-        Datos.addValue(a.CantidadRomance(), "Romance",  "Romances");
-        Datos.addValue(a.CantidadAccion(), "Accion",   "Accion");
+        Datos.addValue(a.CantidadComedia(), "Comedia", "Comedia");
+        Datos.addValue(a.CantidadRomance(), "Romance", "Romances");
+        Datos.addValue(a.CantidadAccion(), "Accion", "Accion");
 
         Grafica = ChartFactory.createBarChart("Compras de Peliculas",
                 "Categorias", "Compras", Datos,
                 PlotOrientation.HORIZONTAL, true, true, false);
-        
-        
-        
-         setTitle("Tienda de discos");
+
+        setTitle("Tienda de discos");
         DatosUsuario.addValue(a.CantidadUsuario1(), "Maria", "Maria");
         DatosUsuario.addValue(a.CantidadUsuario2(), "Anthonny", "Anthonny");
-        DatosUsuario.addValue(a.CantidadUsuario3(), "Antonio",  "Anthonio");
-        DatosUsuario.addValue(a.CantidadUsuario4(), "Noel",  "Noel");
-        DatosUsuario.addValue(a.CantidadUsuario5(), "Roger",   "Roger");
+        DatosUsuario.addValue(a.CantidadUsuario3(), "Antonio", "Anthonio");
+        DatosUsuario.addValue(a.CantidadUsuario4(), "Noel", "Noel");
+        DatosUsuario.addValue(a.CantidadUsuario5(), "Roger", "Roger");
 
-         grafica1 = ChartFactory.createBarChart("Discos de Peliculas mas comprados por usuario",
+        grafica1 = ChartFactory.createBarChart("Discos de Peliculas mas comprados por usuario",
                 "Usuarios", "Usuarios", DatosUsuario,
                 PlotOrientation.HORIZONTAL, true, true, false);
 
@@ -194,13 +210,20 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte1ActionPerformed
         // TODO add your handling code here:
+        ChartPanel Panel = new ChartPanel(GraficaMusica);
+        JFrame Ventana = new JFrame("JFreeChart");
+        Ventana.setTitle("Reporte 1");
+        Ventana.getContentPane().add(Panel);
+        Ventana.pack();
+        Ventana.setVisible(true);
+        Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
     }//GEN-LAST:event_bntReporte1ActionPerformed
 
     private void bntReporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte2ActionPerformed
         // TODO add your handling code here:
-         ChartPanel Panel = new ChartPanel(Grafica);
+        ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana = new JFrame("JFreeChart");
         Ventana.setTitle("Reporte 2");
         Ventana.getContentPane().add(Panel);
@@ -211,7 +234,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte3ActionPerformed
         // TODO add your handling code here:
-         ChartPanel Panel = new ChartPanel(grafica1);
+        ChartPanel Panel = new ChartPanel(grafica1);
         JFrame Ventana = new JFrame("JFreeChart");
         Ventana.setTitle("Reporte 3");
         Ventana.getContentPane().add(Panel);
