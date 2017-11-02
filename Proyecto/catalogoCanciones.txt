@@ -3,5 +3,4 @@ Legend;Bob Marley;Reggae;4000;Is this Love;One Love;No Woman No Cry;4
 Purpose;Justin;Pop;7000;Sorry;Babe;What do yuo mean;5
 Tell me You Love me;Demi Lovato;Pop;15000;Confident;Cool For The Summer;5
 Melodia;Dile el amor;Aventura;Bachata;3400;Felices los tres;Amor de madre;6
-Titanium;Who’s That Chick ft;David Gueta;Electronica;5000;Where Them Girls At ft. Flo Rida & Nicki Minaj;6
 Despacito;Dale la que es tuya;Danid Yankee;Reggaeton;7000;Perreo;8

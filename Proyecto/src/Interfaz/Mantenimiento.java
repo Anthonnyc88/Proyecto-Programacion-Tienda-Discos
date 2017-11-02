@@ -50,6 +50,8 @@ public class Mantenimiento extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +86,7 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Lista de compras");
+        jMenuItem3.setText("Lista de Compras Peliculas");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -92,13 +94,29 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setText("Lista de Preordenes");
+        jMenuItem4.setText("Lista de Preordenes Peliculas");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem4);
+
+        jMenuItem6.setText("Lista Compras Canciones");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem7.setText("Lista Preordenes Canciones");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
 
         jMenuItem5.setText("Reportes");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +159,7 @@ public class Mantenimiento extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        listaCompras d = new listaCompras();
+        listaComprasPeliculas d = new listaComprasPeliculas();
         d.pack();
         d.setVisible(true);
         this.setVisible(false);
@@ -159,7 +177,7 @@ public class Mantenimiento extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        listaPreordenes x = new listaPreordenes();
+        listaPreordenesPeliculas x = new listaPreordenesPeliculas();
         x.pack();
         x.setVisible(true);
         this.setVisible(false);
@@ -185,6 +203,25 @@ public class Mantenimiento extends javax.swing.JFrame {
         // TODO add your handling code here:
      
     }//GEN-LAST:event_bntCerrarMouseClicked
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        
+        listaComprasCanciones ventanaListaOrdenesCanciones = new listaComprasCanciones();
+        ventanaListaOrdenesCanciones.pack();
+        ventanaListaOrdenesCanciones.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        
+        listaPreordenesCanciones ventanaListaPreOrdenesCanciones = new listaPreordenesCanciones();
+        ventanaListaPreOrdenesCanciones.pack();
+        ventanaListaPreOrdenesCanciones.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,5 +267,7 @@ public class Mantenimiento extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 }

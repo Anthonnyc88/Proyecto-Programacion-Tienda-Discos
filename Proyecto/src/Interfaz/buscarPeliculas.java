@@ -148,34 +148,38 @@ public class buscarPeliculas extends javax.swing.JFrame {
                     .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                     .addComponent(textPrecio)
                     .addComponent(textAutor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(bntBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnComprar)
+                .addGap(243, 243, 243))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tituloResultadoCanciones)
                 .addGap(202, 202, 202))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(bntBuscar)
-                .addGap(124, 124, 124)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                .addComponent(btnComprar)
-                .addGap(243, 243, 243))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton1)))
+                .addGap(8, 8, 8)
                 .addComponent(jLabel5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -197,9 +201,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnComprar)
-                    .addComponent(jButton1))
+                .addComponent(btnComprar)
                 .addGap(57, 57, 57))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -255,20 +257,21 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
             int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
 
-            if (opcionPreOrden == 1) {
-
-                //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
-
-                JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-
-                archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
-                //aqui se guardan las pre ordenes
-
-                System.out.println(informacionPreOrden);
-
-            } else {
-                System.out.println("Pre Orden negada");
+            switch (opcionPreOrden) {
+                case 1:
+                    //esto es lo que se va a ir al archivo de preordenes
+                    String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
+                    JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+                    archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
+                    //aqui se guardan las pre ordenes
+                    System.out.println(informacionPreOrden);
+                    break;
+                case 2:
+                    System.out.println("Pre Orden negada");
+                    break;
+                default:
+                    System.out.println("Opcion No Disponible");
+                    break;
             }
 
         } else if (cantidaDeseada <= cantidadOriginal) {
@@ -276,11 +279,13 @@ public class buscarPeliculas extends javax.swing.JFrame {
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
             nombreDisco= JOptionPane.showInputDialog("Nombre de la pelicula que compro");
-             correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
+            correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
             String nombrePelicula = detalleInformacionPelicula[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
+            
             String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombrePelicula + ";" + cantidadOrdenada;
 
             System.out.println(detalleTotalOrdenPelicula);
@@ -289,6 +294,10 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Compra Realizada");
             enviarCorreoElectronico(cantidadOrdenada);
+            
+            }
+            
+             JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion \nNo se realizo la Compra\nVuelvalo a Intentar.");
 
         }
 

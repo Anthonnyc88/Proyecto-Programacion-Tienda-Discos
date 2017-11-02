@@ -17,18 +17,18 @@ import javax.swing.JPanel;
  *
  * @author Anthonny
  */
-public class listaCompras extends javax.swing.JFrame {
+public class listaComprasPeliculas extends javax.swing.JFrame {
 
     ArchivoOrdenes archivoOrdenes = new ArchivoOrdenes();
-    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
     private DefaultListModel modelo;
     private int seleccion = -1;
     
+    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
     
     /**
      * Creates new form listaCompras
      */
-    public listaCompras() {
+    public listaComprasPeliculas() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -43,7 +43,7 @@ public class listaCompras extends javax.swing.JFrame {
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
         
-         modelo = new DefaultListModel();
+        modelo = new DefaultListModel();
         listaOrdenes.setModel(modelo);
         
         String datosPeliculas[]=archivoOrdenes.listaOrdenesPeliculas();
@@ -147,20 +147,21 @@ public class listaCompras extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(listaCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasPeliculas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(listaCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasPeliculas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(listaCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasPeliculas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(listaCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasPeliculas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new listaCompras().setVisible(true);
+                new listaComprasPeliculas().setVisible(true);
             }
         });
     }

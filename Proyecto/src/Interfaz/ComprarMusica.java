@@ -59,8 +59,9 @@ public class ComprarMusica extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bntDetalles = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaMusica = new javax.swing.JList<String>();
+        listaMusica = new javax.swing.JList<>();
         bntReproducir = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +105,13 @@ public class ComprarMusica extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,8 +135,13 @@ public class ComprarMusica extends javax.swing.JFrame {
                 .addContainerGap(215, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(307, 307, 307))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(307, 307, 307))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnRegresar)
+                        .addGap(115, 115, 115))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +164,9 @@ public class ComprarMusica extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(categoriaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegresar)
+                        .addGap(67, 67, 67))))
         );
 
         pack();
@@ -186,8 +201,11 @@ public class ComprarMusica extends javax.swing.JFrame {
                 //aqui se guardan las pre ordenes
 
                 System.out.println(informacionPreOrden);
-            } else {
+            } else if(opcionPreOrden==2) {
                 System.out.println("Pre Orden negada");
+            }else{
+            
+                System.out.println("Opcion no Disponible");
             }
 
         } else if (cantidaDeseada <= cantidadOriginal) {
@@ -200,16 +218,19 @@ public class ComprarMusica extends javax.swing.JFrame {
             String nombrePelicula = detalleInformacionMusica[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
+            
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenMusica = nombreCliente + ";" + cedulaCliente + ";" + correoElectronico + ";" + nombrePelicula + ";" + cantidadOrdenada;
 
             archivoPeliculasOrdenes.registrarOrden("cancionesOrdenes.txt", detalleTotalOrdenMusica);
             System.out.println(detalleTotalOrdenMusica);
             
-            
              JOptionPane.showMessageDialog(null, "Compra Realizada");
              enviarCorreoElectronico(cantidadOrdenada);
-            
+             
+            }
+            JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion \nNo se realizo la Compra\nVuelvalo a Intentar.");
         }
     }
 
@@ -267,6 +288,14 @@ public class ComprarMusica extends javax.swing.JFrame {
         b.reproducir();
     }//GEN-LAST:event_bntReproducirActionPerformed
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        PrincipalUsuarios ventana = new PrincipalUsuarios();
+        ventana.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,6 +335,7 @@ public class ComprarMusica extends javax.swing.JFrame {
     private javax.swing.JButton bntComprar;
     private javax.swing.JButton bntDetalles;
     private javax.swing.JButton bntReproducir;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox categoriaMusica;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

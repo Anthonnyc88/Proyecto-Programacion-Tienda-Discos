@@ -54,17 +54,18 @@ public class ComprarPelicula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        categoriaPeliculas = new javax.swing.JComboBox<String>();
+        categoriaPeliculas = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaPeliculas = new javax.swing.JList<String>();
+        listaPeliculas = new javax.swing.JList<>();
         btnConsultarDetalle = new javax.swing.JButton();
         btnComprarPelicula = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        categoriaPeliculas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terror", "Suspenso", "Comedia", "Romance", "Accion" }));
+        categoriaPeliculas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terror", "Suspenso", "Comedia", "Romance", "Accion" }));
         categoriaPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaPeliculasActionPerformed(evt);
@@ -96,29 +97,40 @@ public class ComprarPelicula extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(btnConsultarDetalle)
                         .addGap(90, 90, 90)
                         .addComponent(btnComprarPelicula))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(jButton1)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +147,9 @@ public class ComprarPelicula extends javax.swing.JFrame {
                     .addComponent(btnComprarPelicula))
                 .addGap(38, 38, 38)
                 .addComponent(jButton1)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -184,19 +198,21 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
             int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
 
-            if (opcionPreOrden == 1) {
-
-                //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
-
-                JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-
-                archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
-                //aqui se guardan las pre ordenes
-
-                System.out.println(informacionPreOrden);
-            } else {
-                System.out.println("Pre Orden negada");
+            switch (opcionPreOrden) {
+                case 1:
+                    //esto es lo que se va a ir al archivo de preordenes
+                    String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
+                    JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
+                    archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
+                    //aqui se guardan las pre ordenes
+                    System.out.println(informacionPreOrden);
+                    break;
+                case 2:
+                    System.out.println("Pre Orden negada");
+                    break;
+                default:
+                    System.out.println("Opcion No Disponible");
+                    break;
             }
 
         } else if (cantidaDeseada <= cantidadOriginal) {
@@ -208,7 +224,9 @@ public class ComprarPelicula extends javax.swing.JFrame {
             String nombrePelicula = detalleInformacionPelicula[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
-            //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
+            
+              //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombrePelicula + ";" + cantidadOrdenada;
 
             archivoPeliculasOrdenes.registrarOrden("peliculasOrdenes.txt", detalleTotalOrdenPelicula);
@@ -220,6 +238,11 @@ public class ComprarPelicula extends javax.swing.JFrame {
 //            en el mensaje del correo en Comprar Pelicula
 
             enviarCorreoElectronico(cantidadOrdenada);
+            
+            }
+            
+           JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion \nNo se realizo la Compra\nVuelvalo a Intentar.");
+
 
         }
     }
@@ -254,6 +277,14 @@ public class ComprarPelicula extends javax.swing.JFrame {
             Logger.getLogger(ComprarPelicula.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        PrincipalUsuarios ventana = new PrincipalUsuarios();
+        ventana.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,6 +324,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprarPelicula;
     private javax.swing.JButton btnConsultarDetalle;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> categoriaPeliculas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

@@ -9,7 +9,11 @@ import Datos.ArchivoUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
@@ -26,7 +30,20 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
      * Creates new form InicioSesionUsuario
      */
     public InicioSesionUsuario() {
+        
         initComponents();
+        
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Tienda de discos");
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco.jpg")).getImage());
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+        
         setLocationRelativeTo(null);
         setVisible(false);
     }

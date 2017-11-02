@@ -84,6 +84,7 @@ public class BuscarMusica extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         bntComprar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         bntBuscar.setText("Buscar");
 
@@ -158,6 +159,13 @@ public class BuscarMusica extends javax.swing.JFrame {
 
         jButton1.setText("Consultar");
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,9 +177,6 @@ public class BuscarMusica extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -204,7 +209,13 @@ public class BuscarMusica extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(55, 55, 55)
                         .addComponent(bntComprar)
-                        .addGap(97, 97, 97))))
+                        .addGap(97, 97, 97))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnRegresar)
+                        .addGap(77, 77, 77))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +248,9 @@ public class BuscarMusica extends javax.swing.JFrame {
                             .addComponent(textAutors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addComponent(bntBuscarCancion)))
-                .addGap(316, 316, 316)
+                .addGap(62, 62, 62)
+                .addComponent(btnRegresar)
+                .addGap(229, 229, 229)
                 .addComponent(jButton2)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
@@ -302,8 +315,12 @@ public class BuscarMusica extends javax.swing.JFrame {
 
                 System.out.println(informacionPreOrden);
 
-            } else {
+            } else if(opcionPreOrden==2) {
                 System.out.println("Pre Orden negada");
+            
+            }else{
+            
+                System.out.println("Opcion no Disponible");
             }
 
         } else if (cantidaDeseada <= cantidadOriginal) {
@@ -315,6 +332,8 @@ public class BuscarMusica extends javax.swing.JFrame {
             String nombreMusica = detalleInformacionMusica[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
+            
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenCancion = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombreMusica + ";" + cantidadOrdenada;
 
@@ -326,8 +345,8 @@ public class BuscarMusica extends javax.swing.JFrame {
 
             enviarCorreoElectronico(cantidadOrdenada);
             
-            //lo hice aqui tambien tambien
-
+            }
+         JOptionPane.showMessageDialog(null,"Error de la Entrada de Informacion \nNo se realizo la Compra\nVuelvalo a Intentar.");
         }
 
     }
@@ -353,6 +372,14 @@ public class BuscarMusica extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_bntComprarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        PrincipalUsuarios ventana = new PrincipalUsuarios();
+        ventana.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,6 +421,7 @@ public class BuscarMusica extends javax.swing.JFrame {
     private javax.swing.JButton bntBuscar;
     private javax.swing.JButton bntBuscarCancion;
     private javax.swing.JButton bntComprar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

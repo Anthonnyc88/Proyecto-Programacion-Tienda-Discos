@@ -170,7 +170,7 @@ public class ArchivoBuscarMusica {
 
                     System.out.println("Viendo Cantidad Disponible De " + nombreMusica);
 
-                    cantidaDisponible = datos[7];
+                    cantidaDisponible = datos[6];
                 }
 
             }
