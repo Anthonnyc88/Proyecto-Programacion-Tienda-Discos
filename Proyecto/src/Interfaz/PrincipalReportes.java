@@ -43,7 +43,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
     private String nombrePersona = "";
     private String cantidaDisponible = "";
 
-    //Metodo para sacar el nombre del disco
+    //Metodo para sacar el nombre del disco y la cantida del disco
     Reportes b = new Reportes();
 
     public PrincipalReportes() {
@@ -59,7 +59,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
-      //REPORTES DE MUSICA  
+//REPORTES DE MUSICA  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////GRAFICA REPORTE 1////
         setTitle("Tienda de Discos");
@@ -83,8 +83,9 @@ public class PrincipalReportes extends javax.swing.JFrame {
                 "Categorias", "Compras", musicaUsuarios,
                 PlotOrientation.HORIZONTAL, true, true, false);
 
+//REPORTES DE PELICULAS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //REPORTES DE PELICULAS
+        //GRAFICA DE REPORTE 4////
         setTitle("Tienda de discos");
         Datos.addValue(a.CantidadTerror(), "Terror", "Terror");
         Datos.addValue(a.CantidadSuspenso(), "Suspenso", "Suspenso");
@@ -95,6 +96,8 @@ public class PrincipalReportes extends javax.swing.JFrame {
         Grafica = ChartFactory.createBarChart("Compras de Peliculas",
                 "Categorias", "Compras", Datos,
                 PlotOrientation.HORIZONTAL, true, true, false);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //GRAFICA DE REPORTE 5////
 
         setTitle("Tienda de discos");
         DatosUsuario.addValue(a.CantidadUsuario1(), "Maria", "Maria");
@@ -219,14 +222,14 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte5ActionPerformed
         // TODO add your handling code here:
-         ChartPanel Panel = new ChartPanel(grafica1);
+        ChartPanel Panel = new ChartPanel(grafica1);
         JFrame Ventana = new JFrame("JFreeChart");
         Ventana.setTitle("Reporte 3");
         Ventana.getContentPane().add(Panel);
         Ventana.pack();
         Ventana.setVisible(true);
         Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
     }//GEN-LAST:event_bntReporte5ActionPerformed
 
     private void bntRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRegresarActionPerformed
@@ -262,7 +265,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntReporte3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte3ActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_bntReporte3ActionPerformed
 
     private void bntReporte4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReporte4ActionPerformed
