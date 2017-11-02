@@ -5,11 +5,14 @@
  */
 package Datos;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -66,6 +69,81 @@ public class ArchivoOrdenes {
         } catch (IOException e) {
         }
 
+    }
+     
+      /**
+      * Metodo que retorna un arreglo String
+      * del contenido en el archivo de PeliculasOrdenes
+      * @return un arreglo de String sobre las Peliculas Ordenes
+      */
+     public String[] listaOrdenesPeliculas() {
+ 
+        ArrayList<String> textoArchivo = new ArrayList<>();
+ 
+        try {
+            FileReader archivo = new FileReader("peliculasOrdenes.txt");
+            BufferedReader lectorBuffer = new BufferedReader(archivo);
+ 
+            String linea = lectorBuffer.readLine();
+ 
+            while (linea != null) {
+                
+//                String datos[] =linea.split(";");
+//                textoArchivo.add(datos[0]+" / "+datos[1]+" / "+datos[2]+"-");
+                
+                textoArchivo.add(linea);
+                linea = lectorBuffer.readLine();
+            }
+ 
+            lectorBuffer.close();
+        }
+        catch (IOException e) {
+        }
+ 
+        String[] array = new String[textoArchivo.size()];
+        array = textoArchivo.toArray(array);
+ 
+       return array;
+        
+   //return "Si funciono Roger pero no quero mandar la lista";
+    }
+     
+        
+     /**
+      * Metodo que retorna un arreglo String
+      * del contenido en el archivo de Canciones  Ordenes
+      * @return un arreglo de String sobre las Canciones Ordenes
+      */
+     public String[] listaOrdenesCanciones() {
+ 
+        ArrayList<String> textoArchivo = new ArrayList<>();
+ 
+        try {
+            FileReader archivo = new FileReader("cancionesOrdenes.txt");
+            BufferedReader lectorBuffer = new BufferedReader(archivo);
+ 
+            String linea = lectorBuffer.readLine();
+ 
+            while (linea != null) {
+                
+//                String datos[] =linea.split(";");
+//                textoArchivo.add(datos[0]+" / "+datos[1]+" / "+datos[2]+"-");
+                
+                textoArchivo.add(linea);
+                linea = lectorBuffer.readLine();
+            }
+ 
+            lectorBuffer.close();
+        }
+        catch (IOException e) {
+        }
+ 
+        String[] array = new String[textoArchivo.size()];
+        array = textoArchivo.toArray(array);
+ 
+       return array;
+        
+   //return "Si funciono Roger pero no quero mandar la lista";
     }
     
 }

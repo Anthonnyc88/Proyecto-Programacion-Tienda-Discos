@@ -4,13 +4,25 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import Datos.ArchivoOrdenes;
+import Datos.ArchivoPreOrdenes;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Anthonny
  */
 public class listaPreordenes extends javax.swing.JFrame {
-
+    
+    ArchivoOrdenes archivoOrdenes = new ArchivoOrdenes();
+    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
+    private DefaultListModel modelo;
+    private int seleccion = -1;
+    
     /**
      * Creates new form listaPreordenes
      */
@@ -18,6 +30,32 @@ public class listaPreordenes extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        
+         modelo = new DefaultListModel();
+        listaPreOrdenes.setModel(modelo);
+        
+        
+         setTitle("Tienda de discos");
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
+
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+        
+        String datosPeliculas[]=archivoPreOrdenes.listaPreOrdenesPeliculas();
+        
+        /**
+         * Aqui se convierte el arreglo para 
+         * recorrerlo y añadir su contenido al Jlist de Pre Ordenes
+         */
+        for (int i = 0; i < datosPeliculas.length; i++) {
+            
+             modelo.addElement(datosPeliculas[i]);
+            
+        }
     }
 
     /**

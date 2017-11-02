@@ -5,6 +5,9 @@
  */
 package Interfaz;
 
+import Datos.ArchivoOrdenes;
+import Datos.ArchivoPreOrdenes;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -16,6 +19,12 @@ import javax.swing.JPanel;
  */
 public class listaCompras extends javax.swing.JFrame {
 
+    ArchivoOrdenes archivoOrdenes = new ArchivoOrdenes();
+    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
+    private DefaultListModel modelo;
+    private int seleccion = -1;
+    
+    
     /**
      * Creates new form listaCompras
      */
@@ -33,6 +42,35 @@ public class listaCompras extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+        
+         modelo = new DefaultListModel();
+        listaOrdenes.setModel(modelo);
+        
+        String datosPeliculas[]=archivoOrdenes.listaOrdenesPeliculas();
+        
+        /**
+         * Aqui se convierte el arreglo para 
+         * recorrerlo y añadir su contenido al Jlist de Pre Ordenes
+         */
+        for (int i = 0; i < datosPeliculas.length; i++) {
+            
+             modelo.addElement(datosPeliculas[i]);
+            
+        }
+//        
+//         String datosCanciones[]=archivoPreOrdenes.listaPreOrdenesCanciones();
+//        
+//        /**
+//         * Aqui se convierte el arreglo para 
+//         * recorrerlo y añadir su contenido al Jlist de Pre Ordenes
+//         */
+//        for (int i = 0; i < datosCanciones.length; i++) {
+//            
+//             modelo.addElement(datosCanciones[i]);
+//            
+//        }
+        
+        
     }
 
     /**
