@@ -98,7 +98,7 @@ public class Principal extends javax.swing.JFrame {
 
         barrita.setForeground(new java.awt.Color(255, 102, 0));
 
-        jButton2.setText("Exit");
+        jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Datos.ArchivoOrdenes;
-import Datos.ArchivoPreOrdenes;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -14,48 +14,50 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Anthonny
+ * @author Admie21
  */
-public class listaPreordenes extends javax.swing.JFrame {
-    
+public class listaComprasCanciones extends javax.swing.JFrame {
+
     ArchivoOrdenes archivoOrdenes = new ArchivoOrdenes();
-    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
     private DefaultListModel modelo;
     private int seleccion = -1;
     
+    
     /**
-     * Creates new form listaPreordenes
+     * Creates new form listaComprasCanciones
      */
-    public listaPreordenes() {
+    public listaComprasCanciones() {
+        
         initComponents();
+        
         setLocationRelativeTo(null);
         setResizable(false);
-        
-         modelo = new DefaultListModel();
-        listaPreOrdenes.setModel(modelo);
-        
-        
-         setTitle("Tienda de discos");
-        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
+
+        setTitle("Tienda de discos");
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco.jpg")).getImage());
 
         ((JPanel) getContentPane()).setOpaque(false);
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco.jpg"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
         
-        String datosPeliculas[]=archivoPreOrdenes.listaPreOrdenesPeliculas();
+        modelo = new DefaultListModel();
+        listaComprasCanciones.setModel(modelo);
+        
+        String datosCanciones[]=archivoOrdenes.listaOrdenesCanciones();
         
         /**
          * Aqui se convierte el arreglo para 
          * recorrerlo y añadir su contenido al Jlist de Pre Ordenes
          */
-        for (int i = 0; i < datosPeliculas.length; i++) {
+        for (int i = 0; i < datosCanciones.length; i++) {
             
-             modelo.addElement(datosPeliculas[i]);
+             modelo.addElement(datosCanciones[i]);
             
         }
+        
     }
 
     /**
@@ -68,12 +70,12 @@ public class listaPreordenes extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaPreOrdenes = new javax.swing.JList<>();
+        listaComprasCanciones = new javax.swing.JList<>();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(listaPreOrdenes);
+        jScrollPane1.setViewportView(listaComprasCanciones);
 
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,22 +89,22 @@ public class listaPreordenes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegresar)
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegresar)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,7 +116,6 @@ public class listaPreordenes extends javax.swing.JFrame {
         Mantenimiento ventana = new Mantenimiento();
         ventana.setVisible(true);
         setVisible(false);
-        
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
@@ -134,20 +135,20 @@ public class listaPreordenes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(listaPreordenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(listaPreordenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(listaPreordenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(listaPreordenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaComprasCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new listaPreordenes().setVisible(true);
+                new listaComprasCanciones().setVisible(true);
             }
         });
     }
@@ -155,6 +156,6 @@ public class listaPreordenes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaPreOrdenes;
+    private javax.swing.JList<String> listaComprasCanciones;
     // End of variables declaration//GEN-END:variables
 }
