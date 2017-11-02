@@ -13,7 +13,7 @@ import java.awt.Frame;
  * @author Anthonny
  */
 public class ReproducirMusica extends Frame{
-       AudioClip sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/El ojo de tigre(Canción) (online-audio-converter.com).wav"));
+       AudioClip sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/David Guetta - Titanium ft. Sia (Official Video) (online-audio-converter.com).wav"));
     public void reproducir(){
           sonido.play();
     }

@@ -10,20 +10,26 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyecto.Controlador;
 import proyecto.Correo;
+import proyecto.ReproducirPelicula;
 
 /**
  *
  * @author Admie21
  */
 public class ComprarPelicula extends javax.swing.JFrame {
+    ReproducirPelicula pelicula = new ReproducirPelicula();
 
     private DefaultListModel modelo;
     private int seleccion = -1;
     private String correo = "";
     private String nombreDisco = "";
     Correo a = new Correo();
+    ReproducirPelicula table = new ReproducirPelicula();
 
     /**
      * Creates new form ComprarPelicula
@@ -48,16 +54,17 @@ public class ComprarPelicula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        categoriaPeliculas = new javax.swing.JComboBox<>();
+        categoriaPeliculas = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaPeliculas = new javax.swing.JList<>();
+        listaPeliculas = new javax.swing.JList<String>();
         btnConsultarDetalle = new javax.swing.JButton();
         btnComprarPelicula = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        categoriaPeliculas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terror", "Suspenso", "Comedia", "Romance", "Accion" }));
+        categoriaPeliculas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terror", "Suspenso", "Comedia", "Romance", "Accion" }));
         categoriaPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaPeliculasActionPerformed(evt);
@@ -82,25 +89,35 @@ public class ComprarPelicula extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Reproducir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(btnConsultarDetalle)
                         .addGap(90, 90, 90)
                         .addComponent(btnComprarPelicula))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jButton1)))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,7 +133,9 @@ public class ComprarPelicula extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConsultarDetalle)
                     .addComponent(btnComprarPelicula))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,6 +246,15 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnComprarPeliculaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            pelicula.reproducirvideo();
+        } catch (IOException ex) {
+            Logger.getLogger(ComprarPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -266,6 +294,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
     private javax.swing.JButton btnComprarPelicula;
     private javax.swing.JButton btnConsultarDetalle;
     private javax.swing.JComboBox<String> categoriaPeliculas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPeliculas;
