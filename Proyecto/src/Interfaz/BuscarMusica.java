@@ -25,11 +25,11 @@ import proyecto.Correo;
 public class BuscarMusica extends javax.swing.JFrame {
 
     private DefaultListModel modelo;
-    private int seleccion = -1;
     private String correo = "";
     private String nombreDisco = "";
     Correo a = new Correo();
 
+    
     /**
      * Creates new form comprarMusica
      */
