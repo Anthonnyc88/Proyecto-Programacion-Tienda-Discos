@@ -75,10 +75,12 @@ public class ArchivoUsuario {
 
     /**
      * Metodo que compueba si un Usuario esta registrado
-     *
-     * @param nombre
-     * @param contraseña
-     * @return un boleano ture si la persona esta registrada y false cuando la
+     * para otorgar acceso al programa
+     * @param nombre de usuario es un String
+     * @param contraseña la comtraseña que se comprueba
+     * que es igual a la que esta registrada en el archivo de 
+     * Usuarios Registrados
+     * @return un boleano true si la persona esta registrada y false cuando la
      * persoma no lo esta.
      */
     @SuppressWarnings("empty-statement")
@@ -128,6 +130,16 @@ public class ArchivoUsuario {
 
     }
 
+     /**
+     * Metodo que compueba si un Usuario Administrador esta registrado
+     * para otorgar acceso al programa
+     * @param nombre de usuario es un String
+     * @param contraseña la comtraseña que se comprueba
+     * que es igual a la que esta registrada en el archivo de 
+     * Administradores Registrados
+     * @return un boleano true si la persona esta registrada y false cuando la
+     * persoma no lo esta.
+     */
     public boolean inicioSesionAdministrador(String nombre, String contraseña) {
 
         boolean bandera = false;

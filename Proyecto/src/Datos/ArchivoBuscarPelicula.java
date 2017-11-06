@@ -15,6 +15,14 @@ import java.io.IOException;
  */
 public class ArchivoBuscarPelicula {
      
+    /**
+     * Metodo que verifica si un Album esta en catalogo
+     * respectivo
+     * @param nombrePelicula  String
+     * @param autor String
+     * @param precio String
+     * @return true si esta , false sino
+     */
     public boolean buscarPelicula(String nombrePelicula, String autor, String precio ) {
         boolean bandera = false;
         try {

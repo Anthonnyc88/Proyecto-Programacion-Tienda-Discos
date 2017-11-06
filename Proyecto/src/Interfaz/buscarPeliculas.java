@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Datos.ArchivoBuscarMusica;
 import Datos.ArchivoBuscarPelicula;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -48,7 +49,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
         btnComprar.setVisible(false);
 
         modelo = new DefaultListModel();
-        resultadoPeliculas.setModel(modelo);
+        resultadosPeliculas.setModel(modelo);
     }
 
     /**
@@ -71,9 +72,10 @@ public class buscarPeliculas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         tituloResultadoCanciones = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        resultadoPeliculas = new javax.swing.JList();
         btnComprar = new javax.swing.JButton();
+        btnDetallePelicula = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultadosPeliculas = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,7 +94,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Autor");
+        jLabel4.setText("Director");
 
         bntBuscar.setText("Buscar");
         bntBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,8 +120,6 @@ public class buscarPeliculas extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane2.setViewportView(resultadoPeliculas);
-
         btnComprar.setText("Comprar");
         btnComprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,49 +127,56 @@ public class buscarPeliculas extends javax.swing.JFrame {
             }
         });
 
+        btnDetallePelicula.setText("Detalles");
+        btnDetallePelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetallePeliculaActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(resultadosPeliculas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(62, 62, 62)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(64, 64, 64)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(textPrecio)
-                    .addComponent(textAutor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(38, 38, 38))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(bntBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                .addComponent(btnDetallePelicula)
+                .addGap(128, 128, 128)
                 .addComponent(btnComprar)
-                .addGap(243, 243, 243))
+                .addGap(153, 153, 153))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tituloResultadoCanciones)
                 .addGap(202, 202, 202))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(textNombre)
+                            .addComponent(textAutor))
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,10 +205,12 @@ public class buscarPeliculas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(tituloResultadoCanciones)
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(btnComprar)
+                        .addGap(11, 11, 11)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnComprar)
+                    .addComponent(btnDetallePelicula))
                 .addGap(57, 57, 57))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -215,6 +224,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         PrincipalUsuarios ventana = new PrincipalUsuarios();
+        ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -240,9 +250,12 @@ public class buscarPeliculas extends javax.swing.JFrame {
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
         // TODO add your handling code here:
 
-        String detallePelicula = resultadoPeliculas.getSelectedValue().toString();
+        String detallePelicula = resultadosPeliculas.getSelectedValue().toString();
+        
         String[] detalleInformacionPelicula = detallePelicula.split(" / ");
 
+        String nombrePelicula = detalleInformacionPelicula[0];
+        
         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
 
         ArchivoPreOrdenes archivoPeliculasPreOrdenes = new ArchivoPreOrdenes();
@@ -276,14 +289,17 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
         } else if (cantidaDeseada <= cantidadOriginal) {
 
+            int cantidadTotalNueva= (cantidadOriginal - cantidaDeseada) ;
+            String nuevaCantidad=String.valueOf(cantidadTotalNueva);
+            
+            archivoPeliculasOrdenes.modificarCantidadPelicula(nombrePelicula, nuevaCantidad);
+            
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            nombreDisco= JOptionPane.showInputDialog("Nombre de la pelicula que compro");
             correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
-            String nombrePelicula = detalleInformacionPelicula[0];
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
-            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || correo.length()==0 )){
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             
             String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombrePelicula + ";" + cantidadOrdenada;
@@ -324,6 +340,18 @@ public class buscarPeliculas extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnComprarActionPerformed
+
+    private void btnDetallePeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallePeliculaActionPerformed
+        // TODO add your handling code here:
+        
+        String[] detalleInformacionMusica = resultadosPeliculas.getSelectedValue().split(" / ");
+
+        ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
+
+        String detalleTotal = archivoPeliculas.verDetalleInformacionPelicula(detalleInformacionMusica[0], detalleInformacionMusica[1]);
+
+        JOptionPane.showMessageDialog(null, detalleTotal);
+    }//GEN-LAST:event_btnDetallePeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,14 +398,15 @@ public class buscarPeliculas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntBuscar;
     private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnDetallePelicula;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList resultadoPeliculas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> resultadosPeliculas;
     private javax.swing.JTextField textAutor;
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textPrecio;

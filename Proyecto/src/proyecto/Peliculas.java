@@ -17,7 +17,5 @@ public class Peliculas extends Catalogo{
     public Peliculas(String nombre, String autor, String categoria, int precio, int cantidadDisponible) {
         super(nombre, autor, categoria, precio, cantidadDisponible);
     }
-    
-    
-    
+   
 }

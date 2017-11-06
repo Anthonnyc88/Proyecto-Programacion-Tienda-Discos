@@ -10,6 +10,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -70,6 +71,7 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPreOrdenes = new javax.swing.JList<>();
         btnRegresar = new javax.swing.JButton();
+        btnAtender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +84,13 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
             }
         });
 
+        btnAtender.setText("Atender");
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +98,9 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAtender)
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegresar)
@@ -98,8 +109,13 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(btnAtender)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(btnRegresar)
                 .addContainerGap())
@@ -116,6 +132,27 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
         setVisible(false);
         
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+        // TODO add your handling code here:
+        
+        String preOrdenParaOrdenPelicula=listaPreOrdenes.getSelectedValue();
+        String datos[] =listaPreOrdenes.getSelectedValue().split(";");
+        
+        int indicePreOrden=listaPreOrdenes.getSelectedIndex();
+        String nombrePelicula=datos[0];
+        
+        String cantidadNueva= JOptionPane.showInputDialog("Introduzca la Nueva Cantidad del Articulo "+nombrePelicula+":");
+        
+        if(Integer.parseInt(cantidadNueva)>Integer.parseInt(datos[2])){
+        
+            archivoPreOrdenes.removerPreOrdenPelicula(nombrePelicula);
+            archivoOrdenes.registrarOrden("peliculasOrdenes.txt", preOrdenParaOrdenPelicula);
+            
+        }
+        archivoPreOrdenes.atenderPreOrdenPelicula(nombrePelicula, cantidadNueva);
+        
+    }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +191,7 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtender;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPreOrdenes;

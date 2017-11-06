@@ -160,9 +160,10 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
     private void comprarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarPeliculaActionPerformed
         // TODO add your handling code here:
       
-        ComprarPelicula ventanaInicioUsuarioUsuario = new ComprarPelicula();
-        ventanaInicioUsuarioUsuario.pack();
-        ventanaInicioUsuarioUsuario.setVisible(true);
+        ComprarPelicula ventanaInicioComprarPeliculas = new ComprarPelicula();
+        ventanaInicioComprarPeliculas.pack();
+        ventanaInicioComprarPeliculas.setVisible(true);
+        setVisible(false);
         setLocationRelativeTo(null);
         System.out.println("Compando Pelicula");
       
@@ -174,6 +175,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
        ComprarMusica ventanaComprarMusica = new ComprarMusica();
        ventanaComprarMusica.pack();
        ventanaComprarMusica.setVisible(true);
+        setVisible(false);
         setLocationRelativeTo(null);
        
     }//GEN-LAST:event_comprarMusicaActionPerformed
@@ -182,6 +184,7 @@ public class PrincipalUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         InicioSesionUsuario ventanaInicioUsuarioUsuario = new InicioSesionUsuario();
+        ventanaInicioUsuarioUsuario.pack();
         ventanaInicioUsuarioUsuario.setVisible(true);
         setVisible(false);
         

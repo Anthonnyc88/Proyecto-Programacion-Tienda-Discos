@@ -13,6 +13,10 @@ import Datos.ArchivoPreOrdenes;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 import proyecto.Controlador;
 import proyecto.Correo;
 import proyecto.ReproducirPelicula;
@@ -40,6 +44,17 @@ public class ComprarPelicula extends javax.swing.JFrame {
         listaPeliculas.setVisible(false);
         btnComprarPelicula.setVisible(false);
         btnConsultarDetalle.setVisible(false);
+        
+        setResizable(false);
+        setTitle("Tienda de discos");
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco1.jpg")).getImage());
+
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco1.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
         modelo = new DefaultListModel();
         listaPeliculas.setModel(modelo);
@@ -184,6 +199,8 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
         String[] detalleInformacionPelicula = listaPeliculas.getSelectedValue().split(" / ");
 
+        String nombrePelicula = detalleInformacionPelicula[0];
+        
         ArchivoBuscarPelicula archivoPeliculas = new ArchivoBuscarPelicula();
 
         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
@@ -194,6 +211,8 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
         int cantidadOriginal = Integer.parseInt(archivoPeliculas.verificarCantidadDisponiblePelicula(detalleInformacionPelicula[0], detalleInformacionPelicula[1]));
 
+        
+        
         if (cantidaDeseada > cantidadOriginal) {
 
             int opcionPreOrden = Integer.parseInt(JOptionPane.showInputDialog("Cantidad no Disponible \nDesea realizar una Pre Orden \n1: SI \n2: NO  "));
@@ -217,14 +236,21 @@ public class ComprarPelicula extends javax.swing.JFrame {
 
         } else if (cantidaDeseada <= cantidadOriginal) {
 
+            
+            int cantidadTotalNueva= (cantidadOriginal - cantidaDeseada) ;
+            String nuevaCantidad=String.valueOf(cantidadTotalNueva);
+            
+            archivoPeliculasOrdenes.modificarCantidadPelicula(nombrePelicula, nuevaCantidad);
+            
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            nombreDisco = JOptionPane.showInputDialog("Nombre del disco a comprar");
             correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
-            String nombrePelicula = detalleInformacionPelicula[0];
+            
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
-            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
+            
+            
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 ||  correo.length()==0 )){
             
               //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
             String detalleTotalOrdenPelicula = nombreCliente + ";" + cedulaCliente + ";" + correo + ";" + nombrePelicula + ";" + cantidadOrdenada;
@@ -282,6 +308,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         PrincipalUsuarios ventana = new PrincipalUsuarios();
+        ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed

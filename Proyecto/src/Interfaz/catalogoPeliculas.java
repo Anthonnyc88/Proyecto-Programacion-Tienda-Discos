@@ -190,14 +190,15 @@ public class catalogoPeliculas extends javax.swing.JFrame {
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:
         
+        ArchivoPeliculas archivoPeliculas = new ArchivoPeliculas();
         
-        ArchivoPeliculas peliculas = new ArchivoPeliculas();
+        if(!(archivoPeliculas.limiteCatalogoPeliculas())){
         
         while(!(textAutor.getText().length()==0||textCantidad.getText().length()==0||textPrecio.getText().length()==0||textNombredisco.getText().length()==0)){
   
             
         String datosPeliculas = textNombredisco.getText() + ";" + textAutor.getText() + ";" + textCantidad.getText() + ";" + comboCategorias.getSelectedItem() + ";" + textPrecio.getText();
-        peliculas.guardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
+        archivoPeliculas.guardarArchivoPeliculas("catalogoPeliculas.txt", datosPeliculas);
 
        JOptionPane.showMessageDialog(null,"Agregado al Catalogo Pelicula");
         
@@ -212,6 +213,14 @@ public class catalogoPeliculas extends javax.swing.JFrame {
             textAutor.setText("");
             textCantidad.setText("");
             textPrecio.setText("");
+            
+        }else{
+        
+             JOptionPane.showMessageDialog(null,"Catalogo de Peliculas Completo en Almacenamiento");
+                System.out.println("Catalogo de Peliculas Completo en Almacenamiento");
+        }
+        
+        
         
     }//GEN-LAST:event_bntAgregarActionPerformed
 

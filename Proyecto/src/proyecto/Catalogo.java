@@ -71,7 +71,5 @@ public class Catalogo {
     @Override
     public String toString() {
         return "Catalogo{" + "nombre=" + nombre + ", autor=" + autor + ", categoria=" + categoria + ", precio=" + precio + ", cantidadDisponible=" + cantidadDisponible + '}';
-    }
-   
-    
+    }    
 }

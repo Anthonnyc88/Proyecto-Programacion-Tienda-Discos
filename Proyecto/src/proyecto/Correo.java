@@ -116,8 +116,4 @@ public class Correo {
         this.mensaje = mensaje;
     }
     
-    
-    
-    
-    
 }

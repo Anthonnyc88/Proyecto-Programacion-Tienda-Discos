@@ -1,6 +1,6 @@
 
 Legend;Bob Marley;Reggae;4000;Is this Love;One Love;No Woman No Cry;4
-Purpose;Justin;Pop;7000;Sorry;Babe;What do yuo mean;5
-Tell me You Love me;Demi Lovato;Pop;15000;Confident;Cool For The Summer;5
-Melodia;Dile el amor;Aventura;Bachata;3400;Felices los tres;Amor de madre;6
-Despacito;Dale la que es tuya;Danid Yankee;Reggaeton;7000;Perreo;8
+Purpose;Justin Bieber;Pop;10000;Baby;Confident;Friends;50
+Libro de Amores;Romeo Santos;Bachata;8000;Propuesta Indecente;Mal de Amores;Manzana Agria;300
+Fellings;Major Lazer;Electronica;9000;More than you know;Run Up;Cold Water;3
+Susurros;Ozuna;Raggaeton;14000;Escapate Conmigo;Rompe Corazones;Intimidad;100

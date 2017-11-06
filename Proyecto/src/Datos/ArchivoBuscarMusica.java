@@ -19,6 +19,15 @@ import java.io.PrintWriter;
  */
 public class ArchivoBuscarMusica {
 
+    
+    /**
+     * Metodo que verifica si un Album esta en catalogo
+     * respectivo
+     * @param nombreDisco String
+     * @param autor String
+     * @param precio String
+     * @return true si esta , false sino
+     */
     public boolean buscarCancion(String nombreDisco, String autor, String precio) {
 
         boolean bandera = false;
@@ -65,6 +74,14 @@ public class ArchivoBuscarMusica {
 
     }
 
+    
+    /**
+     * Metodo que retorna la informacacion de un Album
+     * en la ventana de Comprar Album
+     * @param categoriaMusica la categoria
+     * @return un string de la informacion basica
+     * del album
+     */
     public String verCategoriaMusica(String categoriaMusica) {
 
         String datosCategoria = "";
@@ -105,7 +122,14 @@ public class ArchivoBuscarMusica {
 
     }
 
-    public String verDetalleInformacionMusica(String nombreMusica, String trailerMusica) {
+    /**
+     * Retorna la informacion completa
+     * de un album
+     * @param nombreMusica nombre del album es String
+     * @param artista el nombre String
+     * @return la informacion completa del album
+     */
+    public String verDetalleInformacionMusica(String nombreMusica, String artista) {
 
         String datosMusica = "";
 
@@ -124,13 +148,14 @@ public class ArchivoBuscarMusica {
                     break;
                 }
 
-                if (linea.contains(nombreMusica) && linea.contains(trailerMusica)) {
+                if (linea.contains(nombreMusica) && linea.contains(artista)) {
 
                     String datos[] = linea.split(";");
 
                     System.out.println("Viendo Informacion De " + nombreMusica);
 
-                    datosMusica = "Titulo : " + datos[0] + "\nTrailer : " + datos[1] + "\nGenero : " + datos[3] + "\nPrecio : " + datos[4];
+                    datosMusica = "Album : " + datos[0] + "\nArtista : " + datos[1] + "\nGenero : " + datos[2] + "\nPrecio : " + datos[3]+
+                            "\nCancion 1 : "+datos[4]+"\nCancion 2 : "+datos[5]+"\nCancion 3 : "+datos[6];
                 }
 
             }
@@ -145,6 +170,13 @@ public class ArchivoBuscarMusica {
 
     }
 
+    /**
+     * Verifica que la cantidad de un album sea
+     * la suficiente para abastecer una Orden
+     * @param nombreMusica el nombre de album String
+     * @param trailerMusica 
+     * @return retorna la cantidad del Album
+     */
     public String verificarCantidadDisponibleMusica(String nombreMusica, String trailerMusica) {
 
         String cantidaDisponible = "";
@@ -170,7 +202,7 @@ public class ArchivoBuscarMusica {
 
                     System.out.println("Viendo Cantidad Disponible De " + nombreMusica);
 
-                    cantidaDisponible = datos[6];
+                    cantidaDisponible = datos[7];
                 }
 
             }
@@ -185,6 +217,11 @@ public class ArchivoBuscarMusica {
 
     }
 
+    /**
+     * Retorna la Informacion basica de un album
+     * @param nombreMusica nombre del album es String
+     * @return la informacion basica
+     */
     public String verInformacionMusica(String nombreMusica) {
 
         String datosCategoria = "";
@@ -210,7 +247,7 @@ public class ArchivoBuscarMusica {
 
                     System.out.println("¡Canción existente.!");
 
-                    datosCategoria = datos[0] + " / " + datos[1] + " / " + datos[3] + " / " + datos[4];
+                    datosCategoria = datos[0] + " / " + datos[1] + " / " + datos[2];
                 }
 
             }

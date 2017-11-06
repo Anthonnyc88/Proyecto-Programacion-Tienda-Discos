@@ -5,8 +5,10 @@
  */
 package Datos;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,9 +18,6 @@ import java.io.PrintWriter;
  * @author Anthonny
  */
 public class ArchivoPeliculas {
-
-    public ArchivoPeliculas() {
-    }
 
     /**
      * Metodo que funciona para ademas de escribir en un ArchivoMusica , sino
@@ -72,6 +71,50 @@ public class ArchivoPeliculas {
 
         } catch (IOException e) {
         }
+
+    }
+    
+    /**
+     * Metodo que calcula la cantidad de Peliculas en el Archivo de catalogo Peliculas
+     * y pone el limite de registros de peliculas
+     * @return true si se pasa la cantidad de registros de catalogo peliculas 
+     * es un boolean si se cumple la maxima maxima
+     */
+    public boolean limiteCatalogoPeliculas(){
+    
+        boolean bandera=false;
+        int numeroLineas=0;
+        
+         try{
+    
+        FileReader r = new FileReader("catalogoPeliculas.txt");// se utiliza para poder leer archivos de texto
+        BufferedReader buffer = new BufferedReader(r);//se utiliza para guardar todas las lineas que se obtienen del archivo
+           
+     
+        String temp = "";
+        /**
+         * Ciclo que sirve para leer todo el archivo de manera  eficiente
+         * la variable temporal temp que almacena el metodo de leer linea sea vacia o nula
+         * que para y imprima todas lineas en las que existia algun contenido
+         */
+        
+        while((temp=buffer.readLine())!=null)
+        {
+            numeroLineas++;
+            
+            if(numeroLineas==6){
+            
+                bandera=true;
+            }
+        }
+        }
+        catch(IOException e)// Se nececita del try y el catch para evitar un error 
+            // en cuanto a archivos se trata, por ejemplo que el archivo no exista.
+        {
+        
+            System.out.println(e.getMessage());
+        }
+         return bandera;
 
     }
 

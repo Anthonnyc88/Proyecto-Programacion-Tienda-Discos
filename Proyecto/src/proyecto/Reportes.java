@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- *
+ *Estos metodos le corresponden a campeon comentarlos
  * @author Anthonny
  */
 public class Reportes {

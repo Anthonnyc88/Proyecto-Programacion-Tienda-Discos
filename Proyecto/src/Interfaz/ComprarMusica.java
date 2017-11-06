@@ -6,11 +6,14 @@
 package Interfaz;
 
 import Datos.ArchivoBuscarMusica;
-import Datos.ArchivoBuscarPelicula;
 import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import proyecto.Controlador;
 import proyecto.Correo;
 import proyecto.ReproducirMusica;
@@ -40,6 +43,16 @@ public class ComprarMusica extends javax.swing.JFrame {
         bntComprar.setVisible(false);
         bntDetalles.setVisible(false);
 
+        
+        setTitle("Tienda de discos");
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Disco.jpg")).getImage());
+
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/Disco.jpg"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
         modelo = new DefaultListModel();
         listaMusica.setModel(modelo);
     }
@@ -77,7 +90,7 @@ public class ComprarMusica extends javax.swing.JFrame {
             }
         });
 
-        categoriaMusica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bachata", "Electronica", "Pop", "Reggae", "Reggaeton" }));
+        categoriaMusica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bachata", "Electronica", "Pop", "Reggae", "Raggaeton" }));
         categoriaMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaMusicaActionPerformed(evt);
@@ -128,9 +141,9 @@ public class ComprarMusica extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(categoriaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(80, 80, 80)
+                            .addComponent(jLabel2)
+                            .addComponent(categoriaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(215, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -176,6 +189,8 @@ public class ComprarMusica extends javax.swing.JFrame {
         // TODO add your handling code here:
         String[] detalleInformacionMusica = listaMusica.getSelectedValue().split(" / ");
 
+        String nombreAlbum = detalleInformacionMusica[0];
+        
         ArchivoBuscarMusica archivoMusica = new ArchivoBuscarMusica();
 
         ArchivoOrdenes archivoPeliculasOrdenes = new ArchivoOrdenes();
@@ -184,6 +199,8 @@ public class ComprarMusica extends javax.swing.JFrame {
 
         int cantidaDeseada = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la Cantidad deseada : "));
 
+       
+        
         int cantidadOriginal = Integer.parseInt(archivoMusica.verificarCantidadDisponibleMusica(detalleInformacionMusica[0], detalleInformacionMusica[1]));
 
         if (cantidaDeseada > cantidadOriginal) {
@@ -193,7 +210,7 @@ public class ComprarMusica extends javax.swing.JFrame {
             if (opcionPreOrden == 1) {
 
                 //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionMusica[0] + ";Cancion;" + cantidaDeseada;
+                String informacionPreOrden = detalleInformacionMusica[0] + ";Album;" + cantidaDeseada;
 
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
 
@@ -210,18 +227,23 @@ public class ComprarMusica extends javax.swing.JFrame {
 
         } else if (cantidaDeseada <= cantidadOriginal) {
            
+            int cantidadTotalNueva= (cantidadOriginal - cantidaDeseada) ;
+            String nuevaCantidad=String.valueOf(cantidadTotalNueva);
+            
+            archivoPeliculasOrdenes.modificarCantidadCanciones(nombreAlbum, nuevaCantidad);
+            
             String correoElectronico = "";
             String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
             String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
-            nombreDisco = JOptionPane.showInputDialog("Nombre del disco que compro:");
+            //nombreDisco = JOptionPane.showInputDialog("Nombre del disco que compro:");
             correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
-            String nombrePelicula = detalleInformacionMusica[0];
+            
             String cantidadOrdenada = String.valueOf(cantidaDeseada);
 
-            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 || nombreDisco.length()==0 || correo.length()==0 )){
+            while(!(nombreCliente.length()==0 || cedulaCliente.length()==0 ||  correo.length()==0 )){
             
             //esto es lo que vamos a escribir en el archivo de compras es el detalle total de la Orden
-            String detalleTotalOrdenMusica = nombreCliente + ";" + cedulaCliente + ";" + correoElectronico + ";" + nombrePelicula + ";" + cantidadOrdenada;
+            String detalleTotalOrdenMusica = nombreCliente + ";" + cedulaCliente + ";" + correoElectronico + ";" + nombreAlbum + ";" + cantidadOrdenada;
 
             archivoPeliculasOrdenes.registrarOrden("cancionesOrdenes.txt", detalleTotalOrdenMusica);
             System.out.println(detalleTotalOrdenMusica);
@@ -251,11 +273,7 @@ public class ComprarMusica extends javax.swing.JFrame {
         } else {
 
             JOptionPane.showMessageDialog(null, "error");
-
-           
-
         }
-
 
     }//GEN-LAST:event_bntComprarActionPerformed
 
@@ -292,6 +310,7 @@ public class ComprarMusica extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         PrincipalUsuarios ventana = new PrincipalUsuarios();
+        ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed

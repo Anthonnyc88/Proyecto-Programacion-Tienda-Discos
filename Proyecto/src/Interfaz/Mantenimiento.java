@@ -78,7 +78,7 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Catalogo de Peliculas");
+        jMenuItem2.setText("Catalogo  Peliculas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);

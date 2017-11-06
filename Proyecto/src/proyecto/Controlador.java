@@ -24,6 +24,11 @@ import javax.mail.internet.MimeMultipart;
 public class Controlador {
 
     
+    /**
+     * Esto le toca comentarlo a ti Campeon ;-)
+     * @param a
+     * @return 
+     */
     public boolean enviarCorreo(Correo a) {
         try {
             Properties p = new Properties();

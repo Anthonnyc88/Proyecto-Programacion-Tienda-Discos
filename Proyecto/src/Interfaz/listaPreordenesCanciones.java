@@ -5,11 +5,13 @@
  */
 package Interfaz;
 
+import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,12 +19,15 @@ import javax.swing.JPanel;
  * @author Admie21
  */
 public class listaPreordenesCanciones extends javax.swing.JFrame {
-
+    
+    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
+    ArchivoOrdenes archivoOrdenes = new ArchivoOrdenes();
+    
     
     private DefaultListModel modelo;
     private int seleccion = -1;
-    ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
-    
+   
+  
     /**
      * Creates new form listaPreordenesCanciones
      */
@@ -54,7 +59,7 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
         for (int i = 0; i < datosCanciones.length; i++) {
             
              modelo.addElement(datosCanciones[i]);
-            
+ 
         }
         
     }
@@ -71,6 +76,7 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPreordenesCanciones = new javax.swing.JList<>();
         btnRegresar = new javax.swing.JButton();
+        btnAtender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,27 +89,38 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
             }
         });
 
+        btnAtender.setText("Atender");
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRegresar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE))
-                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAtender)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegresar)
-                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(btnAtender)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegresar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)))
+                .addGap(64, 64, 64))
         );
 
         pack();
@@ -113,10 +130,31 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Mantenimiento ventana = new Mantenimiento();
+        ventana.pack();
         ventana.setVisible(true);
         setVisible(false);
         
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+        // TODO add your handling code here:
+        
+        String datos[] =listaPreordenesCanciones.getSelectedValue().split(";");
+        String preOrdenParaOrdenAlbum=listaPreordenesCanciones.getSelectedValue();
+        
+        int indicePreOrden=listaPreordenesCanciones.getSelectedIndex();
+        String nombreAlbum=datos[0];
+        
+        String cantidadNueva= JOptionPane.showInputDialog("Introduzca la Nueva Cantidad del Articulo "+nombreAlbum+":");
+        
+        if(Integer.parseInt(cantidadNueva)>Integer.parseInt(datos[2])){
+        
+            archivoPreOrdenes.removerPreOrdenCanciones(nombreAlbum,datos[1]);
+            archivoOrdenes.registrarOrden("cancionesOrdenes.txt", preOrdenParaOrdenAlbum);
+        }
+        
+        archivoPreOrdenes.atenderPreOrdenCanciones(nombreAlbum,datos[1],cantidadNueva);
+    }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +192,7 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtender;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPreordenesCanciones;

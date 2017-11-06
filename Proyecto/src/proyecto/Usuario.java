@@ -63,5 +63,4 @@ public class Usuario {
         return "Usuario{" + "nombre=" + nombre + ", cedula=" + cedula + ", contrase\u00f1a=" + contraseña + ", correoElectronico=" + correoElectronico + '}';
     }
     
-    
 }

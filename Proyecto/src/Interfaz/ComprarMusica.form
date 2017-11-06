@@ -36,10 +36,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="categoriaMusica" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="categoriaMusica" min="-2" pref="131" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="375" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -125,7 +125,7 @@
             <StringItem index="1" value="Electronica"/>
             <StringItem index="2" value="Pop"/>
             <StringItem index="3" value="Reggae"/>
-            <StringItem index="4" value="Reggaeton"/>
+            <StringItem index="4" value="Raggaeton"/>
           </StringArray>
         </Property>
       </Properties>

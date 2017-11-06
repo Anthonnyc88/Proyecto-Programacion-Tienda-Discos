@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class catalogoMusica extends javax.swing.JFrame {
 
+    ArchivoMusica archivoMusica = new ArchivoMusica();
+    
     /**
      * Creates new form catalogoMusica
      */
@@ -34,6 +36,8 @@ public class catalogoMusica extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+        
+        System.out.println(archivoMusica.limiteCatalogoCanciones());
     }
 
     /**
@@ -76,7 +80,7 @@ public class catalogoMusica extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Catalogo de discos de musica");
 
-        comboCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bachata", "Electronica", "Reggae", "Reggaeton", "Pop" }));
+        comboCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bachata", "Electronica", "Reggae", "Raggaeton", "Pop" }));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,10 +133,12 @@ public class catalogoMusica extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(267, 267, 267)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bntAgregar)
-                    .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bntAgregar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(19, 19, 19))
@@ -231,13 +237,12 @@ public class catalogoMusica extends javax.swing.JFrame {
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:
 
-        ArchivoMusica archivoMusica = new ArchivoMusica();
+            if(!(archivoMusica.limiteCatalogoCanciones())){
 
-        while (!(textNombredisco.getText().length() == 0 || textAutor.getText().length() == 0 || textPrecio.getText().length() == 0 || textCantidad.getText().length() == 0
+                 while (!(textNombredisco.getText().length() == 0 || textAutor.getText().length() == 0 || textPrecio.getText().length() == 0 || textCantidad.getText().length() == 0
                 || textCancion1.getText().length() == 0 || textCancion2.getText().length() == 0 || textCancion3.getText().length() == 0)) {
 
-            String datosMusica = textNombredisco.getText() + ";" + textAutor.getText() + ";" + comboCategoria.getSelectedItem() + ";" + textPrecio.getText()
-                    + ";" + textCancion1.getText() + ";" + textCancion2.getText() + ";" + textCancion3.getText() + ";" + textCantidad.getText();
+            String datosMusica = textNombredisco.getText() + ";" + textAutor.getText() + ";" + comboCategoria.getSelectedItem() + ";" + textPrecio.getText()+ ";" + textCancion1.getText() + ";" + textCancion2.getText() + ";" + textCancion3.getText() + ";" + textCantidad.getText();
 
             archivoMusica.guardarMusicaCatalogo("catalogoCanciones.txt", datosMusica);
             JOptionPane.showMessageDialog(null, "Agregado al Catalogo Musica");
@@ -248,7 +253,8 @@ public class catalogoMusica extends javax.swing.JFrame {
             textCancion2.setText("");
             textCancion3.setText("");
             textCantidad.setText("");
-
+        
+           
         }
         JOptionPane.showMessageDialog(null, "Error de la Entrada de Informacion");
         textNombredisco.setText("");
@@ -258,6 +264,13 @@ public class catalogoMusica extends javax.swing.JFrame {
         textCancion2.setText("");
         textCancion3.setText("");
         textCantidad.setText("");
+                
+            }else{
+            
+                JOptionPane.showMessageDialog(null,"Catalogo de Musica Completo en Almacenamiento");
+                System.out.println("Catalogo de Musica Completo en Almacenamiento");
+            }        
+
     }//GEN-LAST:event_bntAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

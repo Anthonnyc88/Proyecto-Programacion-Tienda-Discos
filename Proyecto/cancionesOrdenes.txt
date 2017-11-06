@@ -1,5 +1,8 @@
-Kevin;402320214;anthonnyc10@gmail.com;Legend;2
-Anthonny;3232;anthonnyc66@gmail.com;Melodia;6
-Raquel;402321;raquel@gmail.com;Titanium;2
-Ruben;1010101;royner@gmail.com;Despacito;6
-Kendall;56065;kendal@gmail.com;Purpose;2
+
+Osvaldo ;2896889;;Fellings;7
+Mariano;2900800;;Susurros;100
+Jaime;55555;jaimelozano@gmail.com;Fellings;4
+Katherine;2888888;;Purpose;300
+Katherine;2888888;;Purpose;300
+Katherine;2888888;;Purpose;300
+Libro de Amores;Album;200
