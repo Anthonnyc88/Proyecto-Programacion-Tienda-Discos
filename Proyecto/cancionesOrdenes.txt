@@ -1,8 +1,9 @@
-
 Osvaldo ;2896889;;Fellings;7
-Mariano;2900800;;Susurros;100
+Mariano;2900800;;Susurros;1
 Jaime;55555;jaimelozano@gmail.com;Fellings;4
-Katherine;2888888;;Purpose;300
-Katherine;2888888;;Purpose;300
-Katherine;2888888;;Purpose;300
-Libro de Amores;Album;200
+Katherine;2888888;;Purpose;3
+Anthonny;q;a;Libro de Amores;3
+Kendall;a;b;Titanium;4
+Ruben;13231;roynergmail.com;Legend;2
+Kevin;232323;ivetgmail.com;Susurros;6
+Raquel;121323;karogmail.com;Purpose;1

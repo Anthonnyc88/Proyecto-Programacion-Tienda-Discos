@@ -1,6 +1,5 @@
-
-Anabelle;Cristian Bale;4;Terror;8000
 Ana Frank;Messi;150;Suspenso;5000
 Donde estan los Fantasmas;Malcon Jhonsson;5;Comedia;2500
 Bad Boys 2;Will Smith;8;Accion;8000
 Bajo La Misma Estrella;Paulo Coelho;4;Romance;5000
+Anabelle1;Cristian Bale;4;Terror;8000

@@ -69,6 +69,11 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
 
         jMenu1.setText("Opciones");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Catalogo Musica");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,9 +190,9 @@ public class Mantenimiento extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        PrincipalReportes p = new PrincipalReportes();
-        p.pack();
-        p.setVisible(true);
+        PrincipalReportes nm = new PrincipalReportes();
+        nm.pack();
+        nm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -222,6 +227,10 @@ public class Mantenimiento extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -8,9 +8,15 @@ package proyecto;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *Estos metodos le corresponden a campeon comentarlos
+ * Estos metodos le corresponden a campeon comentarlos
+ *
  * @author Anthonny
  */
 public class Reportes {
@@ -30,7 +36,7 @@ public class Reportes {
                 temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (lista1[0].equals("Melodia")) {
+                if (lista1[0].equals("Libro de Amores")) {
                     nombredisco = lista1[0];
                 }
             }
@@ -68,9 +74,9 @@ public class Reportes {
 
         return cantidad;
     }
-    
- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public String BuscarMusicaElectronica() {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public String BuscarMusicaElectronica() {
         String nombredisco = "";
         try {
             String temp;
@@ -123,10 +129,9 @@ public String BuscarMusicaElectronica() {
 
         return cantidad;
     }
-    
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-public String BuscarMusicaReggae() {
+    public String BuscarMusicaReggae() {
         String nombredisco = "";
         try {
             String temp;
@@ -180,7 +185,8 @@ public String BuscarMusicaReggae() {
         return cantidad;
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- public String BuscarMusicaReaggaeton() {
+
+    public String BuscarMusicaReaggaeton() {
         String nombredisco = "";
         try {
             String temp;
@@ -195,7 +201,7 @@ public String BuscarMusicaReggae() {
                 temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (lista1[0].equals("Despacito")) {
+                if (lista1[0].equals("Susurros")) {
                     nombredisco = lista1[0];
                 }
             }
@@ -233,7 +239,6 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String BuscarMusicaPop() {
@@ -289,10 +294,9 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
-    
+
 //////////////////////REPORTE DOS DISCOS DE MUSICA MAS COMPRADOS POR USUARIO////////////////////////////////////////////////////////
-    
- public String Usuario1() {
+    public String Usuario1() {
         String nombredisco = "";
         try {
             String temp;
@@ -362,7 +366,7 @@ public String BuscarMusicaReggae() {
                 temp = linea;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (lista1[0].equals("Anabelle")) {
+                if (lista1[0].equals("Anabelle1")) {
                     nombredisco = lista1[0];
                 }
             }
@@ -674,9 +678,9 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
-    
- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String UsuarioMusica2() {
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public String UsuarioMusica2() {
         String nombredisco = "";
         try {
             String temp;
@@ -729,9 +733,9 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
-    
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String UsuarioMusica3() {
+    public String UsuarioMusica3() {
         String nombredisco = "";
         try {
             String temp;
@@ -783,11 +787,11 @@ public String BuscarMusicaReggae() {
         }
 
         return cantidad;
-    
+
     }
-    
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String UsuarioMusica4() {
+    public String UsuarioMusica4() {
         String nombredisco = "";
         try {
             String temp;
@@ -840,9 +844,9 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
-    
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public String UsuarioMusica5() {
+    public String UsuarioMusica5() {
         String nombredisco = "";
         try {
             String temp;
@@ -895,10 +899,8 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
- 
- 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String Usuario2() {
         String nombredisco = "";
         try {
@@ -1117,5 +1119,8 @@ public String BuscarMusicaReggae() {
 
         return cantidad;
     }
+
+    //////////////////////////////////////////REPORTE 6///////////////////////////////////////////////////
+    
 
 }

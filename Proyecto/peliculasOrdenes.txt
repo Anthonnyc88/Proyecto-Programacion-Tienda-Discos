@@ -3,10 +3,5 @@ Ricardo Quaresma;17;ricardoq@gmail.com;Bajo La Misma Estrella;4
 Anthonny;323232;anthonnyc10@gmail.com;Anabelle;2
 Antonio;402320214;anthonnyc10@gmail.com;Donde estan los Fantasmas;4
 Maria;402320214;ermelindasilvaramirez@gmail.com;Anabelle;6
-Roger;789907;roger@gmaul.com;Anabelle;1
+Roger;789907;roger@gmaul.com;Anabelle1;4;20/10/2017
 Maria;333333;mariasilva@utn.ac..cr;Ana Frank;2
-Rosalinda;123456789;rosalinda@gmail.com;Bad Boys 2;20
-Maria;11111111111111111;ss@gmail.com;Bajo La Misma Estrella;6
-kevin;89899;kevinfit@gmail.com;Donde estan los Fantasmas;45
-jesus;99999997;pollomartines@gmail.com;Donde estan los Fantasmas;40
-Ana Frank;Pelicula;78
