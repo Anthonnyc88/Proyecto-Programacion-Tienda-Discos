@@ -25,7 +25,8 @@ public class Controlador {
 
     
     /**
-     * Esto le toca comentarlo a ti Campeon ;-)
+     * Esta clase contiene protocolos de gamil para poder enviar correos
+     * 
      * @param a
      * @return 
      */
