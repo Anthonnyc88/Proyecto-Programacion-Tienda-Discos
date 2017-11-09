@@ -15,8 +15,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Datos.ArchivoOrdenes;
 import Datos.ArchivoPreOrdenes;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyecto.Controlador;
 import proyecto.Correo;
+import proyecto.Musica;
+import proyecto.ReproducirPelicula;
 
 /**
  *
@@ -29,6 +34,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
     private String correo = "";
     private String nombreDisco = "";
     Correo a = new Correo();
+     ReproducirPelicula pelicula= new ReproducirPelicula();
 
     /**
      * Creates new form escogerMusica
@@ -75,7 +81,8 @@ public class buscarPeliculas extends javax.swing.JFrame {
         btnComprar = new javax.swing.JButton();
         btnDetallePelicula = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        resultadosPeliculas = new javax.swing.JList<>();
+        resultadosPeliculas = new javax.swing.JList<String>();
+        bntReproducir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +143,13 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(resultadosPeliculas);
 
+        bntReproducir.setText("Reproducir");
+        bntReproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntReproducirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,37 +160,43 @@ public class buscarPeliculas extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(38, 38, 38))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(bntBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
-                .addComponent(btnDetallePelicula)
-                .addGap(128, 128, 128)
-                .addComponent(btnComprar)
-                .addGap(153, 153, 153))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tituloResultadoCanciones)
                 .addGap(202, 202, 202))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                            .addComponent(textNombre)
-                            .addComponent(textAutor))
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bntBuscar)
+                                .addGap(138, 138, 138)
+                                .addComponent(bntReproducir))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                                    .addComponent(textNombre)
+                                    .addComponent(textAutor))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                                .addComponent(btnDetallePelicula)
+                                .addGap(128, 128, 128)
+                                .addComponent(btnComprar)
+                                .addGap(67, 67, 67)))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,11 +227,12 @@ public class buscarPeliculas extends javax.swing.JFrame {
                         .addComponent(tituloResultadoCanciones)
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnComprar)
-                    .addComponent(btnDetallePelicula))
-                .addGap(57, 57, 57))
+                    .addComponent(btnDetallePelicula)
+                    .addComponent(bntReproducir))
+                .addGap(67, 67, 67))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(bntBuscar)
@@ -353,6 +374,15 @@ public class buscarPeliculas extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, detalleTotal);
     }//GEN-LAST:event_btnDetallePeliculaActionPerformed
 
+    private void bntReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReproducirActionPerformed
+        try {
+            // TODO add your handling code here:
+            pelicula.reproducirvideo();
+        } catch (IOException ex) {
+            Logger.getLogger(buscarPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bntReproducirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -397,6 +427,7 @@ public class buscarPeliculas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntBuscar;
+    private javax.swing.JButton bntReproducir;
     private javax.swing.JButton btnComprar;
     private javax.swing.JButton btnDetallePelicula;
     private javax.swing.JButton jButton1;

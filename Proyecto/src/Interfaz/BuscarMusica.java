@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import proyecto.Controlador;
 import proyecto.Correo;
+import proyecto.ReproducirMusica;
 
 /**
  *
@@ -29,6 +30,7 @@ public class BuscarMusica extends javax.swing.JFrame {
     private String correo = "";
     private String nombreDisco = "";
     Correo a = new Correo();
+     ReproducirMusica b = new ReproducirMusica();
 
     
     /**
@@ -86,7 +88,8 @@ public class BuscarMusica extends javax.swing.JFrame {
         btnDetallesAlbum = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        resultadosCanciones = new javax.swing.JList<>();
+        resultadosCanciones = new javax.swing.JList<String>();
+        bntReproducir = new javax.swing.JButton();
 
         bntBuscar.setText("Buscar");
 
@@ -173,6 +176,13 @@ public class BuscarMusica extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(resultadosCanciones);
 
+        bntReproducir.setText("Reproducir");
+        bntReproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntReproducirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,29 +196,33 @@ public class BuscarMusica extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jLabel7))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(35, 35, 35)
-                                        .addComponent(bntBuscarCancion)))
-                                .addGap(202, 202, 202))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel8))
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textPrecios, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                    .addComponent(textAutors))
-                                .addGap(29, 29, 29))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(textDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(bntBuscarCancion)
+                                        .addGap(110, 110, 110)
+                                        .addComponent(bntReproducir)))
+                                .addGap(20, 20, 20))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(202, 202, 202))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel8))
+                                        .addGap(62, 62, 62)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(textPrecios, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                            .addComponent(textAutors))
+                                        .addGap(29, 29, 29)))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnDetallesAlbum)
@@ -255,7 +269,8 @@ public class BuscarMusica extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bntBuscarCancion)
                             .addComponent(btnDetallesAlbum)
-                            .addComponent(bntComprar))))
+                            .addComponent(bntComprar)
+                            .addComponent(bntReproducir))))
                 .addGap(62, 62, 62)
                 .addComponent(btnRegresar)
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -412,6 +427,11 @@ public class BuscarMusica extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnDetallesAlbumActionPerformed
 
+    private void bntReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntReproducirActionPerformed
+        // TODO add your handling code here:
+        b.reproducir();
+    }//GEN-LAST:event_bntReproducirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -452,6 +472,7 @@ public class BuscarMusica extends javax.swing.JFrame {
     private javax.swing.JButton bntBuscar;
     private javax.swing.JButton bntBuscarCancion;
     private javax.swing.JButton bntComprar;
+    private javax.swing.JButton bntReproducir;
     private javax.swing.JButton btnDetallesAlbum;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton jButton2;

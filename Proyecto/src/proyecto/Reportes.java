@@ -8,17 +8,19 @@ package proyecto;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  * Estos metodos le corresponden a campeon comentarlos
  *
  * @author Anthonny
  */
+
+
+
+
+//I created a method that would return the name of the album or music and another method to return the amount
+//that was bought by the user, the amount will be added by a counter, this data is passed as a parameter to the main class reports to make the graph
+
 public class Reportes {
 
     public String BuscarMusicaBachata() {
@@ -1120,7 +1122,7 @@ public class Reportes {
         return cantidad;
     }
 
-    //////////////////////////////////////////REPORTE 6///////////////////////////////////////////////////
+ 
     
 
 }

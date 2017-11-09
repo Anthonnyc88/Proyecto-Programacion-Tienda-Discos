@@ -280,7 +280,7 @@ public class PrincipalReportes extends javax.swing.JFrame {
 
     private void bntRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRegresarActionPerformed
         // TODO add your handling code here:
-        Principal ventanaPrincipal = new Principal();
+        Mantenimiento ventanaPrincipal = new Mantenimiento();
         ventanaPrincipal.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_bntRegresarActionPerformed
