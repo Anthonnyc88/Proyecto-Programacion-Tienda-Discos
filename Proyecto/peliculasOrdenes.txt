@@ -5,3 +5,5 @@ Antonio;402320214;anthonnyc10@gmail.com;Donde estan los Fantasmas;4
 Maria;402320214;ermelindasilvaramirez@gmail.com;Anabelle;6
 Roger;789907;roger@gmaul.com;Anabelle1;4;20/10/2017
 Maria;333333;mariasilva@utn.ac..cr;Ana Frank;2
+Bad Boys 2;Pelicula;10;Noel;8888888888888889;noel@est.utn.ac.cr
+Anabelle1;Pelicula;10;Marcela;2455521;marcelap@gmail.com

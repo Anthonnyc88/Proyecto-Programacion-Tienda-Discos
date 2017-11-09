@@ -395,7 +395,7 @@ JOptionPane.showMessageDialog(null, "Album modificado.", "Modificacion", JOption
                 if(nombreAlbum.equals(datosCatalogoCanciones.get(i).split(";")[0]) && validacionAlbum.equals("Album") ){
                 
                    datosCatalogoCanciones.remove(i);
-                   System.out.println("Se realizo con Exito la Modificacion en el Album "+nombreAlbum);
+                   System.out.println("Se realizo con Exito la Modificacion en el Album :  "+nombreAlbum);
                    
                     PrintWriter escritor = null;
                     FileWriter fichero = null;

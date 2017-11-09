@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import proyecto.Controlador;
+import proyecto.Correo;
 
 /**
  *
@@ -23,6 +25,8 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
     ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
     ArchivoOrdenes archivoOrdenes = new ArchivoOrdenes();
     
+    private String correo = "";
+    Correo a = new Correo();
     
     private DefaultListModel modelo;
     private int seleccion = -1;
@@ -144,6 +148,7 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
         
         int indicePreOrden=listaPreordenesCanciones.getSelectedIndex();
         String nombreAlbum=datos[0];
+        correo=datos[5];
         
         String cantidadNueva= JOptionPane.showInputDialog("Introduzca la Nueva Cantidad del Articulo "+nombreAlbum+":");
         
@@ -151,11 +156,41 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
         
             archivoPreOrdenes.removerPreOrdenCanciones(nombreAlbum,datos[1]);
             archivoOrdenes.registrarOrden("cancionesOrdenes.txt", preOrdenParaOrdenAlbum);
+            enviarCorreoElectronicoExitoPreOrdenAlbum(cantidadNueva, nombreAlbum);
+            
         }
         
         archivoPreOrdenes.atenderPreOrdenCanciones(nombreAlbum,datos[1],cantidadNueva);
     }//GEN-LAST:event_btnAtenderActionPerformed
 
+    /**
+     * Metodo que envia un mail cuando se cumple con una pre orden
+     * de un album de musica de la Tienda de Discos
+     * @param cantidadArticulo String la cantidad del articulo
+     * @param nombreAlbum String nombre del articulo
+     */
+    public void enviarCorreoElectronicoExitoPreOrdenAlbum(String cantidadArticulo,String nombreAlbum) {
+
+        a.setContraseña("cnaipcaudzpcbdqh");
+        a.setUsuario("anthonnyc10@gmail.com");
+        a.setAsunto("Compra exitosa");
+        a.setMensaje("Su Pre Orden se cumplio correctamente \nEl nombre del Album que compro es : " + nombreAlbum + "\nCantidad : "+cantidadArticulo);
+        a.setDestino(correo);
+        a.setNombreArchivo("Azul.jpg");
+        a.setRutaArchivo("Azul.jpg");
+        a.setAsunto(" Su Pre Orden se realizo con Exito , disfrute de su producto !!!");
+        Controlador b = new Controlador();
+
+        if (b.enviarCorreo(a)) {
+            JOptionPane.showMessageDialog(null, "Envio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "error");
+
+        }
+
+    }   
+    
     /**
      * @param args the command line arguments
      */

@@ -102,7 +102,7 @@ public class ArchivoPeliculas {
         {
             numeroLineas++;
             
-            if(numeroLineas==6){
+            if(numeroLineas==5){
             
                 bandera=true;
             }

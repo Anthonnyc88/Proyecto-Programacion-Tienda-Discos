@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import proyecto.Controlador;
+import proyecto.Correo;
 
 /**
  *
@@ -23,6 +25,9 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
     ArchivoPreOrdenes archivoPreOrdenes = new ArchivoPreOrdenes();
     private DefaultListModel modelo;
     private int seleccion = -1;
+    
+    private String correo = "";
+    Correo a = new Correo();
     
     /**
      * Creates new form listaPreordenes
@@ -141,6 +146,8 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
         
         int indicePreOrden=listaPreOrdenes.getSelectedIndex();
         String nombrePelicula=datos[0];
+        correo=datos[5];
+        
         
         String cantidadNueva= JOptionPane.showInputDialog("Introduzca la Nueva Cantidad del Articulo "+nombrePelicula+":");
         
@@ -148,12 +155,41 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
         
             archivoPreOrdenes.removerPreOrdenPelicula(nombrePelicula);
             archivoOrdenes.registrarOrden("peliculasOrdenes.txt", preOrdenParaOrdenPelicula);
+            enviarCorreoElectronicoExitoPreOrdenPelicula(cantidadNueva, nombrePelicula);
             
         }
         archivoPreOrdenes.atenderPreOrdenPelicula(nombrePelicula, cantidadNueva);
         
     }//GEN-LAST:event_btnAtenderActionPerformed
 
+    /**
+     * Metodo que envia un mail cuando se cumple con una pre orden
+     * de una pelicula de la Tienda de Discos
+     * @param cantidadArticulo String la cantidad del articulo
+     * @param nombrePelicula String nombre del articulo
+     */
+    public void enviarCorreoElectronicoExitoPreOrdenPelicula(String cantidadArticulo,String nombrePelicula) {
+
+        a.setContraseña("cnaipcaudzpcbdqh");
+        a.setUsuario("anthonnyc10@gmail.com");
+        a.setAsunto("Compra exitosa");
+        a.setMensaje("Su Pre Orden se cumplio correctamente \nEl nombre de la Pelicula que compro es : " + nombrePelicula + "\nCantidad : "+cantidadArticulo);
+        a.setDestino(correo);
+        a.setNombreArchivo("Azul.jpg");
+        a.setRutaArchivo("Azul.jpg");
+        a.setAsunto(" Su Pre Orden se realizo con Exito , disfrute de su producto !!!");
+        Controlador b = new Controlador();
+
+        if (b.enviarCorreo(a)) {
+            JOptionPane.showMessageDialog(null, "Envio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "error");
+
+        }
+
+    } 
+    
     /**
      * @param args the command line arguments
      */
