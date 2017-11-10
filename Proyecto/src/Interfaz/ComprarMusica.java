@@ -212,8 +212,7 @@ public class ComprarMusica extends javax.swing.JFrame {
                 correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
                  //esto es lo que se va a ir al archivo de preordenes
                 //esto es lo que se va a ir al archivo de preordenes
-                String informacionPreOrden = detalleInformacionMusica[0] + ";Album;" + cantidaDeseada;
-                enviarCorreoElectronicoPreorden();
+                String informacionPreOrden = detalleInformacionMusica[0] + ";Album;" + cantidaDeseada + ";" + nombreClientes +";" + cedulaClientes + ";" + correo +";";
                 JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
                 archivoMusicaPreOrdenes.registrarPreOrden("cancionesPreOrdenes.txt", informacionPreOrden);
                 //aqui se guardan las pre ordenes

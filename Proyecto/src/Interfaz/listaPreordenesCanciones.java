@@ -151,6 +151,7 @@ public class listaPreordenesCanciones extends javax.swing.JFrame {
         correo=datos[5];
         
         String cantidadNueva= JOptionPane.showInputDialog("Introduzca la Nueva Cantidad del Articulo "+nombreAlbum+":");
+        enviarCorreoElectronicoExitoPreOrdenAlbum(cantidadNueva, nombreAlbum);
         
         if(Integer.parseInt(cantidadNueva)>Integer.parseInt(datos[2])){
         

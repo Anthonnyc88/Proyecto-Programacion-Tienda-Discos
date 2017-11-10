@@ -219,13 +219,12 @@ public class ComprarPelicula extends javax.swing.JFrame {
             switch (opcionPreOrden) {
                 case 1:
 
-                    String nombreCliente = JOptionPane.showInputDialog("Introduzca su Nombre : ");
-                    String cedulaCliente = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
+                    String nombreClientes = JOptionPane.showInputDialog("Introduzca su Nombre : ");
+                    String cedulaClientes = JOptionPane.showInputDialog("Introduzca su Numero de Cedula: ");
                     correo = JOptionPane.showInputDialog("Introduzca su Correo Electronico: ");
                     //esto es lo que se va a ir al archivo de preordenes
-                    String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada;
+                    String informacionPreOrden = detalleInformacionPelicula[0] + ";Pelicula;" + cantidaDeseada + ";" + nombreClientes +";" + cedulaClientes + ";" + correo +";";
                     JOptionPane.showMessageDialog(null, "Pre Orden Realizada");
-                    enviarCorreoElectronicoPreorden();
 
                     archivoPeliculasPreOrdenes.registrarPreOrden("peliculasPreOrdenes.txt", informacionPreOrden);
                     //aqui se guardan las pre ordenes
@@ -292,27 +291,7 @@ public class ComprarPelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "error");
 
         }
-    }
 
-    public void enviarCorreoElectronicoPreorden() {
-
-        a.setContraseña("cnaipcaudzpcbdqh");
-        a.setUsuario("anthonnyc10@gmail.com");
-        a.setAsunto("Compra exitosa");
-        //a.setMensaje("El nombre de la pelicula que compro es : " + nombreDisco );
-        a.setDestino(correo);
-        a.setNombreArchivo("Azul.jpg");
-        a.setRutaArchivo("Azul.jpg");
-        a.setAsunto(" Su Preorden ha sido ordenada con exito !!!");
-        Controlador b = new Controlador();
-
-        if (b.enviarCorreo(a)) {
-            JOptionPane.showMessageDialog(null, "Envio correcto");
-        } else {
-
-            JOptionPane.showMessageDialog(null, "error");
-
-        }
 
     }//GEN-LAST:event_btnComprarPeliculaActionPerformed
 

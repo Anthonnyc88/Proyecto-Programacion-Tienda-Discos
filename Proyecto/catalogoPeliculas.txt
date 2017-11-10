@@ -1,5 +1,5 @@
 Ana Frank;Messi;150;Suspenso;5000
 Donde estan los Fantasmas;Malcon Jhonsson;5;Comedia;2500
 Bad Boys 2;Will Smith;20;Accion;8000
-Bajo La Misma Estrella;Paulo Coelho;4;Romance;5000
-Anabelle;Cristian Bale;40;Terror;8000
+Bajo La Misma Estrella;Paulo Coelho;300;Romance;5000
+Anabelle;Cristian Bale;250;Terror;8000

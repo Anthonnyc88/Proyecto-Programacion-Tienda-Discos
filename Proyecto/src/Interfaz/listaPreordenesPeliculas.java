@@ -150,7 +150,7 @@ public class listaPreordenesPeliculas extends javax.swing.JFrame {
         
         
         String cantidadNueva= JOptionPane.showInputDialog("Introduzca la Nueva Cantidad del Articulo "+nombrePelicula+":");
-        
+         enviarCorreoElectronicoExitoPreOrdenPelicula(cantidadNueva, nombrePelicula);
         if(Integer.parseInt(cantidadNueva)>Integer.parseInt(datos[2])){
         
             archivoPreOrdenes.removerPreOrdenPelicula(nombrePelicula);
