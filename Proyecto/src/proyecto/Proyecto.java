@@ -21,6 +21,7 @@ public class Proyecto {
         Principal ventanaPrincipalSecundaria = new Principal();
         ventanaPrincipalSecundaria.setVisible(true);
         System.out.println("Iniciando El Programa Venta de Discos");
+         System.out.println("Iniciando El Programa Venta de Discos");
       
     }
 
